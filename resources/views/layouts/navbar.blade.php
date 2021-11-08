@@ -22,7 +22,10 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ Auth()->user()->name }}</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><a class="dropdown-item" href="/profile">Profile</a></li>
+              @if(Auth()->user()->name == 'Admin User')
+                <li><a class="dropdown-item" href="/user-list">Users</a></li>
+              @endif
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="/logout">Logout</a></li>
             </ul>

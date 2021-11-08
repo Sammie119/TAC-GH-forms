@@ -34,7 +34,7 @@
                             <td>{{ $data->local }}</td>
                             <td>{{ $data->status }}</td>
                             <td>{{ $data->user_name }}</td>
-                            <td><a href="#/{{ $data->local_evang_id }}" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">&#10005;</a></td>
+                            <td><a href="#/{{ $data->local_evang_id }}" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Delete</a></td>
                         </tr>
                     @endforeach
                 </tbody>

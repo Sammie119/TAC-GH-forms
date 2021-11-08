@@ -7,16 +7,32 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use App\Models\AreaHeadReport;
+use App\Models\AreaSupQuestions;
+use App\Models\CommunityReport;
+use App\Models\DistrictLevelMonoter;
+use App\Models\DistrictPastorQuestion;
+use App\Models\DistrictPastorReport;
+use App\Models\LocalEvangelism;
+use App\Models\LocalLevelQuestion;
+use App\Models\MemberReport;
+use App\Models\MonitorReport;
 
 class AuthController extends Controller
 {
+    public function userList()
+    {
+        $users = User::all();
+        return view('users-list', compact('users'));
+    }
+
     public function index()
     {
         if(!Auth::check()){
             return view('login');
           }
           else{
-            return view('home');
+            return redirect('home');
           }
     }  
  
@@ -62,7 +78,75 @@ class AuthController extends Controller
      
     public function home()
     {
-        return view('home');
+        $users = User::count();
+        $areaHeadReport = AreaHeadReport::count();
+        $areaSupQuestions = AreaSupQuestions::count();
+        $communityReport = CommunityReport::count();
+        $districtLevelMonoter = DistrictLevelMonoter::count();
+        $districtPastorQuestion = DistrictPastorQuestion::count();
+        $districtPastorReport = DistrictPastorReport::count();
+        $localEvangelism = LocalEvangelism::count();
+        $localLevelQuestion = LocalLevelQuestion::count();
+        $memberReport = MemberReport::count();
+        $monitorReport = MonitorReport::count();
+
+        $total = $areaHeadReport + $areaSupQuestions + $communityReport + $districtLevelMonoter + $districtPastorQuestion + $districtPastorReport + $localEvangelism + $localLevelQuestion + $memberReport + $monitorReport;
+
+        $data = [
+            'users' => $users,
+            'areaHeadReport' => $areaHeadReport,
+            'areaSupQuestions' => $areaSupQuestions,
+            'communityReport' => $communityReport,
+            'districtLevelMonoter' => $districtLevelMonoter,
+            'districtPastorQuestion' => $districtPastorQuestion,
+            'districtPastorReport' => $districtPastorReport,
+            'localEvangelism' => $localEvangelism,
+            'localLevelQuestion' => $localLevelQuestion,
+            'memberReport' => $memberReport,
+            'monitorReport' => $monitorReport,
+            'total' => $total
+        ];
+        return view('home', compact('data'));
+    }
+
+    public function profile()
+    {
+        $user = Auth()->user();
+        return view('profile', compact('user'));
+    }
+
+    public function postProfile(Request $request)
+    {  
+        request()->validate([
+        'name' => 'required',
+        'email' => 'required|email',
+        'password' => 'required|min:6|same:confirm_password',
+        'confirm_password' => 'required|min:6|same:password'
+        ]);
+        
+        $user = Auth()->user();
+        $user->update([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password'])
+          ]);
+       
+          Session::flush();
+          Auth::logout();
+          return redirect('/');
+    }
+
+    public function delete($id)
+    {
+        $user = User::find($id);
+        $current_user = Auth()->user()->user_id;
+        if($user->user_id == $current_user){
+            return back()->with('unsuccessful', 'Main User Account Cannot be Deleted');
+        }
+        else{
+            $user->delete();
+            return back()->with('success', 'Account Deleted Successfully!!');
+        }
     }
      
     public function logout() {

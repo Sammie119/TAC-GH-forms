@@ -23,7 +23,11 @@ Route::middleware(['protectedPages'])->group(function () {
     // User Routes
     Route::get('register', [AuthController::class, 'registration']);
     Route::post('registration', [AuthController::class, 'postRegistration'])->name('registration'); 
-    Route::get('home', [AuthController::class, 'home']); 
+    Route::get('home', [AuthController::class, 'home']);
+    Route::get('profile', [AuthController::class, 'profile']);
+    Route::post('post-profile', [AuthController::class, 'postProfile'])->name('post-profile');
+    Route::get('user-list', [AuthController::class, 'userList']);
+    Route::get('delete/{id}', [AuthController::class, 'delete']);
     Route::get('logout', [AuthController::class, 'logout']);
 
     // Forms Route
