@@ -1,374 +1,298 @@
-<!-- SUPERINTENDENT'S VISITATION REPORT
-areahead_district
-areahead_area
-areahead_local
-areahead_status
-areahead_comment1
-areahead_comment2
-areahead_comment3
-areahead_comment4
-areahead_comment5
-areahead_comment6
-areahead_question7
-areahead_question8
-areahead_question9
-areahead_question10
-areahead_question11
-areahead_question12
-areahead_question13
-areahead_question14
-areahead_comment14
-areahead_question15
-areahead_comment15
-areahead_comment16
-areahead_question17
-areahead_comment17
-areahead_comment18
-areahead_comment19
-areahead_comment20
-areahead_comment21
-areahead_pastors
-areahead_elders
-areahead_deacons
-areahead_deaconesses
-areahead_adult_males
-areahead_adult_females
-areahead_children
-areahead_youth
-areahead_total_att
-areahead_tithe_payers
-areahead_active_tithe_payers
-areahead_tithes_paid
-areahead_oferring
-areahead_any_oferring
-areahead_total_tithe_off
-areahead_apostle
-areahead_pastor -->
+<!-- FINANCIAL POLICY
+    fin_eva_a_area
+    fin_eva_a_district
+    fin_eva_a_local
+    fin_eva_a_moniter
+    fin_eva_a_question1a
+    fin_eva_a_comment1a
+    fin_eva_a_question1b
+    fin_eva_a_comment1b
+    fin_eva_a_question1c
+    fin_eva_a_comment1c
+    fin_eva_a_question1d
+    fin_eva_a_comment1d
+    fin_eva_a_question1e
+    fin_eva_a_comment1e
+    fin_eva_a_question1f
+    fin_eva_a_comment1f
+    fin_eva_a_question1g
+    fin_eva_a_comment1g
+    fin_eva_a_question2a
+    fin_eva_a_comment2a
+    fin_eva_a_question2b
+    fin_eva_a_comment2b
+    fin_eva_a_question2c
+    fin_eva_a_comment2c
+    fin_eva_a_question3a
+    fin_eva_a_comment3a
+    fin_eva_a_question3b
+    fin_eva_a_comment3b
+    fin_eva_a_question3c
+    fin_eva_a_comment3c
+    fin_eva_a_question3d
+    fin_eva_a_comment3d
+    fin_eva_a_question3e
+    fin_eva_a_comment3e
+    fin_eva_a_question3f
+    fin_eva_a_comment3f
+    fin_eva_a_question3g
+    fin_eva_a_comment3g
+    fin_eva_a_question3h
+    fin_eva_a_comment3h
+    fin_eva_a_question3i
+    fin_eva_a_comment3i
+    fin_eva_a_question4a
+    fin_eva_a_comment4a
+    fin_eva_a_comment4b
+    fin_eva_a_comment4c1
+    fin_eva_a_comment4c2
+    fin_eva_a_comment4c3
+    fin_eva_a_comment4d
+    fin_eva_a_comment4e
+    fin_eva_a_comment4f
+    fin_eva_a_comment5a
+    fin_eva_a_comment5b1
+    fin_eva_a_comment5b2
+    fin_eva_a_comment5b3
+    fin_eva_a_comment5b4
+    fin_eva_a_comment5c
+    fin_eva_a_question6a
+    fin_eva_a_comment6a
+    fin_eva_a_comment6b
+    fin_eva_a_question6c1
+    fin_eva_a_comment6c1
+    fin_eva_a_question6c2
+    fin_eva_a_comment6c2
+    fin_eva_a_comment6c3
+    fin_eva_a_question6d
+    fin_eva_a_comment6d
+    fin_eva_a_question6e
+    fin_eva_a_comment6e
+    fin_eva_a_question7a1
+    fin_eva_a_comment7a1
+    fin_eva_a_question7a2
+    fin_eva_a_comment7a2
+    fin_eva_a_question7b1
+    fin_eva_a_comment7b1
+    fin_eva_a_question7b2
+    fin_eva_a_comment7b2
+    fin_eva_a_question7b3
+    fin_eva_a_comment7b3
+    fin_eva_a_question7c
+    fin_eva_a_comment7c
+    fin_eva_a_question7d
+    fin_eva_a_comment7d
+    fin_eva_a_comment8a
+    fin_eva_a_comment8b
+    fin_eva_a_question8c
+    fin_eva_a_comment8c
+    fin_eva_a_question8d
+    fin_eva_a_comment8d
+    fin_eva_a_comment8e
+    fin_eva_a_comment8f -->
 
 
-<!-- AREA SUPERINTENDENTS' DIRECT QUESTIONNAIRE
-areasupq_name
-areasupq_dob
-areasupq_year
-areasupq_date_of_report
-areasupq_wife
-areasupq_children
-areasupq_child_age
-areasupq_comment1
-areasupq_comment2
-areasupq_comment3
-areasupq_comment4
-areasupq_comment5
-areasupq_comment6
-areasupq_comment7
-areasupq_comment8
-areasupq_comment9
-areasupq_name_sup -->
+<!-- PROCUREMENT POLICY
+    fin_eva_b_area
+    fin_eva_b_district
+    fin_eva_b_local
+    fin_eva_b_moniter
+    fin_eva_b_comment1a
+    fin_eva_b_question1b
+    fin_eva_b_comment1b
+    fin_eva_b_question1c
+    fin_eva_b_comment1c
+    fin_eva_b_question1d
+    fin_eva_b_comment1d
+    fin_eva_b_comment2a
+    fin_eva_b_question2b
+    fin_eva_b_comment2b
+    fin_eva_b_question2c
+    fin_eva_b_comment2c
+    fin_eva_b_comment2d
+    fin_eva_b_question3a
+    fin_eva_b_comment3a
+    fin_eva_b_comment3b
+    fin_eva_b_question3c
+    fin_eva_b_comment3c
+    fin_eva_b_comment3d
+    fin_eva_b_question4a
+    fin_eva_b_comment4a
+    fin_eva_b_comment4b
+    fin_eva_b_question4c
+    fin_eva_b_comment4c
+    fin_eva_b_question5a
+    fin_eva_b_comment5a
+    fin_eva_b_question5b
+    fin_eva_b_comment5b
+    fin_eva_b_question5c
+    fin_eva_b_comment5c
+    fin_eva_b_comment5d
+    fin_eva_b_question6a
+    fin_eva_b_comment6a
+    fin_eva_b_question6b
+    fin_eva_b_comment6b
+    fin_eva_b_question6c
+    fin_eva_b_comment6c
+    fin_eva_b_question7a
+    fin_eva_b_comment7a
+    fin_eva_b_comment7b
+    fin_eva_b_comment7c
+    fin_eva_b_comment7d
+    fin_eva_b_question8a
+    fin_eva_b_comment8a
+    fin_eva_b_question8b
+    fin_eva_b_comment8b -->
 
 
-COMMUNITY IMPRESSION  REPORT
-commrep_district
-commrep_area
-commrep_local
-commrep_status
-commrep_comment1
-commrep_comment2
-commrep_question3
-commrep_comment3
-commrep_question4
-commrep_comment4
-commrep_question5
-commrep_comment5
-commrep_question6
-commrep_comment6
-commrep_question7
-commrep_comment7
-commrep_question8
-commrep_comment8
-commrep_question9
-commrep_comment9
-commrep_question10
-commrep_comment10
-commrep_question11
-commrep_comment11
-
-DISTRICT OFFICERS LEVEL QUESTIONNAIRE
-dlm_district
-dlm_area
-dlm_local
-dlm_status
-dlm_question1
-dlm_comment1
-dlm_question2
-dlm_comment2
-dlm_question3
-dlm_comment3
-dlm_question4
-dlm_comment4
-dlm_question5
-dlm_comment5
-dlm_question6
-dlm_comment6
-dlm_question7
-dlm_comment7
-dlm_question8
-dlm_comment8
-dlm_question9
-dlm_comment9
-dlm_question10
-dlm_comment10
-dlm_question11
-dlm_comment11
-dlm_question12
-dlm_comment12
+<!-- RECORDING AND BOOK KEEPING _ AREA
+    rec_area_area
+    rec_area_prepared_by
+    rec_area_year
+    rec_area_period
+    rec_area_w_p
+    rec_area_question1
+    rec_area_comment1
+    rec_area_question2
+    rec_area_comment2
+    rec_area_question3
+    rec_area_comment3
+    rec_area_question4
+    rec_area_comment4
+    rec_area_question5
+    rec_area_comment5
+    rec_area_question6
+    rec_area_comment6
+    rec_area_question7
+    rec_area_comment7
+    rec_area_question8
+    rec_area_comment8
+    rec_area_question9
+    rec_area_comment9
+    rec_area_question10
+    rec_area_comment10
+    rec_area_question11
+    rec_area_comment11
+    rec_area_question12
+    rec_area_comment12
+    rec_area_question13
+    rec_area_comment13
+    rec_area_question14
+    rec_area_comment14
+    rec_area_question15
+    rec_area_comment15
+    rec_area_question16
+    rec_area_comment16
+    rec_area_question17
+    rec_area_comment17
+    rec_area_question18
+    rec_area_comment18
+    rec_area_question19
+    rec_area_comment19
+    rec_area_question20
+    rec_area_comment20
+    rec_area_question21
+    rec_area_comment21 -->
 
 
-DISTRICT PASTORS' DIRECT QUESTIONNAIR
-pastorques_name
-pastorques_dob
-pastorques_year
-pastorques_stay_length
-pastorques_wife
-pastorques_children
-pastorques_child_age
-pastorques_child_station
-pastorques_comment1
-pastorques_comment2
-pastorques_comment3
-pastorques_comment4
-pastorques_comment5
-pastorques_comment6
-pastorques_comment7
-pastorques_comment8
-pastorques_comment9
-pastorques_comment10
-pastorques_comment11
-pastorques_comment12
-pastorques_comment13
-pastorques_comment14
-pastorques_name_dist
+<!-- RECORDING AND BOOK KEEPING _ DISTRICT
+    rec_dist_area
+    rec_dist_district
+    rec_dist_prepared_by
+    rec_dist_year
+    rec_dist_period
+    rec_dist_w_p
+    rec_dist_question1
+    rec_dist_comment1
+    rec_dist_question2
+    rec_dist_comment2
+    rec_dist_question3
+    rec_dist_comment3
+    rec_dist_question4
+    rec_dist_comment4
+    rec_dist_question5
+    rec_dist_comment5
+    rec_dist_question6
+    rec_dist_comment6
+    rec_dist_question7
+    rec_dist_comment7
+    rec_dist_question8
+    rec_dist_comment8
+    rec_dist_question9
+    rec_dist_comment9
+    rec_dist_question10
+    rec_dist_comment10
+    rec_dist_question11
+    rec_dist_comment11
+    rec_dist_question12
+    rec_dist_comment12
+    rec_dist_question13
+    rec_dist_comment13
+    rec_dist_question14
+    rec_dist_comment14
+    rec_dist_question15
+    rec_dist_comment15
+    rec_dist_question16
+    rec_dist_comment16
+    rec_dist_question17
+    rec_dist_comment17
+    rec_dist_question18
+    rec_dist_comment18
+    rec_dist_question19
+    rec_dist_comment19
+    rec_dist_question20
+    rec_dist_comment20
+    rec_dist_question21
+    rec_dist_comment21 -->
 
 
-DISTRICT PASTOR'S VISITATION REPORT
-distpast_district
-distpast_area
-distpast_local
-distpast_status
-distpast_comment1
-distpast_comment2
-distpast_comment3
-distpast_comment4
-distpast_comment5
-distpast_question6
-distpast_question7
-distpast_question8
-distpast_question9
-distpast_question10
-distpast_question11
-distpast_question12
-distpast_question13
-distpast_comment13
-distpast_comment14
-distpast_comment15
-distpast_comment16
-distpast_comment17
-distpast_comment18
-distpast_comment19
-distpast_comment20
-distpast_pastors
-distpast_elders
-distpast_deacons
-distpast_deaconesses
-distpast_adult_males
-distpast_adult_females
-distpast_children
-distpast_youth
-distpast_total_att
-distpast_tithe_payers
-distpast_active_tithe_payers
-distpast_officers_tithe_payers
-distpast_tithes_paid
-distpast_oferring
-distpast_any_oferring
-distpast_total_tithe_off
-distpast_pastor
-distpast_p_elder
-
-
-<!-- LOCAL QUESTIONNAIRE ON EVANGELISM
-evange_district
-evange_area
-evange_local
-evange_status
-evange_question1
-evange_comment1
-evange_question2
-evange_comment2
-evange_question3
-evange_comment3
-evange_question4
-evange_comment4
-evange_question5
-evange_comment5
-evange_question6
-evange_comment6
-evange_question7
-evange_comment7
-evange_question8
-evange_comment8
-evange_question9
-evange_comment9
-evange_question10
-evange_comment10
-evange_question11
-evange_comment11
-evange_question12
-evange_comment12
-evange_question13
-evange_comment13
-evange_question14
-evange_comment14
-evange_question15
-evange_comment15
-evange_question16
-evange_comment16
-evange_question17
-evange_comment17
-evange_question18
-evange_comment18
-evange_name -->
-
-
-LOCAL LEVEL QUESTIONNAIRE
-llm_district
-llm_area
-llm_local
-llm_status
-llm_question1
-llm_comment1
-llm_question2
-llm_comment2
-llm_question3
-llm_comment3
-llm_question4
-llm_comment4
-llm_question5
-llm_comment5
-llm_question6
-llm_comment6
-llm_question7
-llm_comment7
-llm_question8
-llm_comment8
-llm_question9
-llm_comment9
-llm_question10
-llm_comment10
-llm_question11
-llm_comment11
-llm_question12
-llm_comment12
-llm_question13
-llm_comment13
-llm_question14
-llm_comment14
-llm_question15
-llm_comment15
-llm_question16
-llm_comment16
-llm_question17
-llm_comment17
-llm_question18
-llm_comment18
-llm_question19
-llm_comment19
-llm_question20
-llm_comment20
-llm_question21
-llm_comment21
-llm_question22
-llm_comment22
-
-
-MEMBER QUESTIONNAIRE
-member_district
-member_area
-member_local
-member_status
-member_question1
-member_comment1
-member_question2
-member_comment2
-member_question3
-member_comment3
-member_question4
-member_comment4
-member_question5
-member_comment5
-member_question6
-member_comment6
-member_question7
-member_comment7
-member_question8
-member_comment8
-member_question9
-member_comment9
-member_question10
-member_comment10
-member_question11
-member_comment11
-member_question12
-member_comment12
-member_question13
-member_comment13
-member_question14
-member_comment14
-member_question15
-member_comment15
-
-
-MONITOR'S  REPORT
-monirep_district
-monirep_area
-monirep_local
-monirep_status
-monirep_question1
-monirep_comment1
-monirep_question2
-monirep_comment2
-monirep_comment3
-monirep_comment4
-monirep_question5
-monirep_comment5
-monirep_question6
-monirep_comment6
-monirep_question7
-monirep_question8
-monirep_question9
-monirep_question10
-monirep_question11
-monirep_question12
-monirep_comment13
-monirep_comment14
-monirep_pastors
-monirep_elders
-monirep_deacons
-monirep_deaconesses
-monirep_adult_males
-monirep_adult_females
-monirep_children
-monirep_youth
-monirep_total_att
-monirep_tithe_payers
-monirep_tithes_paid
-monirep_oferring
-monirep_total_tithe_off
-
-
-DB::unprepared("CREATE OR REPLACE VIEW v_w_areahead_reports as
-            SELECT bloodtrans_id,
-                
-            FROM blood_transfussion_episodes;");
-
-
-DB::unprepared('DROP VIEW IF EXISTS v_w_areahead_reports');
+<!-- RECORDING AND BOOK KEEPING _ LOCAL
+    rec_local_area
+    rec_local_district
+    rec_local_local
+    rec_local_prepared_by
+    rec_local_year
+    rec_local_period
+    rec_local_w_p
+    rec_local_question1
+    rec_local_comment1
+    rec_local_question2
+    rec_local_comment2
+    rec_local_question3
+    rec_local_comment3
+    rec_local_question4
+    rec_local_comment4
+    rec_local_question5
+    rec_local_comment5
+    rec_local_question6
+    rec_local_comment6
+    rec_local_question7
+    rec_local_comment7
+    rec_local_question8
+    rec_local_comment8
+    rec_local_question9
+    rec_local_comment9
+    rec_local_question10
+    rec_local_comment10
+    rec_local_question11
+    rec_local_comment11
+    rec_local_question12
+    rec_local_comment12
+    rec_local_question13
+    rec_local_comment13
+    rec_local_question14
+    rec_local_comment14
+    rec_local_question15
+    rec_local_comment15
+    rec_local_question16
+    rec_local_comment16
+    rec_local_question17
+    rec_local_comment17
+    rec_local_question18
+    rec_local_comment18
+    rec_local_question19
+    rec_local_comment19
+    rec_local_question20
+    rec_local_comment20
+    rec_local_question21
+    rec_local_comment21 -->

@@ -8,7 +8,9 @@
         <div class="card-header">
             <h4>
                 DISTRICT PASTORS' DIRECT QUESTIONNAIRE
-                <a href="dist-past-q/{{ $destination }}" class="btn btn-success float-end" style="margin-left: 10px;">Export to Excel</a>
+                @if (Auth()->user()->user_role != 0)
+                    <a href="dist-past-q/{{ $destination }}" class="btn btn-success float-end" style="margin-left: 10px;">Export to Excel</a>
+                @endif
                 {{-- <a href="#" class="btn btn-info float-end">Statistics</a> --}}
             </h4>
         </div>
@@ -22,7 +24,9 @@
                     <th scope="col">Age</th>
                     <th scope="col">Year of Call</th>
                     <th scope="col">Username</th>
-                    <th scope="col">Action</th>
+                    @if (Auth()->user()->user_role != 0)
+                        <th scope="col">Action</th>
+                    @endif
                   </tr>
                 </thead>
                 <tbody>
@@ -34,7 +38,14 @@
                             <td>{{ $data->age }}</td>
                             <td>{{ $data->pastorques_year }}</td>
                             <td>{{ $data->user_name }}</td>
-                            <td><a href="#/{{ $data->district_pastor_id }}" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Delete</a></td>
+                            @if (Auth()->user()->user_role != 0)
+                                <td>
+                                    <a href="#/{{ $data->district_pastor_id }}" class="btn btn-success btn-sm" style="text-decoration: none" title="Delete">Edit</a>
+                                    @if (Auth()->user()->user_role == 1)
+                                        <a href="#/{{ $data->district_pastor_id }}" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Delete</a> 
+                                    @endif
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

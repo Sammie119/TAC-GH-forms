@@ -8,10 +8,12 @@ use App\Models\VWMemberReport;
 
 class MemberReportExport implements FromCollection, WithHeadings
 {
-    public function __construct($distination, $destination_name)
+    public function __construct($distination, $area, $dist, $loc)
     {
         $this->destination = $distination;
-        $this->destination_name = $destination_name;
+        $this->area = $area;
+        $this->dist = $dist;
+        $this->loc = $loc;
     }
 
     public function headings():array{
@@ -63,13 +65,13 @@ class MemberReportExport implements FromCollection, WithHeadings
             return VWMemberReport::all();
         }
         elseif($this->destination == 'Area'){
-            return VWMemberReport::where('area', $this->destination_name)->get();
+            return VWMemberReport::where('area', $this->area)->get();
         }
         elseif($this->destination == 'District'){
-            return VWMemberReport::where('district', $this->destination_name)->get();
+            return VWMemberReport::where('area', $this->area)->where('district', $this->dist)->get();
         }
         elseif($this->destination == 'Local'){
-            return VWMemberReport::where('local', $this->destination_name)->get();
+            return VWMemberReport::where('area', $this->area)->where('district', $this->dist)->where('local', $this->loc)->get();
         }
         
     }

@@ -143,7 +143,7 @@
                         <div class=""> 
                             <label for="" class="form-label">How would you rate each of these components of the service? Give your brief comments.</label>
                         </div>
-                        <ul type = "disc">
+                        <ol type = "a">
                             <li>
                                 <div class="">
                                     <label for="" class="form-label">Praise and Worship</label>
@@ -323,14 +323,14 @@
                                     </label>
                                 </div>
                             </li>
-                        </ul>
+                        </ol>
                     </li>
 
                     <li>
                         <div class="mt-3"> 
                             <label for="" class="form-label">The environment and status of the place of Worship (whether permanent and completed temple, classroom, shed, private residence, etc)</label>
                         </div>
-                        <ul type="disc">
+                        <ol type = "a">
                             <li>
                                 <div class="">
                                     <label for="" class="form-label">Signboards leading to the venue?</label>
@@ -375,7 +375,7 @@
                                     <textarea form="monireponitor" class="form-control" name="monirep_comment13" rows="2" placeholder="Details/Comments if any..."></textarea>
                                 </div>
                             </li>
-                        </ul>
+                        </ol>
                     </li>
 
                     <li>

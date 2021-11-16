@@ -66,9 +66,16 @@
             font-size: 15px
         }
 
-        @media screen and (max-width: 768px) {
+        @media (max-width: 991px) {
             .fthree {
-                width: 110%
+                    width: 110%
+                }
+        }
+
+        @media (max-width: 480px) {
+            .fthre {
+                    width: 300%
+                }
             }
         }
     </style>
@@ -76,7 +83,7 @@
 </head>
 <body>
     <div class="container d-flex justify-content-center" style="margin-top: 5%">
-        <div class="card mx-5 my-5">
+        <div class="card mx-5 my-5 fthre">
             <div class="card-body px-2">
                 <center><h2 class="card-heading px-3">Welcome</h2></center>
                 <center><img src="{{ asset('img/tac_logo_small.png') }}" alt="TAC-GH"></center>
@@ -90,7 +97,7 @@
                     @csrf
                     <div class="row">
                         <div class="form-group col-md-12 fthree"> 
-                            <input type="email" class="form-control" name="email" placeholder="Enter your Email"  required>  
+                            <input type="email" class="form-control" name="email" placeholder="Enter your Email" autofocus required>  
                             @if ($errors->has('email'))
                                 <span class="error" style="color: red">{{ $errors->first('email') }}</span>
                             @endif

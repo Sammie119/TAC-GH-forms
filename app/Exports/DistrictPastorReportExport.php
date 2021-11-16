@@ -8,10 +8,12 @@ use App\Models\VWDistrictPastorReport;
 
 class DistrictPastorReportExport implements FromCollection, WithHeadings
 {
-    public function __construct($distination, $destination_name)
+    public function __construct($distination, $area, $dist, $loc)
     {
         $this->destination = $distination;
-        $this->destination_name = $destination_name;
+        $this->area = $area;
+        $this->dist = $dist;
+        $this->loc = $loc;
     }
 
     public function headings():array{
@@ -72,13 +74,13 @@ class DistrictPastorReportExport implements FromCollection, WithHeadings
             return VWDistrictPastorReport::all();
         }
         elseif($this->destination == 'Area'){
-            return VWDistrictPastorReport::where('area', $this->destination_name)->get();
+            return VWDistrictPastorReport::where('area', $this->area)->get();
         }
         elseif($this->destination == 'District'){
-            return VWDistrictPastorReport::where('district', $this->destination_name)->get();
+            return VWDistrictPastorReport::where('area', $this->area)->where('district', $this->dist)->get();
         }
         elseif($this->destination == 'Local'){
-            return VWDistrictPastorReport::where('local', $this->destination_name)->get();
+            return VWDistrictPastorReport::where('area', $this->area)->where('district', $this->dist)->where('local', $this->loc)->get();
         }
         
     }

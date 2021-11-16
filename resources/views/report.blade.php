@@ -37,11 +37,15 @@
                                 <option value="District Level Monitoring">
                                 <option value="Dist Pastors Questionnaire">
                                 <option value="District Pastor Visitation Rep">
+                                <option value="Financial Policy">
                                 <option value="Local Evangelism">
                                 <option value="Local Level Monitoring">
                                 <option value="Members Report">
                                 <option value="Monitors Opinion">
-                                
+                                <option value="Procurement Policy">
+                                <option value="Records Keeping - Area">
+                                <option value="Records Keeping - District">
+                                <option value="Records Keeping - Local">
                             </datalist>
                         </div> 
                     </div>
@@ -59,9 +63,21 @@
                         </div> 
                     </div>
 
-                    <div class="row mb-4">
-                        <div class="col-sm-12" id="show1" style="display: none"> 
-                            <input class="form-control report" name="destination_name" id="destination_name" placeholder="Enter Destination Name...">
+                    <div class="row">
+                        <div class="col-sm-12 mb-4" id="area_id" style="display: none"> 
+                            <input class="form-control report" name="area" id="area" placeholder="Enter Area Name...">
+                        </div> 
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 mb-4" id="district_id" style="display: none"> 
+                            <input class="form-control report" name="district" id="district" placeholder="Enter District Name...">
+                        </div> 
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 mb-4" id="local_id" style="display: none"> 
+                            <input class="form-control report" name="local" id="local" placeholder="Enter Local Name...">
                         </div> 
                     </div>
 
@@ -77,28 +93,60 @@
         window.onload = function(){
             document.getElementById('report').focus();
 
+            $('#report').on('change', function(){
+                if(document.getElementById('report').value == 'Area Sup Questionnaire' || document.getElementById('report').value == 'Dist Pastors Questionnaire'){
+                    document.getElementById('destination').value = 'General'
+                    document.getElementById('destination').readOnly = true;
+                }
+                else{
+                    document.getElementById('destination').value = ''
+                    document.getElementById('destination').readOnly = false;
+                }
+            });
+
             $('#destination').on('input',function(){  
-                if(document.getElementById('destination').value == 'General'){
-                    document.getElementById('show1').style.display='none'
+                if(document.getElementById('destination').value == 'Area' || document.getElementById('destination').value == 'District' || document.getElementById('destination').value == 'Local' ){
+                    document.getElementById('area_id').style.display='block'
                 }else{
-                    document.getElementById('show1').style.display='block'
+                    document.getElementById('area_id').style.display='none'
                 }
                 
             });
 
             $('#destination').on('input',function(){  
-                if(document.getElementById('destination').value == 'Area' || document.getElementById('destination').value == 'District' || document.getElementById('destination').value == 'Local' ){
-                    document.getElementById('show1').style.display='block'
+                if(document.getElementById('destination').value == 'District' || document.getElementById('destination').value == 'Local' ){
+                    document.getElementById('district_id').style.display='block'
                 }else{
-                    document.getElementById('show1').style.display='none'
+                    document.getElementById('district_id').style.display='none'
+                }
+                
+            });
+
+            $('#destination').on('input',function(){  
+                if(document.getElementById('destination').value == 'Local' ){
+                    document.getElementById('local_id').style.display='block'
+                }else{
+                    document.getElementById('local_id').style.display='none'
                 }
                 
             });
 
             $('#formid').on('submit', function() {
-                if((document.getElementById('destination').value == 'Area' || document.getElementById('destination').value == 'District' || document.getElementById('destination').value == 'Local') && document.getElementById('destination_name').value == '' ){
-                    alert('Please Enter Destination Name is Empty!!!');
-                    document.getElementById('destination_name').focus();
+                if((document.getElementById('destination').value == 'Area' || document.getElementById('destination').value == 'District' || document.getElementById('destination').value == 'Local') && document.getElementById('area').value == '' ){
+                    alert('Please Enter Area Name!!!');
+                    document.getElementById('area').focus();
+                    return false;
+                }
+
+                if((document.getElementById('destination').value == 'District' || document.getElementById('destination').value == 'Local') && document.getElementById('district').value == '' ){
+                    alert('Please Enter District Name!!!');
+                    document.getElementById('district').focus();
+                    return false;
+                }
+
+                if(document.getElementById('destination').value == 'Local' && document.getElementById('local').value == '' ){
+                    alert('Please Enter Local Name!!!');
+                    document.getElementById('local').focus();
                     return false;
                 }
             });

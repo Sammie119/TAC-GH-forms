@@ -29,7 +29,9 @@
                     <th scope="col">User ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Action</th>
+                    @if (Auth()->user()->user_role == 1)
+                        <th scope="col">Action</th>
+                    @endif
                   </tr>
                 </thead>
                 <tbody>
@@ -39,7 +41,9 @@
                             <td>{{ $users->user_id }}</td>
                             <td>{{ $users->name }}</td>
                             <td>{{ $users->email }}</td>
-                            <td><a href="delete/{{ $users->user_id }}" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Delete</a></td>
+                            @if (Auth()->user()->user_role == 1)
+                                <td><a href="delete/{{ $users->user_id }}" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Delete</a></td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

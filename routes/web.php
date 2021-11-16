@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,20 +45,33 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::post('member-report', [FormController::class, 'memberReport'])->name('member-report');
     Route::post('monitor-report', [FormController::class, 'monitorsReport'])->name('monitor-report');
 
+    // Finance Routes
+    Route::get('finance', [FinanceController::class, 'create']);
+    Route::post('financial-policy', [FinanceController::class, 'financialPolicyReport'])->name('financial-policy');
+    Route::post('procurement-policy', [FinanceController::class, 'procurementPolicyReport'])->name('procurement-policy');
+    Route::post('record-books-area', [FinanceController::class, 'recordBookingArea'])->name('record-books-area');
+    Route::post('record-books-district', [FinanceController::class, 'recordBookingDistrict'])->name('record-books-district');
+    Route::post('record-books-local', [FinanceController::class, 'recordBookingLocal'])->name('record-books-local');
+
     // Report Routes
     Route::get('report', [ReportController::class, 'index']);
     Route::post('report-post', [ReportController::class, 'report'])->name('report-post');
 
-    // Export Routes 
-    Route::get('local-ev/{distination}/{name}', [ReportController::class, 'exportToExcelLocalEvange']);
-    Route::get('area-head-r/{distination}/{name}', [ReportController::class, 'exportToExcelAreaHeadReport']);
-    Route::get('area-sup-r/{distination}', [ReportController::class, 'exportToExcelAreaSup']);
-    Route::get('community/{distination}/{name}', [ReportController::class, 'exportToExcelCommunityReport']);
-    Route::get('dist-level-m/{distination}/{name}', [ReportController::class, 'exportToExcelDistrictLevelMonoter']);
-    Route::get('dist-past-q/{distination}', [ReportController::class, 'exportToExcelDistrictPastorQuestion']);
-    Route::get('dist-past-r/{distination}/{name}', [ReportController::class, 'exportToExcelDistrictPastorReport']);
-    Route::get('local-level/{distination}/{name}', [ReportController::class, 'exportToExcelLocalLevelQuestion']);
-    Route::get('member-r/{distination}/{name}', [ReportController::class, 'exportToExcelMemberReport']);
-    Route::get('moniter-r/{distination}/{name}', [ReportController::class, 'exportToExcelMonitorReport']);
+    // Export Routes  
+    Route::get('local-ev/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelLocalEvange']);
+    Route::get('area-head-r/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelAreaHeadReport']);
+    Route::get('area-sup-r/{distination}', [ExportController::class, 'exportToExcelAreaSup']);
+    Route::get('community/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelCommunityReport']);
+    Route::get('dist-level-m/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelDistrictLevelMonoter']);
+    Route::get('dist-past-q/{distination}', [ExportController::class, 'exportToExcelDistrictPastorQuestion']);
+    Route::get('dist-past-r/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelDistrictPastorReport']);
+    Route::get('local-level/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelLocalLevelQuestion']);
+    Route::get('member-r/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelMemberReport']);
+    Route::get('moniter-r/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelMonitorReport']);
+    Route::get('financial-p/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelFinancialPolicy']);
+    Route::get('procurement-p/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelProcurementPolicy']);
+    Route::get('r-booking-area/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelReportBookingArea']);
+    Route::get('r-booking-district/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelReportBookingDistrict']);
+    Route::get('r-booking-local/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelReportBookingLocal']);
 
 });

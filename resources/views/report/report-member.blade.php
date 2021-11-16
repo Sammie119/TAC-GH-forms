@@ -7,8 +7,10 @@
     <div class="card text-dark bg-light mb-3">
         <div class="card-header">
             <h4>
-                MEMBER QUESTIONNAIRE ({{ $destination_name }})
-                <a href="member-r/{{ $destination }}/{{ $destination_name }}" class="btn btn-success float-end" style="margin-left: 10px;">Export to Excel</a>
+                MEMBER QUESTIONNAIRE ({{ $area['area'] }})
+                @if (Auth()->user()->user_role != 0)
+                    <a href="member-r/{{ $destination }}/{{ $area['area'] }}/{{ $area['district'] }}/{{ $area['local'] }}" class="btn btn-success float-end" style="margin-left: 10px;">Export to Excel</a>
+                @endif
                 {{-- <a href="#" class="btn btn-info float-end">Statistics</a> --}}
             </h4>
         </div>
@@ -22,7 +24,10 @@
                     <th scope="col">Local</th>
                     <th scope="col">Interviewee</th>
                     <th scope="col">Username</th>
-                    <th scope="col">Action</th>
+                    @if (Auth()->user()->user_role != 0)
+                        <th scope="col">Action</th>
+                    @endif
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -34,7 +39,14 @@
                             <td>{{ $data->local }}</td>
                             <td>{{ $data->status }}</td>
                             <td>{{ $data->user_name }}</td>
-                            <td><a href="#/{{ $data->member_id }}" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Delete</a></td>
+                            @if (Auth()->user()->user_role != 0)
+                                <td>
+                                    <a href="#/{{ $data->member_id }}" class="btn btn-success btn-sm" style="text-decoration: none" title="Delete">Edit</a>
+                                    @if (Auth()->user()->user_role == 1)
+                                        <a href="#/{{ $data->member_id }}" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Delete</a> 
+                                    @endif
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

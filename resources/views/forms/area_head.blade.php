@@ -71,7 +71,7 @@
                         <div class=""> 
                             <label for="" class="form-label">Quality of the Church Service. How would you rate each of these components of the service?</label>
                         </div>
-                        <ul type = "disc">
+                        <ol type = "a">
                             <li>
                                 <div class="">
                                     <label for="" class="form-label">Praise and Worship</label>
@@ -251,7 +251,7 @@
                                     </label>
                                 </div>
                             </li>
-                        </ul>
+                        </ol>
                     </li>
 
                     <li>
