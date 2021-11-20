@@ -15,6 +15,10 @@ class FinanceController extends Controller
         return 'Record Saved Successfully!!';
     }
 
+    private function updatMmessage(){
+        return 'Record Updated Successfully!!';
+    }
+
     public function create()
     {
         return view('finance');
@@ -22,7 +26,13 @@ class FinanceController extends Controller
 
     public function financialPolicyReport(Request $request)
     {
-        $data = new FinancialPolicy;
+        if(isset($request->id)){
+            $data = FinancialPolicy::find($request->id);
+        }
+        else{
+            $data = new FinancialPolicy;
+        }
+        
         $data->fin_eva_a_area = $request->fin_eva_a_area;
         $data->fin_eva_a_district = $request->fin_eva_a_district;
         $data->fin_eva_a_local = $request->fin_eva_a_local;
@@ -114,17 +124,33 @@ class FinanceController extends Controller
         $data->fin_eva_a_comment8d = $request->fin_eva_a_comment8d;
         $data->fin_eva_a_comment8e = $request->fin_eva_a_comment8e;
         $data->fin_eva_a_comment8f = $request->fin_eva_a_comment8f;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function procurementPolicyReport(Request $request)
     {
-        $data = new ProcurementPolicy;
+        if(isset($request->id)){
+            $data = ProcurementPolicy::find($request->id);
+        }
+        else{
+            $data = new ProcurementPolicy;
+        }
+        
         $data->fin_eva_b_area = $request->fin_eva_b_area;
         $data->fin_eva_b_district = $request->fin_eva_b_district;
         $data->fin_eva_b_local = $request->fin_eva_b_local;
@@ -175,17 +201,33 @@ class FinanceController extends Controller
         $data->fin_eva_b_comment8a = $request->fin_eva_b_comment8a;
         $data->fin_eva_b_question8b = $request->fin_eva_b_question8b;
         $data->fin_eva_b_comment8b = $request->fin_eva_b_comment8b;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function recordBookingArea(Request $request)
     {
-        $data = new RecordBooksArea;
+        if(isset($request->id)){
+            $data = RecordBooksArea::find($request->id);
+        }
+        else{
+            $data = new RecordBooksArea;
+        }
+        
         $data->rec_area_area = $request->rec_area_area;
         $data->rec_area_prepared_by = $request->rec_area_prepared_by;
         $data->rec_area_year = $request->rec_area_year;
@@ -233,17 +275,33 @@ class FinanceController extends Controller
         $data->rec_area_comment20 = $request->rec_area_comment20;
         $data->rec_area_question21 = $request->rec_area_question21;
         $data->rec_area_comment21 = $request->rec_area_comment21;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function recordBookingDistrict(Request $request)
     {
-        $data = new RecordBooksDistrict;
+        if(isset($request->id)){
+            $data = RecordBooksDistrict::find($request->id);
+        }
+        else{
+            $data = new RecordBooksDistrict;
+        }
+    
         $data->rec_dist_area = $request->rec_dist_area;
         $data->rec_dist_district = $request->rec_dist_district;
         $data->rec_dist_prepared_by = $request->rec_dist_prepared_by;
@@ -292,17 +350,33 @@ class FinanceController extends Controller
         $data->rec_dist_comment20 = $request->rec_dist_comment20;
         $data->rec_dist_question21 = $request->rec_dist_question21;
         $data->rec_dist_comment21 = $request->rec_dist_comment21;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function recordBookingLocal(Request $request)
     {
-        $data = new RecordBooksLocal;
+        if(isset($request->id)){
+            $data = RecordBooksLocal::find($request->id);
+        }
+        else{
+            $data = new RecordBooksLocal;
+        }
+    
         $data->rec_local_area = $request->rec_local_area;
         $data->rec_local_district = $request->rec_local_district;
         $data->rec_local_local = $request->rec_local_local;
@@ -352,11 +426,21 @@ class FinanceController extends Controller
         $data->rec_local_comment20 = $request->rec_local_comment20;
         $data->rec_local_question21 = $request->rec_local_question21;
         $data->rec_local_comment21 = $request->rec_local_comment21;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 }

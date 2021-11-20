@@ -20,6 +20,10 @@ class FormController extends Controller
         return 'Record Saved Successfully!!';
     }
 
+    private function updatMmessage(){
+        return 'Record Updated Successfully!!';
+    }
+
     public function create()
     {
         return view('forms');
@@ -27,7 +31,13 @@ class FormController extends Controller
 
     public function areaHeadReport(Request $request)
     {
-        $data = new AreaHeadReport;
+        if(isset($request->id)){
+            $data = AreaHeadReport::find($request->id);
+        }
+        else{
+            $data = new AreaHeadReport;
+        }
+        
         $data->areahead_district = $request->areahead_district;
         $data->areahead_area = $request->areahead_area;
         $data->areahead_local = $request->areahead_local;
@@ -73,17 +83,33 @@ class FormController extends Controller
         $data->areahead_total_tithe_off = $request->areahead_total_tithe_off;
         $data->areahead_apostle = $request->areahead_apostle;
         $data->areahead_pastor = $request->areahead_pastor;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function areaSupQuestions(Request $request)
     {
-        $data = new AreaSupQuestions;
+        if(isset($request->id)){
+            $data = AreaSupQuestions::find($request->id);
+        }
+        else{
+            $data = new AreaSupQuestions;
+        }
+    
         $data->areasupq_name = $request->areasupq_name;
         $data->areasupq_dob = $request->areasupq_dob;
         $data->areasupq_year = $request->areasupq_year;
@@ -101,17 +127,33 @@ class FormController extends Controller
         $data->areasupq_comment8 = $request->areasupq_comment8;
         $data->areasupq_comment9 = $request->areasupq_comment9;
         $data->areasupq_name_sup = $request->areasupq_name_sup;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        return back()->with('success', $this->message());
+            $data->update();
+
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function communityReport(Request $request)
     {
-        $data = new CommunityReport;
+        if(isset($request->id)){
+            $data = CommunityReport::find($request->id);
+        }
+        else{
+            $data = new CommunityReport;
+        }
+
         $data->commrep_district = $request->commrep_district;
         $data->commrep_area = $request->commrep_area;
         $data->commrep_local = $request->commrep_local;
@@ -136,17 +178,33 @@ class FormController extends Controller
         $data->commrep_comment10 = $request->commrep_comment10;
         $data->commrep_question11 = $request->commrep_question11;
         $data->commrep_comment11 = $request->commrep_comment11;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function districtLevelMonitor(Request $request)
     {
-        $data = new DistrictLevelMonoter;
+        if(isset($request->id)){
+            $data = DistrictLevelMonoter::find($request->id);
+        }
+        else{
+            $data = new DistrictLevelMonoter;
+        }
+
         $data->dlm_district = $request->dlm_district;
         $data->dlm_area = $request->dlm_area;
         $data->dlm_local = $request->dlm_local;
@@ -175,17 +233,33 @@ class FormController extends Controller
         $data->dlm_comment11 = $request->dlm_comment11;
         $data->dlm_question12 = $request->dlm_question12;
         $data->dlm_comment12 = $request->dlm_comment12;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function districtPastorQuestion(Request $request)
     {
-        $data = new DistrictPastorQuestion;
+        if(isset($request->id)){
+            $data = DistrictPastorQuestion::find($request->id);
+        }
+        else{
+            $data = new DistrictPastorQuestion;
+        }
+
         $data->pastorques_name = $request->pastorques_name;
         $data->pastorques_dob = $request->pastorques_dob;
         $data->pastorques_year = $request->pastorques_year;
@@ -209,17 +283,33 @@ class FormController extends Controller
         $data->pastorques_comment13 = $request->pastorques_comment13;
         $data->pastorques_comment14 = $request->pastorques_comment14;
         $data->pastorques_name_dist = $request->pastorques_name_dist;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function districtPastorReport(Request $request)
     {
-        $data = new DistrictPastorReport;
+        if(isset($request->id)){
+            $data = DistrictPastorReport::find($request->id);
+        }
+        else{
+            $data = new DistrictPastorReport;
+        }
+
         $data->distpast_district = $request->distpast_district;
         $data->distpast_area = $request->distpast_area;
         $data->distpast_local = $request->distpast_local;
@@ -263,17 +353,33 @@ class FormController extends Controller
         $data->distpast_total_tithe_off = $request->distpast_total_tithe_off;
         $data->distpast_pastor = $request->distpast_pastor;
         $data->distpast_p_elder = $request->distpast_p_elder;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function localEvangelism(Request $request)
     {
-        $data = new LocalEvangelism;
+        if(isset($request->id)){
+            $data = LocalEvangelism::find($request->id);
+        }
+        else{
+            $data = new LocalEvangelism;
+        }
+        
         $data->evange_district = $request->evange_district;
         $data->evange_area = $request->evange_area;
         $data->evange_local = $request->evange_local;
@@ -315,17 +421,33 @@ class FormController extends Controller
         $data->evange_question18 = $request->evange_question18;
         $data->evange_comment18 = $request->evange_comment18;
         $data->evange_name = $request->evange_name;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function localLevelQuestion(Request $request)
     {
-        $data = new LocalLevelQuestion;
+        if(isset($request->id)){
+            $data = LocalLevelQuestion::find($request->id);
+        }
+        else{
+            $data = new LocalLevelQuestion;
+        }
+        
         $data->llm_district = $request->llm_district;
         $data->llm_area = $request->llm_area;
         $data->llm_local = $request->llm_local;
@@ -374,17 +496,33 @@ class FormController extends Controller
         $data->llm_comment21 = $request->llm_comment21;
         $data->llm_question22 = $request->llm_question22;
         $data->llm_comment22 = $request->llm_comment22;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function memberReport(Request $request)
     {
-        $data = new MemberReport;
+        if(isset($request->id)){
+            $data = MemberReport::find($request->id);
+        }
+        else{
+            $data = new MemberReport;
+        }
+        
         $data->member_district = $request->member_district;
         $data->member_area = $request->member_area;
         $data->member_local = $request->member_local;
@@ -419,17 +557,33 @@ class FormController extends Controller
         $data->member_comment14 = $request->member_comment14;
         $data->member_question15 = $request->member_question15;
         $data->member_comment15 = $request->member_comment15;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 
     public function monitorsReport(Request $request)
     {
-        $data = new MonitorReport;
+        if(isset($request->id)){
+            $data = MonitorReport::find($request->id);
+        }
+        else{
+            $data = new MonitorReport;
+        }
+        
         $data->monirep_district = $request->monirep_district;
         $data->monirep_area = $request->monirep_area;
         $data->monirep_local = $request->monirep_local;
@@ -465,11 +619,21 @@ class FormController extends Controller
         $data->monirep_tithes_paid = $request->monirep_tithes_paid;
         $data->monirep_oferring = $request->monirep_oferring;
         $data->monirep_total_tithe_off = $request->monirep_total_tithe_off;
-        $data->created_by = Auth()->user()->user_id;
-        $data->updated_by = Auth()->user()->user_id;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
 
-        $data->save();
+            $data->update();
 
-        return back()->with('success', $this->message());
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
     }
 }

@@ -15,6 +15,11 @@
             </h4>
         </div>
         <div class="card-body">
+            @if (Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
             <table class="table table-striped table-hover">
                 <thead>
                   <tr>
@@ -31,7 +36,7 @@
                 </thead>
                 <tbody>
                     @foreach ($data as $key => $data)
-                        <tr>
+                        <tr id="sid{{ $data->area_head_id }}">
                             <th scope="row">{{ ++$key }}</th>
                             <td>{{ $data->area }}</td>
                             <td>{{ $data->district }}</td>
@@ -40,9 +45,9 @@
                             <td>{{ $data->user_name }}</td>
                             @if (Auth()->user()->user_role != 0)
                                 <td>
-                                    <a href="#/{{ $data->monitor_id }}" class="btn btn-success btn-sm" style="text-decoration: none" title="Delete">Edit</a>
+                                    <a href="edit-form/{{ $data->monitor_id }}/moniter" class="btn btn-success btn-sm" style="text-decoration: none" title="Delete">Edit</a>
                                     @if (Auth()->user()->user_role == 1)
-                                        <a href="#/{{ $data->monitor_id }}" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Delete</a> 
+                                        <a href="javascript:void(0)"  onclick="deleteRecord({{ $data->monitor_id }}, 'moniter')" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Delete</a> 
                                     @endif
                                 </td>
                             @endif
@@ -53,5 +58,26 @@
         </div>
     </div>
 </div>
+
+<script>
+    function deleteRecord(id, form){
+        if(confirm('This record will be deleted permanently!!!')){
+            $.ajax({
+                url: '/delete-form/'+id+'/'+form,
+                type: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: {
+                    _token: $("input[name=_token]").val()
+                },
+                success: function(response){
+                    // $("#sid"+id).remove();
+                    location.reload(true);
+                }
+            });
+        }
+    }
+</script>
     
 @endsection

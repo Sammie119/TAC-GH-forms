@@ -5,7 +5,7 @@
             <form action="{{ route('district-past-question') }}" id="pastorquesonitor" method="POST">
                 @csrf
                 <div class="row">
-                    <div class="col-sm-6"> <input name="pastorques_name" required placeholder="Name of Area Sup" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
+                    <div class="col-sm-6"> <input name="pastorques_name" required placeholder="Name of Pastor" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
                     <div class="col-sm-3" style="text-align: center"> 
                         <input name="pastorques_dob" required placeholder="Date of Birth" max="<?php echo date('Y-m-d'); ?>" type="date" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
                         <small>Date of Birth</small>

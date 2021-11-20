@@ -20,8 +20,8 @@
 </style>
 
 @section('content')
-    <div class="container d-flex justify-content-center">
-        <div class="card text-dark bg-light mb-3 col-6" style="margin-top: 100px;">
+    <div class="container d-flex justify-content-center mt-4">
+        <div class="card text-dark bg-light mb-3 col-6">
             <div class="card-header"><h2>Report</h2></div>
             <div class="card-body">
                 <form action="{{ route('report-post') }}" method="POST" id="formid">
@@ -31,6 +31,7 @@
                             <label for="exampleDataList" class="form-label">Please Select your option</label>
                             <input class="form-control report" required name="report" list="datalistOptions" id="report" placeholder="Type to search...">
                             <datalist id="datalistOptions">
+                                <option value="Data Aggregation Report">
                                 <option value="Area Heads Visitation Report">
                                 <option value="Area Sup Questionnaire">
                                 <option value="Community Impression Report">
@@ -60,6 +61,13 @@
                                 <option value="District">
                                 <option value="Local">
                             </datalist>
+                        </div> 
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12  mb-4" id="ger_date" style="display: none"> 
+                            <label for="exampleDataList" class="form-label">Please Select Date</label>
+                            <input class="form-control report" name="date" type="date" max="<?php echo date('Y-m-d');?>" id="destination" >
                         </div> 
                     </div>
 
@@ -94,39 +102,45 @@
             document.getElementById('report').focus();
 
             $('#report').on('change', function(){
-                if(document.getElementById('report').value == 'Area Sup Questionnaire' || document.getElementById('report').value == 'Dist Pastors Questionnaire'){
-                    document.getElementById('destination').value = 'General'
+                if(document.getElementById('report').value == 'Area Sup Questionnaire' || document.getElementById('report').value == 'Dist Pastors Questionnaire' || document.getElementById('report').value == 'Data Aggregation Report'){
+                    if(document.getElementById('report').value == 'Data Aggregation Report'){
+                        document.getElementById('ger_date').style.display='block';
+                    }else{
+                        document.getElementById('ger_date').style.display='none';
+                    }
+                    document.getElementById('destination').value = 'General';
                     document.getElementById('destination').readOnly = true;
                 }
                 else{
-                    document.getElementById('destination').value = ''
+                    document.getElementById('destination').value = '';
                     document.getElementById('destination').readOnly = false;
+                    document.getElementById('ger_date').style.display='none';
                 }
             });
 
             $('#destination').on('input',function(){  
                 if(document.getElementById('destination').value == 'Area' || document.getElementById('destination').value == 'District' || document.getElementById('destination').value == 'Local' ){
-                    document.getElementById('area_id').style.display='block'
+                    document.getElementById('area_id').style.display='block';
                 }else{
-                    document.getElementById('area_id').style.display='none'
+                    document.getElementById('area_id').style.display='none';
                 }
                 
             });
 
             $('#destination').on('input',function(){  
                 if(document.getElementById('destination').value == 'District' || document.getElementById('destination').value == 'Local' ){
-                    document.getElementById('district_id').style.display='block'
+                    document.getElementById('district_id').style.display='block';
                 }else{
-                    document.getElementById('district_id').style.display='none'
+                    document.getElementById('district_id').style.display='none';
                 }
                 
             });
 
             $('#destination').on('input',function(){  
                 if(document.getElementById('destination').value == 'Local' ){
-                    document.getElementById('local_id').style.display='block'
+                    document.getElementById('local_id').style.display='block';
                 }else{
-                    document.getElementById('local_id').style.display='none'
+                    document.getElementById('local_id').style.display='none';
                 }
                 
             });

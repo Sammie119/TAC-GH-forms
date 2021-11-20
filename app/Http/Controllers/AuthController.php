@@ -13,16 +13,21 @@ use App\Models\CommunityReport;
 use App\Models\DistrictLevelMonoter;
 use App\Models\DistrictPastorQuestion;
 use App\Models\DistrictPastorReport;
+use App\Models\FinancialPolicy;
 use App\Models\LocalEvangelism;
 use App\Models\LocalLevelQuestion;
 use App\Models\MemberReport;
 use App\Models\MonitorReport;
+use App\Models\ProcurementPolicy;
+use App\Models\RecordBooksArea;
+use App\Models\RecordBooksDistrict;
+use App\Models\RecordBooksLocal;
 
 class AuthController extends Controller
 {
     public function userList()
     {
-        $users = User::all();
+        $users = User::where('user_role', '!=', 1)->get();
         return view('users-list', compact('users'));
     }
 
@@ -70,7 +75,8 @@ class AuthController extends Controller
         User::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'password' => Hash::make($request['password'])
+            'password' => Hash::make($request['password']),
+            'user_role' => $request['user_role']
           ]);
        
         return back()->with('success', 'New User Successfully Created!!');
@@ -89,8 +95,13 @@ class AuthController extends Controller
         $localLevelQuestion = LocalLevelQuestion::count();
         $memberReport = MemberReport::count();
         $monitorReport = MonitorReport::count();
+        $fin_policy = FinancialPolicy::count();
+        $pro_policy = ProcurementPolicy::count();
+        $rec_booking_area = RecordBooksArea::count();
+        $rec_booking_dist = RecordBooksDistrict::count();
+        $rec_booking_loc = RecordBooksLocal::count();
 
-        $total = $areaHeadReport + $areaSupQuestions + $communityReport + $districtLevelMonoter + $districtPastorQuestion + $districtPastorReport + $localEvangelism + $localLevelQuestion + $memberReport + $monitorReport;
+        $total = $areaHeadReport + $areaSupQuestions + $communityReport + $districtLevelMonoter + $districtPastorQuestion + $districtPastorReport + $localEvangelism + $localLevelQuestion + $memberReport + $monitorReport + $fin_policy + $pro_policy + $rec_booking_area + $rec_booking_dist + $rec_booking_loc;
 
         $data = [
             'users' => $users,
@@ -104,6 +115,11 @@ class AuthController extends Controller
             'localLevelQuestion' => $localLevelQuestion,
             'memberReport' => $memberReport,
             'monitorReport' => $monitorReport,
+            'fin_policy' => $fin_policy, 
+            'pro_policy' => $pro_policy,
+            'rec_booking_area' => $rec_booking_area,
+            'rec_booking_dist' => $rec_booking_dist,
+            'rec_booking_loc' => $rec_booking_loc, 
             'total' => $total
         ];
         return view('home', compact('data'));
@@ -134,6 +150,23 @@ class AuthController extends Controller
           Session::flush();
           Auth::logout();
           return redirect('/');
+    }
+
+    public function adminEdit($id)
+    {
+        $user = User::find($id);
+        return view('admin-edit', compact('user'));
+    }
+
+    public function adminUpdate(Request $request)
+    {
+        $user = User::find($request->id);
+
+        $user->user_role = $request->user_role;
+
+        $user->update();
+
+        return back()->with('success', $user->name.'\'s Role changed Successfully!!');
     }
 
     public function delete($id)

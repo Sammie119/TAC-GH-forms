@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EditFormController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ReportController;
@@ -31,6 +32,8 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::get('user-list', [AuthController::class, 'userList']);
     Route::get('delete/{id}', [AuthController::class, 'delete']);
     Route::get('logout', [AuthController::class, 'logout']);
+    Route::get('admin-edit/{id}', [AuthController::class, 'adminEdit']);
+    Route::post('admin-update', [AuthController::class, 'adminUpdate'])->name('admin-update');
 
     // Forms Route
     Route::get('forms', [FormController::class, 'create']);
@@ -74,4 +77,7 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::get('r-booking-district/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelReportBookingDistrict']);
     Route::get('r-booking-local/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelReportBookingLocal']);
 
+    // EditController Routes
+    Route::get('edit-form/{id}/{form}', [EditFormController::class, 'editForm']);
+    Route::delete('/delete-form/{id}/{form}', [EditFormController::class, 'delete']);
 });

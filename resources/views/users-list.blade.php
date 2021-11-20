@@ -29,20 +29,38 @@
                     <th scope="col">User ID</th>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
-                    @if (Auth()->user()->user_role == 1)
+                    <th scope="col">Role</th>
+                    @if (Auth()->user()->user_role == 1 || Auth()->user()->user_role == 2)
                         <th scope="col">Action</th>
                     @endif
                   </tr>
                 </thead>
                 <tbody>
                     @foreach ($users as $key => $users)
+                        @php
+                            if($users->user_role == 2){
+                                $role = "Admin";
+                            }
+                            elseif($users->user_role == 3){
+                                $role = "Form Filler";
+                            }
+                            elseif($users->user_role == 0){
+                                $role = "User";
+                            }
+                        @endphp
                         <tr>
                             <th scope="row">{{ ++$key }}</th>
                             <td>{{ $users->user_id }}</td>
                             <td>{{ $users->name }}</td>
                             <td>{{ $users->email }}</td>
-                            @if (Auth()->user()->user_role == 1)
-                                <td><a href="delete/{{ $users->user_id }}" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Delete</a></td>
+                            <td>{{ $role }}</td>
+                            @if (Auth()->user()->user_role == 1 || Auth()->user()->user_role == 2)
+                                <td>
+                                    <a href="admin-edit/{{ $users->user_id }}" class="btn btn-success btn-sm" style="text-decoration: none" title="Edit">Edit</a>
+                                    @if (Auth()->user()->user_role == 1)
+                                        <a href="delete/{{ $users->user_id }}" onclick="return confirm('{{ $users->name }} will be deleted permanently!!!')" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Delete</a>
+                                    @endif
+                                </td>
                             @endif
                         </tr>
                     @endforeach

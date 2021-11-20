@@ -20,8 +20,8 @@
 </style>
 
 @section('content')
-    <div class="container d-flex justify-content-center">
-        <div class="card text-dark bg-light mb-3 col-6" style="margin-top: 100px;">
+    <div class="container d-flex justify-content-center mt-4">
+        <div class="card text-dark bg-light mb-3 col-6">
             <div class="card-header"><h2>User Profile</h2></div>
             <div class="card-body">
                 @if (Session::has('success'))

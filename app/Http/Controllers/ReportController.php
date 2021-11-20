@@ -18,6 +18,7 @@ use App\Models\VWProcurementPolicy;
 use App\Models\VWReportBookingArea;
 use App\Models\VWReportBookingDistrict;
 use App\Models\VWReportBookingLocal;
+use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {
@@ -513,6 +514,91 @@ class ReportController extends Controller
                 return view('report.report-books-local', compact('data', 'area', 'destination'));
             }
         }
+        elseif($report == 'Data Aggregation Report'){
+            if(isset($request->date)){
+                $date = $request->date;
+
+                $area_head_r = VWAreaheadReport::where(DB::raw('updated_at::date'), $date)->count();
+                $area_sup_q = VWAreaSupQuestions::where(DB::raw('updated_at::date'), $date)->count();
+                $community = VWCommunityReport::where(DB::raw('updated_at::date'), $date)->count();
+                $district_level = VWDistrictLevelMonoter::where(DB::raw('updated_at::date'), $date)->count();
+                $district_pas_q = VWDistrictPastorQuestion::where(DB::raw('updated_at::date'), $date)->count();
+                $district_pas_r = VWDistrictPastorReport::where(DB::raw('updated_at::date'), $date)->count();
+                $fin_policy = VWFinancialPolicy::where(DB::raw('updated_at::date'), $date)->count();
+                $local_eveng = VWLocalEvangelism::where(DB::raw('updated_at::date'), $date)->count();
+                $local_level = VWLocalLevelQuestion::where(DB::raw('updated_at::date'), $date)->count();
+                $member = VWMemberReport::where(DB::raw('updated_at::date'), $date)->count();
+                $moniter = VWMonitorReport::where(DB::raw('updated_at::date'), $date)->count();
+                $pro_policy = VWProcurementPolicy::where(DB::raw('updated_at::date'), $date)->count();
+                $report_area = VWReportBookingArea::where(DB::raw('updated_at::date'), $date)->count();
+                $report_district = VWReportBookingDistrict::where(DB::raw('updated_at::date'), $date)->count();
+                $report_local = VWReportBookingLocal::where(DB::raw('updated_at::date'), $date)->count();
+
+                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local;
+
+                $data = [
+                    'area_head_r' => $area_head_r,
+                    'area_sup_q' => $area_sup_q,
+                    'community' => $community,
+                    'district_level' => $district_level,
+                    'district_pas_q' => $district_pas_q,
+                    'district_pas_r' => $district_pas_r,
+                    'fin_policy' => $fin_policy,
+                    'local_eveng' => $local_eveng,
+                    'local_level' => $local_level,
+                    'member' => $member,
+                    'moniter' => $moniter,
+                    'pro_policy' => $pro_policy,
+                    'report_area' => $report_area,
+                    'report_district' => $report_district,
+                    'report_local' => $report_local,
+                    'total' => $total
+                ];
+            }
+            else{
+                $date = "All";
+                $area_head_r = VWAreaheadReport::count();
+                $area_sup_q = VWAreaSupQuestions::count();
+                $community = VWCommunityReport::count();
+                $district_level = VWDistrictLevelMonoter::count();
+                $district_pas_q = VWDistrictPastorQuestion::count();
+                $district_pas_r = VWDistrictPastorReport::count();
+                $fin_policy = VWFinancialPolicy::count();
+                $local_eveng = VWLocalEvangelism::count();
+                $local_level = VWLocalLevelQuestion::count();
+                $member = VWMemberReport::count();
+                $moniter = VWMonitorReport::count();
+                $pro_policy = VWProcurementPolicy::count();
+                $report_area = VWReportBookingArea::count();
+                $report_district = VWReportBookingDistrict::count();
+                $report_local = VWReportBookingLocal::count();
+
+                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local;
+
+                $data = [
+                    'area_head_r' => $area_head_r,
+                    'area_sup_q' => $area_sup_q,
+                    'community' => $community,
+                    'district_level' => $district_level,
+                    'district_pas_q' => $district_pas_q,
+                    'district_pas_r' => $district_pas_r,
+                    'fin_policy' => $fin_policy,
+                    'local_eveng' => $local_eveng,
+                    'local_level' => $local_level,
+                    'member' => $member,
+                    'moniter' => $moniter,
+                    'pro_policy' => $pro_policy,
+                    'report_area' => $report_area,
+                    'report_district' => $report_district,
+                    'report_local' => $report_local,
+                    'total' => $total
+                ];
+            }   
+            
+            return view('report.report-data-aggregation', compact('data', 'date'));
+            
+        }
+
     }
     
 }
