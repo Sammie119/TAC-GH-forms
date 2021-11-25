@@ -13,11 +13,13 @@ use App\Models\LocalEvangelism;
 use App\Models\LocalLevelQuestion;
 use App\Models\MemberReport;
 use App\Models\MonitorReport;
+use App\Models\PastorAssessmentQues;
 use App\Models\ProcurementPolicy;
 use Illuminate\Http\Request;
 use App\Models\RecordBooksArea;
 use App\Models\RecordBooksDistrict;
 use App\Models\RecordBooksLocal;
+use App\Models\SupAssessmentQues;
 use Illuminate\Support\Facades\Session;
 
 class EditFormController extends Controller
@@ -103,6 +105,16 @@ class EditFormController extends Controller
             $data = RecordBooksLocal::find($id);
             $form = 'RECORDING AND BOOK KEEPING - LOCAL REPORT';
             return view('edit.edit-report-books-local', compact('data','form'));
+        }
+        elseif($form == 'pastorass'){
+            $data = PastorAssessmentQues::find($id);
+            $form = 'PASTORS ASSESSMENT QUESTIONNAIRE';
+            return view('edit.edit-pastor-assessment', compact('data','form'));
+        }
+        elseif($form == 'sup_ass'){
+            $data = SupAssessmentQues::find($id);
+            $form = 'AREA SUPERINTENDENTS ASSESSMENT QUESTIONNAIRE';
+            return view('edit.edit-sup-assessment', compact('data','form'));
         }
         
     }
@@ -195,6 +207,18 @@ class EditFormController extends Controller
             }
             elseif($form == 'booking_local'){
                 $data = RecordBooksLocal::find($id);
+                $data->delete();
+                Session::flash('success', $this->message());
+                return response()->json(['success' => $this->message()]);
+            }
+            elseif($form == 'pastorass'){
+                $data = PastorAssessmentQues::find($id);
+                $data->delete();
+                Session::flash('success', $this->message());
+                return response()->json(['success' => $this->message()]);
+            }
+            elseif($form == 'sup_ass'){
+                $data = SupAssessmentQues::find($id);
                 $data->delete();
                 Session::flash('success', $this->message());
                 return response()->json(['success' => $this->message()]);

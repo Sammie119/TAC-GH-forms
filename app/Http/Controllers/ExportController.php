@@ -15,10 +15,12 @@ use App\Exports\FinancialPolicyExport;
 use App\Exports\LocalLevelQuestionExport;
 use App\Exports\MemberReportExport;
 use App\Exports\MonitorReportExport;
+use App\Exports\PastorAssessmentQuesExport;
 use App\Exports\ProcurementPolicyExport;
 use App\Exports\ReportBookingAreaExport;
 use App\Exports\ReportBookingDistrictExport;
 use App\Exports\ReportBookingLocalExport;
+use App\Exports\SupAssessmentQuesExport;
 
 class ExportController extends Controller
 {
@@ -95,5 +97,15 @@ class ExportController extends Controller
     public function exportToExcelReportBookingLocal($destination, $area, $dist, $loc)
     {
         return Excel::download(new ReportBookingLocalExport($destination, $area, $dist, $loc), $area.'_'.$dist.'_'.$loc.'_report_booking_local.xlsx');
+    }
+
+    public function exportToExcelPastorAssessment($destination, $area, $dist, $loc)
+    {
+        return Excel::download(new PastorAssessmentQuesExport($destination, $area, $dist, $loc), $area.'_'.$dist.'_'.$loc.'_pastor_assessment.xlsx');
+    }
+
+    public function exportToExcelSupAssessment($destination, $area, $dist, $loc)
+    {
+        return Excel::download(new SupAssessmentQuesExport($destination, $area, $dist, $loc), $area.'_'.$dist.'_'.$loc.'_sup_assessment.xlsx');
     }
 }

@@ -1,298 +1,36 @@
-<!-- FINANCIAL POLICY
-    fin_eva_a_area
-    fin_eva_a_district
-    fin_eva_a_local
-    fin_eva_a_moniter
-    fin_eva_a_question1a
-    fin_eva_a_comment1a
-    fin_eva_a_question1b
-    fin_eva_a_comment1b
-    fin_eva_a_question1c
-    fin_eva_a_comment1c
-    fin_eva_a_question1d
-    fin_eva_a_comment1d
-    fin_eva_a_question1e
-    fin_eva_a_comment1e
-    fin_eva_a_question1f
-    fin_eva_a_comment1f
-    fin_eva_a_question1g
-    fin_eva_a_comment1g
-    fin_eva_a_question2a
-    fin_eva_a_comment2a
-    fin_eva_a_question2b
-    fin_eva_a_comment2b
-    fin_eva_a_question2c
-    fin_eva_a_comment2c
-    fin_eva_a_question3a
-    fin_eva_a_comment3a
-    fin_eva_a_question3b
-    fin_eva_a_comment3b
-    fin_eva_a_question3c
-    fin_eva_a_comment3c
-    fin_eva_a_question3d
-    fin_eva_a_comment3d
-    fin_eva_a_question3e
-    fin_eva_a_comment3e
-    fin_eva_a_question3f
-    fin_eva_a_comment3f
-    fin_eva_a_question3g
-    fin_eva_a_comment3g
-    fin_eva_a_question3h
-    fin_eva_a_comment3h
-    fin_eva_a_question3i
-    fin_eva_a_comment3i
-    fin_eva_a_question4a
-    fin_eva_a_comment4a
-    fin_eva_a_comment4b
-    fin_eva_a_comment4c1
-    fin_eva_a_comment4c2
-    fin_eva_a_comment4c3
-    fin_eva_a_comment4d
-    fin_eva_a_comment4e
-    fin_eva_a_comment4f
-    fin_eva_a_comment5a
-    fin_eva_a_comment5b1
-    fin_eva_a_comment5b2
-    fin_eva_a_comment5b3
-    fin_eva_a_comment5b4
-    fin_eva_a_comment5c
-    fin_eva_a_question6a
-    fin_eva_a_comment6a
-    fin_eva_a_comment6b
-    fin_eva_a_question6c1
-    fin_eva_a_comment6c1
-    fin_eva_a_question6c2
-    fin_eva_a_comment6c2
-    fin_eva_a_comment6c3
-    fin_eva_a_question6d
-    fin_eva_a_comment6d
-    fin_eva_a_question6e
-    fin_eva_a_comment6e
-    fin_eva_a_question7a1
-    fin_eva_a_comment7a1
-    fin_eva_a_question7a2
-    fin_eva_a_comment7a2
-    fin_eva_a_question7b1
-    fin_eva_a_comment7b1
-    fin_eva_a_question7b2
-    fin_eva_a_comment7b2
-    fin_eva_a_question7b3
-    fin_eva_a_comment7b3
-    fin_eva_a_question7c
-    fin_eva_a_comment7c
-    fin_eva_a_question7d
-    fin_eva_a_comment7d
-    fin_eva_a_comment8a
-    fin_eva_a_comment8b
-    fin_eva_a_question8c
-    fin_eva_a_comment8c
-    fin_eva_a_question8d
-    fin_eva_a_comment8d
-    fin_eva_a_comment8e
-    fin_eva_a_comment8f -->
+past_ass_district
+past_ass_area
+past_ass_local
+past_ass_name
+past_ass_comment1
+past_ass_comment2
+past_ass_comment3
+past_ass_comment4
+past_ass_comment5
+past_ass_comment6
+past_ass_comment7
+past_ass_comment8
+past_ass_comment9
+past_ass_comment10
+past_ass_comment11
+past_ass_comment12
+past_ass_comment13
 
 
-<!-- PROCUREMENT POLICY
-    fin_eva_b_area
-    fin_eva_b_district
-    fin_eva_b_local
-    fin_eva_b_moniter
-    fin_eva_b_comment1a
-    fin_eva_b_question1b
-    fin_eva_b_comment1b
-    fin_eva_b_question1c
-    fin_eva_b_comment1c
-    fin_eva_b_question1d
-    fin_eva_b_comment1d
-    fin_eva_b_comment2a
-    fin_eva_b_question2b
-    fin_eva_b_comment2b
-    fin_eva_b_question2c
-    fin_eva_b_comment2c
-    fin_eva_b_comment2d
-    fin_eva_b_question3a
-    fin_eva_b_comment3a
-    fin_eva_b_comment3b
-    fin_eva_b_question3c
-    fin_eva_b_comment3c
-    fin_eva_b_comment3d
-    fin_eva_b_question4a
-    fin_eva_b_comment4a
-    fin_eva_b_comment4b
-    fin_eva_b_question4c
-    fin_eva_b_comment4c
-    fin_eva_b_question5a
-    fin_eva_b_comment5a
-    fin_eva_b_question5b
-    fin_eva_b_comment5b
-    fin_eva_b_question5c
-    fin_eva_b_comment5c
-    fin_eva_b_comment5d
-    fin_eva_b_question6a
-    fin_eva_b_comment6a
-    fin_eva_b_question6b
-    fin_eva_b_comment6b
-    fin_eva_b_question6c
-    fin_eva_b_comment6c
-    fin_eva_b_question7a
-    fin_eva_b_comment7a
-    fin_eva_b_comment7b
-    fin_eva_b_comment7c
-    fin_eva_b_comment7d
-    fin_eva_b_question8a
-    fin_eva_b_comment8a
-    fin_eva_b_question8b
-    fin_eva_b_comment8b -->
-
-
-<!-- RECORDING AND BOOK KEEPING _ AREA
-    rec_area_area
-    rec_area_prepared_by
-    rec_area_year
-    rec_area_period
-    rec_area_w_p
-    rec_area_question1
-    rec_area_comment1
-    rec_area_question2
-    rec_area_comment2
-    rec_area_question3
-    rec_area_comment3
-    rec_area_question4
-    rec_area_comment4
-    rec_area_question5
-    rec_area_comment5
-    rec_area_question6
-    rec_area_comment6
-    rec_area_question7
-    rec_area_comment7
-    rec_area_question8
-    rec_area_comment8
-    rec_area_question9
-    rec_area_comment9
-    rec_area_question10
-    rec_area_comment10
-    rec_area_question11
-    rec_area_comment11
-    rec_area_question12
-    rec_area_comment12
-    rec_area_question13
-    rec_area_comment13
-    rec_area_question14
-    rec_area_comment14
-    rec_area_question15
-    rec_area_comment15
-    rec_area_question16
-    rec_area_comment16
-    rec_area_question17
-    rec_area_comment17
-    rec_area_question18
-    rec_area_comment18
-    rec_area_question19
-    rec_area_comment19
-    rec_area_question20
-    rec_area_comment20
-    rec_area_question21
-    rec_area_comment21 -->
-
-
-<!-- RECORDING AND BOOK KEEPING _ DISTRICT
-    rec_dist_area
-    rec_dist_district
-    rec_dist_prepared_by
-    rec_dist_year
-    rec_dist_period
-    rec_dist_w_p
-    rec_dist_question1
-    rec_dist_comment1
-    rec_dist_question2
-    rec_dist_comment2
-    rec_dist_question3
-    rec_dist_comment3
-    rec_dist_question4
-    rec_dist_comment4
-    rec_dist_question5
-    rec_dist_comment5
-    rec_dist_question6
-    rec_dist_comment6
-    rec_dist_question7
-    rec_dist_comment7
-    rec_dist_question8
-    rec_dist_comment8
-    rec_dist_question9
-    rec_dist_comment9
-    rec_dist_question10
-    rec_dist_comment10
-    rec_dist_question11
-    rec_dist_comment11
-    rec_dist_question12
-    rec_dist_comment12
-    rec_dist_question13
-    rec_dist_comment13
-    rec_dist_question14
-    rec_dist_comment14
-    rec_dist_question15
-    rec_dist_comment15
-    rec_dist_question16
-    rec_dist_comment16
-    rec_dist_question17
-    rec_dist_comment17
-    rec_dist_question18
-    rec_dist_comment18
-    rec_dist_question19
-    rec_dist_comment19
-    rec_dist_question20
-    rec_dist_comment20
-    rec_dist_question21
-    rec_dist_comment21 -->
-
-
-<!-- RECORDING AND BOOK KEEPING _ LOCAL
-    rec_local_area
-    rec_local_district
-    rec_local_local
-    rec_local_prepared_by
-    rec_local_year
-    rec_local_period
-    rec_local_w_p
-    rec_local_question1
-    rec_local_comment1
-    rec_local_question2
-    rec_local_comment2
-    rec_local_question3
-    rec_local_comment3
-    rec_local_question4
-    rec_local_comment4
-    rec_local_question5
-    rec_local_comment5
-    rec_local_question6
-    rec_local_comment6
-    rec_local_question7
-    rec_local_comment7
-    rec_local_question8
-    rec_local_comment8
-    rec_local_question9
-    rec_local_comment9
-    rec_local_question10
-    rec_local_comment10
-    rec_local_question11
-    rec_local_comment11
-    rec_local_question12
-    rec_local_comment12
-    rec_local_question13
-    rec_local_comment13
-    rec_local_question14
-    rec_local_comment14
-    rec_local_question15
-    rec_local_comment15
-    rec_local_question16
-    rec_local_comment16
-    rec_local_question17
-    rec_local_comment17
-    rec_local_question18
-    rec_local_comment18
-    rec_local_question19
-    rec_local_comment19
-    rec_local_question20
-    rec_local_comment20
-    rec_local_question21
-    rec_local_comment21 -->
+sup_ass_district
+sup_ass_area
+sup_ass_local
+sup_ass_name
+sup_ass_comment1
+sup_ass_comment2
+sup_ass_comment3
+sup_ass_comment4
+sup_ass_comment5
+sup_ass_comment6
+sup_ass_comment7
+sup_ass_comment8
+sup_ass_comment9
+sup_ass_comment10
+sup_ass_comment11
+sup_ass_comment12
+sup_ass_comment13

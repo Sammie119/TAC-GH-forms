@@ -81,21 +81,31 @@
                     </tr>
                     <tr>
                         <th scope="row">12</th>
+                        <td>Pastor's Assessment Questionnaire</td>
+                        <td>{{ $data['pastorass'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">13</th>
+                        <td>Area Sup's Assessment Questionnaire</td>
+                        <td>{{ $data['sup_ass'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">14</th>
                         <td>Procurement Policy</td>
                         <td>{{ $data['pro_policy'] }}</td>
                     </tr>
                     <tr>
-                        <th scope="row">13</th>
+                        <th scope="row">15</th>
                         <td>Records Keeping - Area</td>
                         <td>{{ $data['report_area'] }}</td>
                     </tr>
                     <tr>
-                        <th scope="row">14</th>
+                        <th scope="row">16</th>
                         <td>Records Keeping - District</td>
                         <td>{{ $data['report_district'] }}</td>
                     </tr>
                     <tr>
-                        <th scope="row">15</th>
+                        <th scope="row">17</th>
                         <td>Records Keeping - Local</td>
                         <td>{{ $data['report_local'] }}</td>
                     </tr>

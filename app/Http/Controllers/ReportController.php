@@ -19,6 +19,8 @@ use App\Models\VWReportBookingArea;
 use App\Models\VWReportBookingDistrict;
 use App\Models\VWReportBookingLocal;
 use Illuminate\Support\Facades\DB;
+use App\Models\VWPastorAssessmentQues;
+use App\Models\VWSupAssessmentQues;
 
 class ReportController extends Controller
 {
@@ -533,27 +535,11 @@ class ReportController extends Controller
                 $report_area = VWReportBookingArea::where(DB::raw('updated_at::date'), $date)->count();
                 $report_district = VWReportBookingDistrict::where(DB::raw('updated_at::date'), $date)->count();
                 $report_local = VWReportBookingLocal::where(DB::raw('updated_at::date'), $date)->count();
+                $pastorass = VWPastorAssessmentQues::where(DB::raw('updated_at::date'), $date)->count();
+                $sup_ass = VWSupAssessmentQues::where(DB::raw('updated_at::date'), $date)->count();
 
-                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local;
+                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local+$pastorass+$sup_ass;
 
-                $data = [
-                    'area_head_r' => $area_head_r,
-                    'area_sup_q' => $area_sup_q,
-                    'community' => $community,
-                    'district_level' => $district_level,
-                    'district_pas_q' => $district_pas_q,
-                    'district_pas_r' => $district_pas_r,
-                    'fin_policy' => $fin_policy,
-                    'local_eveng' => $local_eveng,
-                    'local_level' => $local_level,
-                    'member' => $member,
-                    'moniter' => $moniter,
-                    'pro_policy' => $pro_policy,
-                    'report_area' => $report_area,
-                    'report_district' => $report_district,
-                    'report_local' => $report_local,
-                    'total' => $total
-                ];
             }
             else{
                 $date = "All";
@@ -572,31 +558,112 @@ class ReportController extends Controller
                 $report_area = VWReportBookingArea::count();
                 $report_district = VWReportBookingDistrict::count();
                 $report_local = VWReportBookingLocal::count();
+                $pastorass = VWPastorAssessmentQues::count();
+                $sup_ass = VWSupAssessmentQues::count();
 
-                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local;
+                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local+$pastorass+$sup_ass;
 
-                $data = [
-                    'area_head_r' => $area_head_r,
-                    'area_sup_q' => $area_sup_q,
-                    'community' => $community,
-                    'district_level' => $district_level,
-                    'district_pas_q' => $district_pas_q,
-                    'district_pas_r' => $district_pas_r,
-                    'fin_policy' => $fin_policy,
-                    'local_eveng' => $local_eveng,
-                    'local_level' => $local_level,
-                    'member' => $member,
-                    'moniter' => $moniter,
-                    'pro_policy' => $pro_policy,
-                    'report_area' => $report_area,
-                    'report_district' => $report_district,
-                    'report_local' => $report_local,
-                    'total' => $total
-                ];
             }   
+
+            $data = [
+                'area_head_r' => $area_head_r,
+                'area_sup_q' => $area_sup_q,
+                'community' => $community,
+                'district_level' => $district_level,
+                'district_pas_q' => $district_pas_q,
+                'district_pas_r' => $district_pas_r,
+                'fin_policy' => $fin_policy,
+                'local_eveng' => $local_eveng,
+                'local_level' => $local_level,
+                'member' => $member,
+                'moniter' => $moniter,
+                'pro_policy' => $pro_policy,
+                'report_area' => $report_area,
+                'report_district' => $report_district,
+                'report_local' => $report_local,
+                'pastorass' => $pastorass,
+                'sup_ass' => $sup_ass,
+                'total' => $total
+            ];
             
             return view('report.report-data-aggregation', compact('data', 'date'));
             
+        }
+        elseif($report == 'Pastors Assessment Questionnaire'){
+            if($destination == 'General'){
+                $area = [
+                    'area' => $destination,
+                    'district' => 'all',
+                    'local' => 'all'
+                ];
+                $data = VWPastorAssessmentQues::all();
+                return view('report.report-pastor-assessment', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'Area'){
+                $area = [
+                    'area' => $area,
+                    'district' => 'all',
+                    'local' => 'all'
+                ];
+                $data = VWPastorAssessmentQues::where('area', $area)->get();
+                return view('report.report-pastor-assessment', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'District'){
+                $area = [
+                    'area' => $area,
+                    'district' => $district,
+                    'local' => 'all'
+                ];
+                $data = VWPastorAssessmentQues::where('area', $area)->where('district', $district)->get();
+                return view('report.report-pastor-assessment', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'Local'){
+                $area = [
+                    'area' => $area,
+                    'district' => $district,
+                    'local' => $local
+                ];
+                $data = VWPastorAssessmentQues::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                return view('report.report-pastor-assessment', compact('data', 'area', 'destination'));
+            }
+        }
+        elseif($report == 'Sup Assessment Questionnaire'){
+            if($destination == 'General'){
+                $area = [
+                    'area' => $destination,
+                    'district' => 'all',
+                    'local' => 'all'
+                ];
+                $data = VWSupAssessmentQues::all();
+                return view('report.report-sup-assessment', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'Area'){
+                $area = [
+                    'area' => $area,
+                    'district' => 'all',
+                    'local' => 'all'
+                ];
+                $data = VWSupAssessmentQues::where('area', $area)->get();
+                return view('report.report-sup-assessment', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'District'){
+                $area = [
+                    'area' => $area,
+                    'district' => $district,
+                    'local' => 'all'
+                ];
+                $data = VWSupAssessmentQues::where('area', $area)->where('district', $district)->get();
+                return view('report.report-sup-assessment', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'Local'){
+                $area = [
+                    'area' => $area,
+                    'district' => $district,
+                    'local' => $local
+                ];
+                $data = VWSupAssessmentQues::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                return view('report.report-sup-assessment', compact('data', 'area', 'destination'));
+            }
         }
 
     }

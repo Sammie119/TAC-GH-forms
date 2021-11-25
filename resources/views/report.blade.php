@@ -43,10 +43,12 @@
                                 <option value="Local Level Monitoring">
                                 <option value="Members Report">
                                 <option value="Monitors Opinion">
+                                <option value="Pastors Assessment Questionnaire">
                                 <option value="Procurement Policy">
                                 <option value="Records Keeping - Area">
                                 <option value="Records Keeping - District">
                                 <option value="Records Keeping - Local">
+                                <option value="Sup Assessment Questionnaire">
                             </datalist>
                         </div> 
                     </div>

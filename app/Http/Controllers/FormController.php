@@ -12,6 +12,8 @@ use App\Models\LocalEvangelism;
 use App\Models\LocalLevelQuestion;
 use App\Models\MemberReport;
 use App\Models\MonitorReport;
+use App\Models\PastorAssessmentQues;
+use App\Models\SupAssessmentQues;
 use Illuminate\Http\Request;
 
 class FormController extends Controller
@@ -619,6 +621,94 @@ class FormController extends Controller
         $data->monirep_tithes_paid = $request->monirep_tithes_paid;
         $data->monirep_oferring = $request->monirep_oferring;
         $data->monirep_total_tithe_off = $request->monirep_total_tithe_off;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->update();
+
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
+    }
+
+    public function pastorAssessmentQuestion(Request $request)
+    {
+        if(isset($request->id)){
+            $data = PastorAssessmentQues::find($request->id);
+        }
+        else{
+            $data = new PastorAssessmentQues;
+        }
+        
+        $data->past_ass_district = $request->past_ass_district;
+        $data->past_ass_area = $request->past_ass_area;
+        $data->past_ass_local = $request->past_ass_local;
+        $data->past_ass_name = $request->past_ass_name;
+        $data->past_ass_comment1 = $request->past_ass_comment1;
+        $data->past_ass_comment2 = $request->past_ass_comment2;
+        $data->past_ass_comment3 = $request->past_ass_comment3;
+        $data->past_ass_comment4 = $request->past_ass_comment4;
+        $data->past_ass_comment5 = $request->past_ass_comment5;
+        $data->past_ass_comment6 = $request->past_ass_comment6;
+        $data->past_ass_comment7 = $request->past_ass_comment7;
+        $data->past_ass_comment8 = $request->past_ass_comment8;
+        $data->past_ass_comment9 = $request->past_ass_comment9;
+        $data->past_ass_comment10 = $request->past_ass_comment10;
+        $data->past_ass_comment11 = $request->past_ass_comment11;
+        $data->past_ass_comment12 = $request->past_ass_comment12;
+        $data->past_ass_comment13 = $request->past_ass_comment13;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->update();
+
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
+    }
+
+    public function supAssessmentQuestion(Request $request)
+    {
+        if(isset($request->id)){
+            $data = SupAssessmentQues::find($request->id);
+        }
+        else{
+            $data = new SupAssessmentQues;
+        }
+        
+        $data->sup_ass_district = $request->sup_ass_district;
+        $data->sup_ass_area = $request->sup_ass_area;
+        $data->sup_ass_local = $request->sup_ass_local;
+        $data->sup_ass_name = $request->sup_ass_name;
+        $data->sup_ass_comment1 = $request->sup_ass_comment1;
+        $data->sup_ass_comment2 = $request->sup_ass_comment2;
+        $data->sup_ass_comment3 = $request->sup_ass_comment3;
+        $data->sup_ass_comment4 = $request->sup_ass_comment4;
+        $data->sup_ass_comment5 = $request->sup_ass_comment5;
+        $data->sup_ass_comment6 = $request->sup_ass_comment6;
+        $data->sup_ass_comment7 = $request->sup_ass_comment7;
+        $data->sup_ass_comment8 = $request->sup_ass_comment8;
+        $data->sup_ass_comment9 = $request->sup_ass_comment9;
+        $data->sup_ass_comment10 = $request->sup_ass_comment10;
+        $data->sup_ass_comment11 = $request->sup_ass_comment11;
+        $data->sup_ass_comment12 = $request->sup_ass_comment12;
+        $data->sup_ass_comment13 = $request->sup_ass_comment13;
         
         if(isset($request->id)){
             $data->updated_by = Auth()->user()->user_id;

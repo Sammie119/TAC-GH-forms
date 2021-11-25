@@ -47,6 +47,8 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::post('local-level', [FormController::class, 'localLevelQuestion'])->name('local-level');
     Route::post('member-report', [FormController::class, 'memberReport'])->name('member-report');
     Route::post('monitor-report', [FormController::class, 'monitorsReport'])->name('monitor-report');
+    Route::post('pastorassesstment', [FormController::class, 'pastorAssessmentQuestion'])->name('pastorassesstment');
+    Route::post('supassesstment', [FormController::class, 'supAssessmentQuestion'])->name('supassesstment');
 
     // Finance Routes
     Route::get('finance', [FinanceController::class, 'create']);
@@ -61,6 +63,10 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::post('report-post', [ReportController::class, 'report'])->name('report-post');
 
     // Export Routes  
+
+    
+
+
     Route::get('local-ev/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelLocalEvange']);
     Route::get('area-head-r/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelAreaHeadReport']);
     Route::get('area-sup-r/{distination}', [ExportController::class, 'exportToExcelAreaSup']);
@@ -76,6 +82,8 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::get('r-booking-area/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelReportBookingArea']);
     Route::get('r-booking-district/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelReportBookingDistrict']);
     Route::get('r-booking-local/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelReportBookingLocal']);
+    Route::get('pastor-ass/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelPastorAssessment']);
+    Route::get('sup-ass/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelSupAssessment']);
 
     // EditController Routes
     Route::get('edit-form/{id}/{form}', [EditFormController::class, 'editForm']);
