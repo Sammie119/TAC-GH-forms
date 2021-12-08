@@ -9,6 +9,7 @@
             <h4>
                 RECORDING AND BOOK KEEPING - AREA REPORT ({{ $area['area'] }})
                 @if (Auth()->user()->user_role != 0)
+                    <a href="view-chart/r-booking-area/{{ $destination }}/{{ $area['area'] }}/{{ $area['district'] }}/{{ $area['local'] }}" class="btn btn-info float-end" style="margin-left: 10px;">Report</a>
                     <a href="r-booking-area/{{ $destination }}/{{ $area['area'] }}/{{ $area['district'] }}/{{ $area['local'] }}" class="btn btn-success float-end" style="margin-left: 10px;">Export to Excel</a>
                 @endif
                 {{-- <a href="#" class="btn btn-info float-end">Statistics</a> --}}

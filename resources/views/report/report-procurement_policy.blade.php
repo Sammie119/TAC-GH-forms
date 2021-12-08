@@ -9,6 +9,7 @@
             <h4>
                 PROCUREMENT POLICY REPORT ({{ $area['area'] }})
                 @if (Auth()->user()->user_role != 0)
+                    <a href="view-chart/procurement-p/{{ $destination }}/{{ $area['area'] }}/{{ $area['district'] }}/{{ $area['local'] }}" class="btn btn-info float-end" style="margin-left: 10px;">Report</a>
                     <a href="procurement-p/{{ $destination }}/{{ $area['area'] }}/{{ $area['district'] }}/{{ $area['local'] }}" class="btn btn-success float-end" style="margin-left: 10px;">Export to Excel</a>
                 @endif
                 {{-- <a href="#" class="btn btn-info float-end">Statistics</a> --}}

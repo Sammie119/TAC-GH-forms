@@ -18,16 +18,18 @@ use App\Models\LocalEvangelism;
 use App\Models\LocalLevelQuestion;
 use App\Models\MemberReport;
 use App\Models\MonitorReport;
+use App\Models\PastorAssessmentQues;
 use App\Models\ProcurementPolicy;
 use App\Models\RecordBooksArea;
 use App\Models\RecordBooksDistrict;
 use App\Models\RecordBooksLocal;
+use App\Models\SupAssessmentQues;
 
 class AuthController extends Controller
 {
     public function userList()
     {
-        $users = User::where('user_role', '!=', 1)->get();
+        $users = User::where('user_role', '!=', 1)->orderBy('user_id')->get();
         return view('users-list', compact('users'));
     }
 
@@ -76,7 +78,24 @@ class AuthController extends Controller
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
-            'user_role' => $request['user_role']
+            'user_role' => $request['user_role'],
+            'form1' => ($request->has('form1')) ? 1 : 0,
+            'form2' => ($request->has('form2')) ? 1 : 0,
+            'form3' => ($request->has('form3')) ? 1 : 0,
+            'form4' => ($request->has('form4')) ? 1 : 0,
+            'form5' => ($request->has('form5')) ? 1 : 0,
+            'form6' => ($request->has('form6')) ? 1 : 0,
+            'form7' => ($request->has('form7')) ? 1 : 0,
+            'form8' => ($request->has('form8')) ? 1 : 0,
+            'form9' =>  ($request->has('form9')) ? 1 : 0,
+            'form10' => ($request->has('form10')) ? 1 : 0,
+            'form11' => ($request->has('form11')) ? 1 : 0,
+            'form12' => ($request->has('form12')) ? 1 : 0,
+            'form13' => ($request->has('form13')) ? 1 : 0,
+            'form14' => ($request->has('form14')) ? 1 : 0,
+            'form15' => ($request->has('form15')) ? 1 : 0,
+            'form16' => ($request->has('form16')) ? 1 : 0,
+            'form17' => ($request->has('form17')) ? 1 : 0,
           ]);
        
         return back()->with('success', 'New User Successfully Created!!');
@@ -84,7 +103,7 @@ class AuthController extends Controller
      
     public function home()
     {
-        $users = User::count();
+        // $users = User::count();
         $areaHeadReport = AreaHeadReport::count();
         $areaSupQuestions = AreaSupQuestions::count();
         $communityReport = CommunityReport::count();
@@ -100,11 +119,13 @@ class AuthController extends Controller
         $rec_booking_area = RecordBooksArea::count();
         $rec_booking_dist = RecordBooksDistrict::count();
         $rec_booking_loc = RecordBooksLocal::count();
+        $pas_assessment = PastorAssessmentQues::count();
+        $sup_assessment = SupAssessmentQues::count();
 
-        $total = $areaHeadReport + $areaSupQuestions + $communityReport + $districtLevelMonoter + $districtPastorQuestion + $districtPastorReport + $localEvangelism + $localLevelQuestion + $memberReport + $monitorReport + $fin_policy + $pro_policy + $rec_booking_area + $rec_booking_dist + $rec_booking_loc;
+        $total = $areaHeadReport + $areaSupQuestions + $communityReport + $districtLevelMonoter + $districtPastorQuestion + $districtPastorReport + $localEvangelism + $localLevelQuestion + $memberReport + $monitorReport + $fin_policy + $pro_policy + $rec_booking_area + $rec_booking_dist + $rec_booking_loc + $pas_assessment + $sup_assessment;
 
         $data = [
-            'users' => $users,
+            // 'users' => $users,
             'areaHeadReport' => $areaHeadReport,
             'areaSupQuestions' => $areaSupQuestions,
             'communityReport' => $communityReport,
@@ -120,6 +141,8 @@ class AuthController extends Controller
             'rec_booking_area' => $rec_booking_area,
             'rec_booking_dist' => $rec_booking_dist,
             'rec_booking_loc' => $rec_booking_loc, 
+            'pas_assessment' => $pas_assessment,
+            'sup_assessment' => $sup_assessment,
             'total' => $total
         ];
         return view('home', compact('data'));
@@ -162,9 +185,27 @@ class AuthController extends Controller
     {
         $user = User::find($request->id);
 
-        $user->user_role = $request->user_role;
-
-        $user->update();
+        // $user->user_role = $request->user_role;
+        $user->update([
+            'user_role' => $request['user_role'],
+            'form1' => ($request->has('form1')) ? 1 : 0,
+            'form2' => ($request->has('form2')) ? 1 : 0,
+            'form3' => ($request->has('form3')) ? 1 : 0,
+            'form4' => ($request->has('form4')) ? 1 : 0,
+            'form5' => ($request->has('form5')) ? 1 : 0,
+            'form6' => ($request->has('form6')) ? 1 : 0,
+            'form7' => ($request->has('form7')) ? 1 : 0,
+            'form8' => ($request->has('form8')) ? 1 : 0,
+            'form9' =>  ($request->has('form9')) ? 1 : 0,
+            'form10' => ($request->has('form10')) ? 1 : 0,
+            'form11' => ($request->has('form11')) ? 1 : 0,
+            'form12' => ($request->has('form12')) ? 1 : 0,
+            'form13' => ($request->has('form13')) ? 1 : 0,
+            'form14' => ($request->has('form14')) ? 1 : 0,
+            'form15' => ($request->has('form15')) ? 1 : 0,
+            'form16' => ($request->has('form16')) ? 1 : 0,
+            'form17' => ($request->has('form17')) ? 1 : 0,
+          ]);
 
         return back()->with('success', $user->name.'\'s Role changed Successfully!!');
     }

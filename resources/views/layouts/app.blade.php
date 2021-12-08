@@ -18,7 +18,11 @@
 
   </head>
   <body style="background: #F2F4F4">
-    @include('layouts.navbar')
+    @if (Auth()->user()->user_role == 3)
+      @include('layouts.formfiller-navbar')
+    @else
+      @include('layouts.navbar')
+    @endif
 
     @yield('content')
 

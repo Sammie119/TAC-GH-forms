@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChartsController;
 use App\Http\Controllers\EditFormController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\ExportToPDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,10 +65,6 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::post('report-post', [ReportController::class, 'report'])->name('report-post');
 
     // Export Routes  
-
-    
-
-
     Route::get('local-ev/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelLocalEvange']);
     Route::get('area-head-r/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelAreaHeadReport']);
     Route::get('area-sup-r/{distination}', [ExportController::class, 'exportToExcelAreaSup']);
@@ -88,4 +86,11 @@ Route::middleware(['protectedPages'])->group(function () {
     // EditController Routes
     Route::get('edit-form/{id}/{form}', [EditFormController::class, 'editForm']);
     Route::delete('/delete-form/{id}/{form}', [EditFormController::class, 'delete']);
+
+    // ChartController Route
+    Route::get('view-chart/{form}/{distination}/{area}/{dist}/{loc}', [ChartsController::class, 'chartsAreaSup']);
+
+    // Export to PDF Route
+    // Route::get('area-head-pdf/{distination}/{area}/{dist}/{loc}', [ExportToPDFController::class, 'areaHeadPDF']);
+
 });

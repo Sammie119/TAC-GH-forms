@@ -13,5 +13,7 @@ class VWMemberReport extends Model
 
     protected $hidden = [
         'member_id',
+        'member_question4',
+        'member_question10',
     ];
 }

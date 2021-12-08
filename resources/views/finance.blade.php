@@ -32,27 +32,27 @@
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
 
                         {{-- FINANCIAL EVALUATION SHEET - GENERAL POLICIES A --}}
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form13 == 1) echo 'style="display: none"' ?> >
                             <button class="nav-link active" id="fin-eva-a-tab" data-bs-toggle="tab" data-bs-target="#fin-eva-a" type="button" role="tab" aria-controls="fin-eva-a" aria-selected="false">Financial Policy</button>
                         </li>
 
                         {{-- FINANCIAL EVALUATION SHEET - GENERAL POLICIES B --}}
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form14 == 1) echo 'style="display: none"' ?> >
                             <button class="nav-link" id="fin-eva-b-tab" data-bs-toggle="tab" data-bs-target="#fin-eva-b" type="button" role="tab" aria-controls="fin-eva-b" aria-selected="false">Procurement Policy</button>
                         </li>
 
                         {{-- FINANCIAL EVALUATION SHEET - RECORDING AND BOOK KEEPING AREA --}}
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form15 == 1) echo 'style="display: none"' ?> >
                             <button class="nav-link" id="rec-area-tab" data-bs-toggle="tab" data-bs-target="#rec-area" type="button" role="tab" aria-controls="rec-area" aria-selected="false">Records - Area</button>
                         </li>
 
                         {{-- FINANCIAL EVALUATION SHEET - RECORDING AND BOOK KEEPING DISTRICT --}}
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form16 == 1) echo 'style="display: none"' ?> >
                             <button class="nav-link" id="rec-dist-tab" data-bs-toggle="tab" data-bs-target="#rec-dist" type="button" role="tab" aria-controls="rec-dist" aria-selected="false">Records - District</button>
                         </li>
 
                         {{-- FINANCIAL EVALUATION SHEET - RECORDING AND BOOK KEEPING LOCAL --}}
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form17 == 1) echo 'style="display: none"' ?> >
                             <button class="nav-link" id="rec-local-tab" data-bs-toggle="tab" data-bs-target="#rec-local" type="button" role="tab" aria-controls="rec-local" aria-selected="false">Records - Local</button>
                         </li>
 
@@ -62,7 +62,7 @@
                     <div class="tab-content" id="myTabContent">
 
                         {{-- FINANCIAL EVALUATION SHEET - GENERAL POLICIES A--}}
-                        <div class="tab-pane fade show active" id="fin-eva-a" role="tabcard" aria-labelledby="fin-eva-a-tab">
+                        <div class="tab-pane fade show active" id="fin-eva-a" role="tabcard" aria-labelledby="fin-eva-a-tab" <?php if (Auth()->user()->form13 == 1) echo 'style="display: none"' ?> >
                             @include('forms.financial_policy')
                         </div>
 

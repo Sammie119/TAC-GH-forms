@@ -9,6 +9,7 @@
             <h4>
                 AREA SUPERINTENDENTS' DIRECT QUESTIONNAIRE
                 @if (Auth()->user()->user_role != 0)
+                    <a href="view-chart/area-sup-r/{{ $destination }}/1/1/1" class="btn btn-info float-end" style="margin-left: 10px;">Report</a>
                     <a href="area-sup-r/{{ $destination }}" class="btn btn-success float-end" style="margin-left: 10px;">Export to Excel</a>
                 @endif
                 {{-- <a href="#" class="btn btn-info float-end">Statistics</a> --}}

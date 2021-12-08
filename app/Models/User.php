@@ -29,6 +29,23 @@ class User extends Authenticatable
         'email',
         'password',
         'user_role',
+        'form1',
+        'form2',
+        'form3',
+        'form4',
+        'form5',
+        'form6',
+        'form7',
+        'form8',
+        'form9',
+        'form10',
+        'form11',
+        'form12',
+        'form13',
+        'form14',
+        'form15',
+        'form16',
+        'form17',
     ];
 
     /**

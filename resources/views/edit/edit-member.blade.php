@@ -142,19 +142,7 @@
                                             <div class=""> 
                                                 <label for="" class="form-label">When was the last time the Area Superintendent visited your Local church?</label>
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" required name="member_question4" value="Yes" <?php if ($data->member_question4 == 'Yes') echo "checked";?> >
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    Yes
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="member_question4" value="No" <?php if ($data->member_question4 == 'No') echo "checked";?> >
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    No
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
+                                            <div class="form-check" style="display: none">
                                                 <input class="form-check-input" type="radio" name="member_question4" value="Somehow" <?php if ($data->member_question4 == 'Somehow') echo "checked";?> >
                                                 <label class="form-check-label" for="flexRadioDefault1">
                                                     Somehow
@@ -304,19 +292,7 @@
                                             <div class=""> 
                                                 <label for="" class="form-label">What is the most pressing need of the Local</label>
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" required name="member_question10" value="Yes" <?php if ($data->member_question10 == 'Yes') echo "checked";?> >
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    Yes
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="member_question10" value="No" <?php if ($data->member_question10 == 'No') echo "checked";?> >
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    No
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
+                                            <div class="form-check" style="display: none">
                                                 <input class="form-check-input" type="radio" name="member_question10" value="Somehow" <?php if ($data->member_question10 == 'Somehow') echo "checked";?> >
                                                 <label class="form-check-label" for="flexRadioDefault1">
                                                     Somehow

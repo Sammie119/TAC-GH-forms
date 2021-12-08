@@ -50,7 +50,7 @@
                             @endif
                         </div>
                         <div class="col-sm-4"> 
-                            <select name="user_role" required id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
+                            <select name="user_role" required id="user_role" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
                                 @php
                                     if($user->user_role == 2 ){
                                         $role = 'Admin';
@@ -86,6 +86,84 @@
                             @endif
                         </div>
                     </div>
+                    <div class="row ml-2" <?php if ($user->user_role != 3) echo 'style="display: none"' ?> id="forms-filler">
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form1" value="1" role="switch" id="flexSwitchCheckDefault" <?php if ($user->form1 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Area Heads Visitation Report</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form2" value="1" role="switch" id="flexSwitchCheckChecked" <?php if ($user->form2 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">Area Sup Questionnaire</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form3" value="1" role="switch" id="flexSwitchCheckDisabled" <?php if ($user->form3 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckDisabled">Community Impression Report</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form4" value="1" role="switch" id="flexSwitchCheckCheckedDisabled" <?php if ($user->form4 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">District Level Monitoring</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form5" value="1" role="switch" id="flexSwitchCheckDefault" <?php if ($user->form5 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Dist Pastors Questionnaire</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form6" value="1" role="switch" id="flexSwitchCheckChecked" <?php if ($user->form6 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">District Pastor Visitation Rep</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form7" value="1" role="switch" id="flexSwitchCheckDisabled" <?php if ($user->form7 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckDisabled">Local Evangelism</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form8" value="1" role="switch" id="flexSwitchCheckCheckedDisabled" <?php if ($user->form8 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">Local Level Monitoring</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form9" value="1" role="switch" id="flexSwitchCheckDefault" <?php if ($user->form9 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Members Report</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form10" value="1" role="switch" id="flexSwitchCheckChecked" <?php if ($user->form10 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">Monitors Opinion</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form11" value="1" role="switch" id="flexSwitchCheckDisabled" <?php if ($user->form11 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckDisabled">Pastors Assessment Questionnaire</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-2">
+                                        <input class="form-check-input" type="checkbox" name="form12" value="1" role="switch" id="flexSwitchCheckCheckedDisabled" <?php if ($user->form12 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Sup Assessment Questionnaire</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form13" value="1" role="switch" id="flexSwitchCheckDefault" <?php if ($user->form13 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Financial Policy</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form14" value="1" role="switch" id="flexSwitchCheckChecked" <?php if ($user->form14 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">Procurement Policy</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form15" value="1" role="switch" id="flexSwitchCheckDisabled" <?php if ($user->form15 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckDisabled">Records Keeping - Area</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox"name="form16" value="1" role="switch" id="flexSwitchCheckCheckedDisabled" <?php if ($user->form16 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Records Keeping - District</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox"name="form17" value="1" role="switch" id="flexSwitchCheckCheckedDisabled" <?php if ($user->form17 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Records Keeping - Local</label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                     <div class="row">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
@@ -93,5 +171,21 @@
             </div>
           </div>
     </div>
+
+    <script type="text/javascript">
+        window.onload = function(){
+            document.getElementById('date-picker-example').focus();
+
+            $('#user_role').on('change',function(){  
+                if(document.getElementById('user_role').value == '3' ){
+                    document.getElementById('forms-filler').style.display='block';
+                }else{
+                    document.getElementById('forms-filler').style.display='none';
+                }
+                
+            });
+
+        };
+    </script>
     
 @endsection
