@@ -78,7 +78,7 @@ class ReportBookingAreaExport implements FromCollection, WithHeadings
             return VWReportBookingArea::all();
         }
         else{
-            return VWReportBookingArea::where('area', $this->area)->get();
+            return VWReportBookingArea::where('area', 'ILIKE', $this->area)->get();
         }
         // elseif($this->destination == 'Area'){
         //     return VWReportBookingArea::where('area', $this->area)->get();

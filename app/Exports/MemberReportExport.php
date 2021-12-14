@@ -63,13 +63,13 @@ class MemberReportExport implements FromCollection, WithHeadings
             return VWMemberReport::all();
         }
         elseif($this->destination == 'Area'){
-            return VWMemberReport::where('area', $this->area)->get();
+            return VWMemberReport::where('area', 'ILIKE', $this->area)->get();
         }
         elseif($this->destination == 'District'){
-            return VWMemberReport::where('area', $this->area)->where('district', $this->dist)->get();
+            return VWMemberReport::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->get();
         }
         elseif($this->destination == 'Local'){
-            return VWMemberReport::where('area', $this->area)->where('district', $this->dist)->where('local', $this->loc)->get();
+            return VWMemberReport::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->where('local', 'ILIKE', $this->loc)->get();
         }
         
     }

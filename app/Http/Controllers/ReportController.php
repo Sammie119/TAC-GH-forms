@@ -53,7 +53,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWLocalEvangelism::where('area', $area)->get();
+                $data = VWLocalEvangelism::where('area', 'ILIKE', $area)->get();
                 return view('report.report-local-evangelism', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -62,7 +62,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWLocalEvangelism::where('area', $area)->where('district', $district)->get();
+                $data = VWLocalEvangelism::where('area', 'ILIKE',  $area)->where('district', 'ILIKE',  $district)->get();
                 return view('report.report-local-evangelism', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -71,7 +71,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWLocalEvangelism::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWLocalEvangelism::where('area', 'ILIKE',  $area)->where('district', 'ILIKE',  $district)->where('local', 'ILIKE',  $local)->get();
                 return view('report.report-local-evangelism', compact('data', 'area', 'destination'));
             }
         }
@@ -91,7 +91,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWAreaheadReport::where('area', $area)->get();
+                $data = VWAreaheadReport::where('area', 'ILIKE', $area)->get();
                 return view('report.report-area-head', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -100,7 +100,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWAreaheadReport::where('area', $area)->where('district', $district)->get();
+                $data = VWAreaheadReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-area-head', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -109,7 +109,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWAreaheadReport::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWAreaheadReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-area-head', compact('data', 'area', 'destination'));
             }
         }
@@ -135,7 +135,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWCommunityReport::where('area', $area)->get();
+                $data = VWCommunityReport::where('area', 'ILIKE', $area)->get();
                 return view('report.report-community-rep', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -144,7 +144,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWCommunityReport::where('area', $area)->where('district', $district)->get();
+                $data = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-community-rep', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -153,7 +153,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWCommunityReport::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-community-rep', compact('data', 'area', 'destination'));
             }
         }
@@ -173,7 +173,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWDistrictLevelMonoter::where('area', $area)->get();
+                $data = VWDistrictLevelMonoter::where('area', 'ILIKE', $area)->get();
                 return view('report.report-district-level-monitor', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -182,7 +182,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWDistrictLevelMonoter::where('area', $area)->where('district', $district)->get();
+                $data = VWDistrictLevelMonoter::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-district-level-monitor', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -191,7 +191,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWDistrictLevelMonoter::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWDistrictLevelMonoter::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-district-level-monitor', compact('data', 'area', 'destination'));
             }
         }
@@ -217,7 +217,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWDistrictPastorReport::where('area', $area)->get();
+                $data = VWDistrictPastorReport::where('area', 'ILIKE', $area)->get();
                 return view('report.report-district_pastor', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -226,7 +226,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWDistrictPastorReport::where('area', $area)->where('district', $district)->get();
+                $data = VWDistrictPastorReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-district_pastor', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -235,7 +235,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWDistrictPastorReport::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWDistrictPastorReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-district_pastor', compact('data', 'area', 'destination'));
             }
         }
@@ -255,7 +255,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWLocalLevelQuestion::where('area', $area)->get();
+                $data = VWLocalLevelQuestion::where('area', 'ILIKE', $area)->get();
                 return view('report.report-local-level-question', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -264,7 +264,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWLocalLevelQuestion::where('area', $area)->where('district', $district)->get();
+                $data = VWLocalLevelQuestion::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-local-level-question', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -273,7 +273,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWLocalLevelQuestion::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWLocalLevelQuestion::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-local-level-question', compact('data', 'area', 'destination'));
             }
         }
@@ -293,7 +293,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWMemberReport::where('area', $area)->get();
+                $data = VWMemberReport::where('area', 'ILIKE', $area)->get();
                 return view('report.report-member', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -302,7 +302,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWMemberReport::where('area', $area)->where('district', $district)->get();
+                $data = VWMemberReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-member', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -311,7 +311,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWMemberReport::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWMemberReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-member', compact('data', 'area', 'destination'));
             }
         }
@@ -331,7 +331,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWMonitorReport::where('area', $area)->get();
+                $data = VWMonitorReport::where('area', 'ILIKE', $area)->get();
                 return view('report.report-monitor-report', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -340,7 +340,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWMonitorReport::where('area', $area)->where('district', $district)->get();
+                $data = VWMonitorReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-monitor-report', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -349,7 +349,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWMonitorReport::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWMonitorReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-monitor-report', compact('data', 'area', 'destination'));
             }
         }
@@ -369,7 +369,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWFinancialPolicy::where('area', $area)->get();
+                $data = VWFinancialPolicy::where('area', 'ILIKE', $area)->get();
                 return view('report.report-financial-policy', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -378,7 +378,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWFinancialPolicy::where('area', $area)->where('district', $district)->get();
+                $data = VWFinancialPolicy::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-financial-policy', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -387,7 +387,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWFinancialPolicy::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWFinancialPolicy::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-financial-policy', compact('data', 'area', 'destination'));
             }            
         }
@@ -407,7 +407,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWProcurementPolicy::where('area', $area)->get();
+                $data = VWProcurementPolicy::where('area', 'ILIKE', $area)->get();
                 return view('report.report-procurement_policy', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -416,7 +416,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWProcurementPolicy::where('area', $area)->where('district', $district)->get();
+                $data = VWProcurementPolicy::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-procurement_policy', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -425,7 +425,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWProcurementPolicy::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWProcurementPolicy::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-procurement_policy', compact('data', 'area', 'destination'));
             }
         }
@@ -445,7 +445,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWReportBookingArea::where('area', $area)->get();
+                $data = VWReportBookingArea::where('area', 'ILIKE', $area)->get();
                 return view('report.report-books-area', compact('data', 'area', 'destination'));
             }
         }
@@ -465,7 +465,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWReportBookingDistrict::where('area', $area)->get();
+                $data = VWReportBookingDistrict::where('area', 'ILIKE', $area)->get();
                 return view('report.report-books-district', compact('data', 'area', 'destination'));
             }
             else{
@@ -474,7 +474,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWReportBookingDistrict::where('area', $area)->where('district', $district)->get();
+                $data = VWReportBookingDistrict::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-books-district', compact('data', 'area', 'destination'));
             }
         }
@@ -494,7 +494,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWReportBookingLocal::where('area', $area)->get();
+                $data = VWReportBookingLocal::where('area', 'ILIKE', $area)->get();
                 return view('report.report-books-local', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -503,7 +503,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWReportBookingLocal::where('area', $area)->where('district', $district)->get();
+                $data = VWReportBookingLocal::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-books-local', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -512,7 +512,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWReportBookingLocal::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWReportBookingLocal::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-books-local', compact('data', 'area', 'destination'));
             }
         }
@@ -605,7 +605,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWPastorAssessmentQues::where('area', $area)->get();
+                $data = VWPastorAssessmentQues::where('area', 'ILIKE', $area)->get();
                 return view('report.report-pastor-assessment', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -614,7 +614,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWPastorAssessmentQues::where('area', $area)->where('district', $district)->get();
+                $data = VWPastorAssessmentQues::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-pastor-assessment', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -623,7 +623,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWPastorAssessmentQues::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWPastorAssessmentQues::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-pastor-assessment', compact('data', 'area', 'destination'));
             }
         }
@@ -643,7 +643,7 @@ class ReportController extends Controller
                     'district' => 'all',
                     'local' => 'all'
                 ];
-                $data = VWSupAssessmentQues::where('area', $area)->get();
+                $data = VWSupAssessmentQues::where('area', 'ILIKE', $area)->get();
                 return view('report.report-sup-assessment', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'District'){
@@ -652,7 +652,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => 'all'
                 ];
-                $data = VWSupAssessmentQues::where('area', $area)->where('district', $district)->get();
+                $data = VWSupAssessmentQues::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
                 return view('report.report-sup-assessment', compact('data', 'area', 'destination'));
             }
             elseif($destination == 'Local'){
@@ -661,7 +661,7 @@ class ReportController extends Controller
                     'district' => $district,
                     'local' => $local
                 ];
-                $data = VWSupAssessmentQues::where('area', $area)->where('district', $district)->where('local', $local)->get();
+                $data = VWSupAssessmentQues::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-sup-assessment', compact('data', 'area', 'destination'));
             }
         }

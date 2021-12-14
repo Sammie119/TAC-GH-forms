@@ -48,13 +48,13 @@ class SupAssessmentQuesExport implements FromCollection, WithHeadings
             return VWSupAssessmentQues::all();
         }
         elseif($this->destination == 'Area'){
-            return VWSupAssessmentQues::where('area', $this->area)->get();
+            return VWSupAssessmentQues::where('area', 'ILIKE', $this->area)->get();
         }
         elseif($this->destination == 'District'){
-            return VWSupAssessmentQues::where('area', $this->area)->where('district', $this->dist)->get();
+            return VWSupAssessmentQues::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->get();
         }
         elseif($this->destination == 'Local'){
-            return VWSupAssessmentQues::where('area', $this->area)->where('district', $this->dist)->where('local', $this->loc)->get();
+            return VWSupAssessmentQues::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->where('local', 'ILIKE', $this->loc)->get();
         }
         
     }

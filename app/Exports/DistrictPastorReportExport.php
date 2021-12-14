@@ -74,13 +74,13 @@ class DistrictPastorReportExport implements FromCollection, WithHeadings
             return VWDistrictPastorReport::all();
         }
         elseif($this->destination == 'Area'){
-            return VWDistrictPastorReport::where('area', $this->area)->get();
+            return VWDistrictPastorReport::where('area', 'ILIKE', $this->area)->get();
         }
         elseif($this->destination == 'District'){
-            return VWDistrictPastorReport::where('area', $this->area)->where('district', $this->dist)->get();
+            return VWDistrictPastorReport::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->get();
         }
         elseif($this->destination == 'Local'){
-            return VWDistrictPastorReport::where('area', $this->area)->where('district', $this->dist)->where('local', $this->loc)->get();
+            return VWDistrictPastorReport::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->where('local', 'ILIKE', $this->loc)->get();
         }
         
     }

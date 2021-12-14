@@ -48,13 +48,13 @@ class PastorAssessmentQuesExport implements FromCollection, WithHeadings
             return VWPastorAssessmentQues::all();
         }
         elseif($this->destination == 'Area'){
-            return VWPastorAssessmentQues::where('area', $this->area)->get();
+            return VWPastorAssessmentQues::where('area', 'ILIKE', $this->area)->get();
         }
         elseif($this->destination == 'District'){
-            return VWPastorAssessmentQues::where('area', $this->area)->where('district', $this->dist)->get();
+            return VWPastorAssessmentQues::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->get();
         }
         elseif($this->destination == 'Local'){
-            return VWPastorAssessmentQues::where('area', $this->area)->where('district', $this->dist)->where('local', $this->loc)->get();
+            return VWPastorAssessmentQues::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->where('local', 'ILIKE', $this->loc)->get();
         }
         
     }

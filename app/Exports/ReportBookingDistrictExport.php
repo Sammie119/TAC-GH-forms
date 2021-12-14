@@ -79,10 +79,10 @@ class ReportBookingDistrictExport implements FromCollection, WithHeadings
             return VWReportBookingDistrict::all();
         }
         elseif($this->destination == 'Area'){
-            return VWReportBookingDistrict::where('area', $this->area)->get();
+            return VWReportBookingDistrict::where('area', 'ILIKE', $this->area)->get();
         }
         else{
-            return VWReportBookingDistrict::where('area', $this->area)->where('district', $this->dist)->get();
+            return VWReportBookingDistrict::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->get();
         }
         // elseif($this->destination == 'District'){
         //     return VWReportBookingDistrict::where('area', $this->area)->where('district', $this->dist)->get();

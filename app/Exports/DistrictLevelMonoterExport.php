@@ -59,13 +59,13 @@ class DistrictLevelMonoterExport implements FromCollection, WithHeadings
             return VWDistrictLevelMonoter::all();
         }
         elseif($this->destination == 'Area'){
-            return VWDistrictLevelMonoter::where('area', $this->area)->get();
+            return VWDistrictLevelMonoter::where('area', 'ILIKE', $this->area)->get();
         }
         elseif($this->destination == 'District'){
-            return VWDistrictLevelMonoter::where('area', $this->area)->where('district', $this->dist)->get();
+            return VWDistrictLevelMonoter::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->get();
         }
         elseif($this->destination == 'Local'){
-            return VWDistrictLevelMonoter::where('area', $this->area)->where('district', $this->dist)->where('local', $this->loc)->get();
+            return VWDistrictLevelMonoter::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->where('local', 'ILIKE', $this->loc)->get();
         }
         
     }

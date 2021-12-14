@@ -72,13 +72,13 @@ class LocalEvangelismExport implements FromCollection, WithHeadings
             return VWLocalEvangelism::all();
         }
         elseif($this->destination == 'Area'){
-            return VWLocalEvangelism::where('area', $this->area)->get();
+            return VWLocalEvangelism::where('area', 'ILIKE', $this->area)->get();
         }
         elseif($this->destination == 'District'){
-            return VWLocalEvangelism::where('area', $this->area)->where('district', $this->dist)->get();
+            return VWLocalEvangelism::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->get();
         }
         elseif($this->destination == 'Local'){
-            return VWLocalEvangelism::where('area', $this->area)->where('district', $this->dist)->where('local', $this->loc)->get();
+            return VWLocalEvangelism::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->where('local', 'ILIKE', $this->loc)->get();
         }
         
     }

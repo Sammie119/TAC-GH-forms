@@ -122,13 +122,13 @@ class FinancialPolicyExport implements FromCollection, WithHeadings
             return VWFinancialPolicy::all();
         }
         elseif($this->destination == 'Area'){
-            return VWFinancialPolicy::where('area', $this->area)->get();
+            return VWFinancialPolicy::where('area', 'ILIKE', $this->area)->get();
         }
         elseif($this->destination == 'District'){
-            return VWFinancialPolicy::where('area', $this->area)->where('district', $this->dist)->get();
+            return VWFinancialPolicy::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->get();
         }
         elseif($this->destination == 'Local'){
-            return VWFinancialPolicy::where('area', $this->area)->where('district', $this->dist)->where('local', $this->loc)->get();
+            return VWFinancialPolicy::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->where('local', 'ILIKE', $this->loc)->get();
         }
     }
 }

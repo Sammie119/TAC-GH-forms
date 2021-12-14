@@ -80,13 +80,13 @@ class ReportBookingLocalExport implements FromCollection, WithHeadings
             return VWReportBookingLocal::all();
         }
         elseif($this->destination == 'Area'){
-            return VWReportBookingLocal::where('area', $this->area)->get();
+            return VWReportBookingLocal::where('area', 'ILIKE', $this->area)->get();
         }
         elseif($this->destination == 'District'){
-            return VWReportBookingLocal::where('area', $this->area)->where('district', $this->dist)->get();
+            return VWReportBookingLocal::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->get();
         }
         elseif($this->destination == 'Local'){
-            return VWReportBookingLocal::where('area', $this->area)->where('district', $this->dist)->where('local', $this->loc)->get();
+            return VWReportBookingLocal::where('area', 'ILIKE', $this->area)->where('district', 'ILIKE', $this->dist)->where('local', 'ILIKE', $this->loc)->get();
         }
     }
 }
