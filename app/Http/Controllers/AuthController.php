@@ -96,6 +96,7 @@ class AuthController extends Controller
             'form15' => ($request->has('form15')) ? 1 : 0,
             'form16' => ($request->has('form16')) ? 1 : 0,
             'form17' => ($request->has('form17')) ? 1 : 0,
+            'form18' => ($request->has('form18')) ? 1 : 0,
           ]);
        
         return back()->with('success', 'New User Successfully Created!!');
@@ -205,6 +206,7 @@ class AuthController extends Controller
             'form15' => ($request->has('form15')) ? 1 : 0,
             'form16' => ($request->has('form16')) ? 1 : 0,
             'form17' => ($request->has('form17')) ? 1 : 0,
+            'form18' => ($request->has('form18')) ? 1 : 0,
           ]);
 
         return back()->with('success', $user->name.'\'s Role changed Successfully!!');

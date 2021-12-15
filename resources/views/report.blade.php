@@ -44,6 +44,7 @@
                                 <option value="Members Report">
                                 <option value="Monitors Opinion">
                                 <option value="Pastors Assessment Questionnaire">
+                                <option value="Presiding Elders Assessment">
                                 <option value="Procurement Policy">
                                 <option value="Records Keeping - Area">
                                 <option value="Records Keeping - District">

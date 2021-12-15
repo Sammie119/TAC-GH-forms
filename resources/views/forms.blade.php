@@ -60,16 +60,6 @@
                             <button class="nav-link" id="commrep-tab" data-bs-toggle="tab" data-bs-target="#commrep" type="button" role="tab" aria-controls="commrep" aria-selected="false">Community</button>
                         </li>
 
-                        {{-- AREA SUPERINTENDENTS' DIRECT QUESTIONNAIRE --}}
-                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form2 == 1) echo 'style="display: none"' ?> >
-                            <button class="nav-link" id="areasupq-tab" data-bs-toggle="tab" data-bs-target="#areasupq" type="button" role="tab" aria-controls="areasupq" aria-selected="false">Sup. Quest</button>
-                        </li>
-
-                        {{-- DISTRICT PASTORS' DIRECT QUESTIONNAIRE --}}
-                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form5 == 1) echo 'style="display: none"' ?> >
-                            <button class="nav-link" id="pastorques-tab" data-bs-toggle="tab" data-bs-target="#pastorques" type="button" role="tab" aria-controls="pastorques" aria-selected="false">Past. Quest</button>
-                        </li>
-
                         {{-- LOCAL EVANGELISM --}}
                         <li class="nav-item" role="presentation" <?php if (Auth()->user()->form7 == 1) echo 'style="display: none"' ?> >
                             <button class="nav-link" id="evange-tab" data-bs-toggle="tab" data-bs-target="#evange" type="button" role="tab" aria-controls="evange" aria-selected="false">Evangelism</button>
@@ -78,16 +68,6 @@
                         {{-- MONITOR'S  REPORT --}}
                         <li class="nav-item" role="presentation" <?php if (Auth()->user()->form10 == 1) echo 'style="display: none"' ?> >
                             <button class="nav-link" id="monirep-tab" data-bs-toggle="tab" data-bs-target="#monirep" type="button" role="tab" aria-controls="monirep" aria-selected="false">Monitor's Rep.</button>
-                        </li>
-
-                        {{-- PASTOR'S ASSESSMENT QUESTIONNAIRE --}}
-                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form11 == 1) echo 'style="display: none"' ?> >
-                            <button class="nav-link" id="past-ass-tab" data-bs-toggle="tab" data-bs-target="#past-ass" type="button" role="tab" aria-controls="past-ass" aria-selected="false">Past. Ass</button>
-                        </li>
-
-                        {{-- AREA SUPERINTENDENT'S ASSESSMENT QUESTIONNAIRE --}}
-                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form12 == 1) echo 'style="display: none"' ?> >
-                            <button class="nav-link" id="sup-ass-tab" data-bs-toggle="tab" data-bs-target="#sup-ass" type="button" role="tab" aria-controls="sup-ass" aria-selected="false">Sup. Ass</button>
                         </li>
                     </ul>
 
@@ -128,29 +108,9 @@
                             @include('forms.community_rep')
                         </div>
 
-                        {{-- AREA SUPERINTENDENTS' DIRECT QUESTIONNAIRE --}}
-                        <div class="tab-pane fade" id="areasupq" role="tabcard" aria-labelledby="areasupq-tab">
-                            @include('forms.area_sup_questions')
-                        </div>
-
-                        {{-- DISTRICT PASTORS' DIRECT QUESTIONNAIRE --}}
-                        <div class="tab-pane fade" id="pastorques" role="tabcard" aria-labelledby="pastorques-tab">
-                            @include('forms.district_pastor_question')
-                        </div>
-
                         {{-- LOCAL EVANGELISM --}}
                         <div class="tab-pane fade" id="evange" role="tabcard" aria-labelledby="evange-tab">
                             @include('forms.local_evangelism')
-                        </div>
-
-                        {{-- PASTOR'S ASSESSMENT QUESTIONNAIRE --}}
-                        <div class="tab-pane fade" id="past-ass" role="tabcard" aria-labelledby="past-ass-tab">
-                            @include('forms.pastor-assessment')
-                        </div>
-
-                        {{-- AREA SUPERINTENDENT'S ASSESSMENT QUESTIONNAIRE --}}
-                        <div class="tab-pane fade" id="sup-ass" role="tabcard" aria-labelledby="sup-ass-tab">
-                            @include('forms.sup-assessment')
                         </div>
                     </div>
                 </div>

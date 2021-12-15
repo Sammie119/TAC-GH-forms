@@ -21,7 +21,7 @@
 
 @section('content')
     <div class="container d-flex justify-content-center mt-4">
-        <div class="card text-dark bg-light mb-3 col-6">
+        <div class="card text-dark bg-light mb-3 col-7">
             <div class="card-header"><h2>Edit User
                 <a href="/user-list" class="btn btn-success float-end" style="margin-left: 10px;">Users</a>
                 </h2>
@@ -122,6 +122,10 @@
                                         <input class="form-check-input" type="checkbox" name="form8" value="1" role="switch" id="flexSwitchCheckCheckedDisabled" <?php if ($user->form8 == 1) echo "checked";?> >
                                         <label class="form-check-label" for="flexSwitchCheckChecked">Local Level Monitoring</label>
                                     </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form18" value="1" role="switch" id="flexSwitchCheckCheckedDisabled" <?php if ($user->form18 == 1) echo "checked";?> >
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">Presiding Elder's Assessment</label>
+                                    </div>
                                 </td>
                                 <td>
                                     <div class="form-check form-switch mb-3">
@@ -136,7 +140,7 @@
                                         <input class="form-check-input" type="checkbox" name="form11" value="1" role="switch" id="flexSwitchCheckDisabled" <?php if ($user->form11 == 1) echo "checked";?> >
                                         <label class="form-check-label" for="flexSwitchCheckDisabled">Pastors Assessment Questionnaire</label>
                                     </div>
-                                    <div class="form-check form-switch mb-2">
+                                    <div class="form-check form-switch mb-3">
                                         <input class="form-check-input" type="checkbox" name="form12" value="1" role="switch" id="flexSwitchCheckCheckedDisabled" <?php if ($user->form12 == 1) echo "checked";?> >
                                         <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Sup Assessment Questionnaire</label>
                                     </div>

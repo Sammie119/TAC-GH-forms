@@ -13,6 +13,7 @@ use App\Models\LocalLevelQuestion;
 use App\Models\MemberReport;
 use App\Models\MonitorReport;
 use App\Models\PastorAssessmentQues;
+use App\Models\PresidingAssessment;
 use App\Models\SupAssessmentQues;
 use Illuminate\Http\Request;
 
@@ -29,6 +30,11 @@ class FormController extends Controller
     public function create()
     {
         return view('forms');
+    }
+
+    public function createAssessment()
+    {
+        return view('assessment');
     }
 
     public function areaHeadReport(Request $request)
@@ -709,6 +715,49 @@ class FormController extends Controller
         $data->sup_ass_comment11 = $request->sup_ass_comment11;
         $data->sup_ass_comment12 = $request->sup_ass_comment12;
         $data->sup_ass_comment13 = $request->sup_ass_comment13;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->update();
+
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
+    }
+
+    public function presidingAssessment(Request $request)
+    {
+        if(isset($request->id)){
+            $data = PresidingAssessment::find($request->id);
+        }
+        else{
+            $data = new PresidingAssessment;
+        }
+        
+        $data->pres_ass_district = $request->pres_ass_district;
+        $data->pres_ass_area = $request->pres_ass_area;
+        $data->pres_ass_local = $request->pres_ass_local;
+        $data->pres_ass_name = $request->pres_ass_name;
+        $data->pres_ass_comment1 = $request->pres_ass_comment1;
+        $data->pres_ass_comment2 = $request->pres_ass_comment2;
+        $data->pres_ass_comment3 = $request->pres_ass_comment3;
+        $data->pres_ass_comment4 = $request->pres_ass_comment4;
+        $data->pres_ass_comment5 = $request->pres_ass_comment5;
+        $data->pres_ass_comment6 = $request->pres_ass_comment6;
+        $data->pres_ass_comment7 = $request->pres_ass_comment7;
+        $data->pres_ass_comment8 = $request->pres_ass_comment8;
+        $data->pres_ass_comment9 = $request->pres_ass_comment9;
+        $data->pres_ass_comment10 = $request->pres_ass_comment10;
+        $data->pres_ass_comment11 = $request->pres_ass_comment11;
+        $data->pres_ass_comment12 = $request->pres_ass_comment12;
         
         if(isset($request->id)){
             $data->updated_by = Auth()->user()->user_id;

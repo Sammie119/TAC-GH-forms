@@ -3,24 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Exports\LocalEvangelismExport;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\AreaHeadReportExport;
-use App\Exports\AreaSupQuestionsExport;
-use App\Exports\CommunityReportExport;
-use App\Exports\DistrictLevelMonoterExport;
-use App\Exports\DistrictPastorQuestionExport;
-use App\Exports\DistrictPastorReportExport;
-use App\Exports\FinancialPolicyExport;
-use App\Exports\LocalLevelQuestionExport;
 use App\Exports\MemberReportExport;
 use App\Exports\MonitorReportExport;
-use App\Exports\PastorAssessmentQuesExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\AreaHeadReportExport;
+use App\Exports\CommunityReportExport;
+use App\Exports\FinancialPolicyExport;
+use App\Exports\LocalEvangelismExport;
+use App\Exports\AreaSupQuestionsExport;
 use App\Exports\ProcurementPolicyExport;
 use App\Exports\ReportBookingAreaExport;
-use App\Exports\ReportBookingDistrictExport;
-use App\Exports\ReportBookingLocalExport;
 use App\Exports\SupAssessmentQuesExport;
+use App\Exports\LocalLevelQuestionExport;
+use App\Exports\ReportBookingLocalExport;
+use App\Exports\DistrictLevelMonoterExport;
+use App\Exports\DistrictPastorReportExport;
+use App\Exports\PastorAssessmentQuesExport;
+use App\Exports\ReportBookingDistrictExport;
+use App\Exports\DistrictPastorQuestionExport;
+use App\Exports\PresidingAssessmentQuesExport;
 
 class ExportController extends Controller
 {
@@ -107,5 +108,10 @@ class ExportController extends Controller
     public function exportToExcelSupAssessment($destination, $area, $dist, $loc)
     {
         return Excel::download(new SupAssessmentQuesExport($destination, $area, $dist, $loc), $area.'_'.$dist.'_'.$loc.'_sup_assessment.xlsx');
+    }
+
+    public function exportToExcelPresidingAssessment($destination, $area, $dist, $loc)
+    {
+        return Excel::download(new PresidingAssessmentQuesExport($destination, $area, $dist, $loc), $area.'_'.$dist.'_'.$loc.'_presiding_assessment.xlsx');
     }
 }

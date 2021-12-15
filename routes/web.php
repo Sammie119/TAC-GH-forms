@@ -39,6 +39,7 @@ Route::middleware(['protectedPages'])->group(function () {
 
     // Forms Route
     Route::get('forms', [FormController::class, 'create']);
+    Route::get('assessment', [FormController::class, 'createAssessment']);
     Route::post('area-head', [FormController::class, 'areaHeadReport'])->name('area-head');
     Route::post('area-sup-question', [FormController::class, 'areaSupQuestions'])->name('area-sup-question');
     Route::post('community-rep', [FormController::class, 'communityReport'])->name('community-rep');
@@ -51,6 +52,7 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::post('monitor-report', [FormController::class, 'monitorsReport'])->name('monitor-report');
     Route::post('pastorassesstment', [FormController::class, 'pastorAssessmentQuestion'])->name('pastorassesstment');
     Route::post('supassesstment', [FormController::class, 'supAssessmentQuestion'])->name('supassesstment');
+    Route::post('presidingassesstment', [FormController::class, 'presidingAssessment'])->name('presidingassesstment');
 
     // Finance Routes
     Route::get('finance', [FinanceController::class, 'create']);
@@ -82,6 +84,8 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::get('r-booking-local/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelReportBookingLocal']);
     Route::get('pastor-ass/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelPastorAssessment']);
     Route::get('sup-ass/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelSupAssessment']);
+
+    Route::get('pres-ass/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelPresidingAssessment']);
 
     // EditController Routes
     Route::get('edit-form/{id}/{form}', [EditFormController::class, 'editForm']);

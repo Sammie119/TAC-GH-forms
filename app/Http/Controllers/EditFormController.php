@@ -14,6 +14,7 @@ use App\Models\LocalLevelQuestion;
 use App\Models\MemberReport;
 use App\Models\MonitorReport;
 use App\Models\PastorAssessmentQues;
+use App\Models\PresidingAssessment;
 use App\Models\ProcurementPolicy;
 use Illuminate\Http\Request;
 use App\Models\RecordBooksArea;
@@ -115,6 +116,11 @@ class EditFormController extends Controller
             $data = SupAssessmentQues::find($id);
             $form = 'AREA SUPERINTENDENTS ASSESSMENT QUESTIONNAIRE';
             return view('edit.edit-sup-assessment', compact('data','form'));
+        }
+        elseif($form == 'pres_ass'){
+            $data = PresidingAssessment::find($id);
+            $form = 'PRESIDING ELDERS ASSESSMENT';
+            return view('edit.edit-presiding-assessment', compact('data','form'));
         }
         
     }
@@ -219,6 +225,12 @@ class EditFormController extends Controller
             }
             elseif($form == 'sup_ass'){
                 $data = SupAssessmentQues::find($id);
+                $data->delete();
+                Session::flash('success', $this->message());
+                return response()->json(['success' => $this->message()]);
+            }
+            elseif($form == 'pres_ass'){
+                $data = PresidingAssessment::find($id);
                 $data->delete();
                 Session::flash('success', $this->message());
                 return response()->json(['success' => $this->message()]);

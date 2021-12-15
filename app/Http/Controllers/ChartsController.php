@@ -15,6 +15,7 @@ use App\Http\Controllers\Charts\LocalLevelQuesChartsController;
 use App\Http\Controllers\Charts\MemberReportChartsController;
 use App\Http\Controllers\Charts\MonitorReportChartsController;
 use App\Http\Controllers\Charts\PastorAssessChartsController;
+use App\Http\Controllers\Charts\PresisingAssessChartsController;
 use App\Http\Controllers\Charts\ProcurementPolicyChartsController;
 use App\Http\Controllers\Charts\RecordBooksAreaChartsController;
 use App\Http\Controllers\Charts\SupAssessChartsController;
@@ -126,6 +127,12 @@ class ChartsController extends Controller
                 $query = RecordBooksLocalChartsController::recordBooksLocal($destination, $area, $dist, $loc);
                 $form = "RECORDING AND BOOK KEEPING - LOCAL REPORT";
                 return view('charts.chart-report-books-local', compact('form', 'query'));
+                break;
+
+            case 'pres-ass':
+                $query = PresisingAssessChartsController::presidingAss($destination, $area, $dist, $loc);
+                $form = "PRESIDING ELDER'S ASSESSMENT";
+                return view('charts.chart-presiding-assessment', compact('form', 'query'));
                 break;
             
             default:

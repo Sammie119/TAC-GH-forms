@@ -20,6 +20,7 @@ use App\Models\VWReportBookingDistrict;
 use App\Models\VWReportBookingLocal;
 use Illuminate\Support\Facades\DB;
 use App\Models\VWPastorAssessmentQues;
+use App\Models\VWPresidingAssessment;
 use App\Models\VWSupAssessmentQues;
 
 class ReportController extends Controller
@@ -663,6 +664,47 @@ class ReportController extends Controller
                 ];
                 $data = VWSupAssessmentQues::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
                 return view('report.report-sup-assessment', compact('data', 'area', 'destination'));
+            }
+        }
+
+
+
+        elseif($report == 'Presiding Elders Assessment'){
+            if($destination == 'General'){
+                $area = [
+                    'area' => $destination,
+                    'district' => 'all',
+                    'local' => 'all'
+                ];
+                $data = VWPresidingAssessment::all();
+                return view('report.report-presiding-assessment', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'Area'){
+                $area = [
+                    'area' => $area,
+                    'district' => 'all',
+                    'local' => 'all'
+                ];
+                $data = VWPresidingAssessment::where('area', 'ILIKE', $area)->get();
+                return view('report.report-presiding-assessment', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'District'){
+                $area = [
+                    'area' => $area,
+                    'district' => $district,
+                    'local' => 'all'
+                ];
+                $data = VWPresidingAssessment::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
+                return view('report.report-presiding-assessment', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'Local'){
+                $area = [
+                    'area' => $area,
+                    'district' => $district,
+                    'local' => $local
+                ];
+                $data = VWPresidingAssessment::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
+                return view('report.report-presiding-assessment', compact('data', 'area', 'destination'));
             }
         }
 

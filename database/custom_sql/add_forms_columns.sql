@@ -16,3 +16,6 @@ ADD COLUMN form14 smallint default 0,
 ADD COLUMN form15 smallint default 0,
 ADD COLUMN form16 smallint default 0,
 ADD COLUMN form17 smallint default 0;
+
+ALTER TABLE users
+ADD COLUMN form18 smallint default 0;

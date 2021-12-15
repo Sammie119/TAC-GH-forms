@@ -14,6 +14,9 @@
             <a class="nav-link {{ request()->is('forms') ? 'active' : '' }} {{ request()->is('edit-form/*') ? 'active' : '' }}" href="/forms">Forms</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link {{ request()->is('assessment') ? 'active' : '' }}" href="/assessment">Assessments</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link {{ request()->is('finance') ? 'active' : '' }}" href="/finance">Finance</a>
           </li>
           <li class="nav-item">

@@ -46,6 +46,7 @@ class User extends Authenticatable
         'form15',
         'form16',
         'form17',
+        'form18',
     ];
 
     /**
