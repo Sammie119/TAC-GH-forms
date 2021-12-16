@@ -294,19 +294,7 @@
                                             <div class=""> 
                                                 <label for="" class="form-label">What are your general impressions of and comments about The Apostolic Church-Ghana?</label>
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" required name="commrep_question11" value="Yes" <?php if ($data->commrep_question11 == 'Yes') echo "checked";?> >
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    Yes
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="commrep_question11" value="No" <?php if ($data->commrep_question11 == 'No') echo "checked";?> >
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    No
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
+                                            <div class="form-check" style="display: none">
                                                 <input class="form-check-input" type="radio" name="commrep_question11" value="Somehow" <?php if ($data->commrep_question11 == 'Somehow') echo "checked";?> >
                                                 <label class="form-check-label" for="flexRadioDefault1">
                                                     Somehow

@@ -13,5 +13,6 @@ class VWLocalEvangelism extends Model
 
     protected $hidden = [
         'local_evang_id',
+        'evange_question5',
     ];
 }

@@ -538,8 +538,9 @@ class ReportController extends Controller
                 $report_local = VWReportBookingLocal::where(DB::raw('updated_at::date'), $date)->count();
                 $pastorass = VWPastorAssessmentQues::where(DB::raw('updated_at::date'), $date)->count();
                 $sup_ass = VWSupAssessmentQues::where(DB::raw('updated_at::date'), $date)->count();
+                $pres_ass = VWPresidingAssessment::where(DB::raw('updated_at::date'), $date)->count();
 
-                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local+$pastorass+$sup_ass;
+                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local+$pastorass+$sup_ass+$pres_ass;
 
             }
             else{
@@ -561,8 +562,9 @@ class ReportController extends Controller
                 $report_local = VWReportBookingLocal::count();
                 $pastorass = VWPastorAssessmentQues::count();
                 $sup_ass = VWSupAssessmentQues::count();
+                $pres_ass = VWPresidingAssessment::count();
 
-                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local+$pastorass+$sup_ass;
+                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local+$pastorass+$sup_ass+$pres_ass;
 
             }   
 
@@ -584,6 +586,7 @@ class ReportController extends Controller
                 'report_local' => $report_local,
                 'pastorass' => $pastorass,
                 'sup_ass' => $sup_ass,
+                'pres_ass' => $pres_ass,
                 'total' => $total
             ];
             

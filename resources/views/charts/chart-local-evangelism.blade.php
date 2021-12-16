@@ -201,7 +201,7 @@
                                         <div class=""> 
                                             <label for="" class="form-label">How many souls have accepted Christ over the past one month (New converts)</label>
                                         </div>
-                                        <div class="">
+                                        {{-- <div class="">
                                             <ul>
                                                 @foreach ($query['question5'] as $question5)
                                                     <li>{{ $question5->evange_question5 }} - {{ $question5->y }}</li>
@@ -214,7 +214,7 @@
                                                     
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
 
                                         <div class="mb">
                                             <label for="" class="form-label">Comments</label>
@@ -884,71 +884,71 @@
                 });
             });
 
-            // question5
-            $(function(){
-                Highcharts.chart('question5', {
-                    chart: {
-                        plotBackgroundColor: null,
-                        plotBorderWidth: null,
-                        plotshadow: false,
-                        type: 'pie'
-                    },
-                    title: {
-                        text: 'Distribution',
-                        style: {
-                            fontSize: '25px'
-                        }
-                    },
-                    subtitle: {
-                        text: 'Source: TAC - Forms',
-                        style: {
-                            fontSize: '17px'
-                        }
-                    },
-                    tooltip: {
-                        pointFormat: '{point.evange_question5}: <b>{point.percentage:.1f}%</b>'
-                    },
-                    accessibility: {
-                        point: {
-                            valueSuffix:'%'
-                        }
-                    },
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: true,
-                                format: '<b>{point.evange_question5}</b>: {point.percentage:.1f}%',
-                                style: {
-                                    fontSize: '17px'
-                                }
-                            },
-                            showInLegend: {
-                                enabled: true,                                
-                            }
-                        }
-                    },
-                    legend:{
-                        enabled: true,
+            // // question5
+            // $(function(){
+            //     Highcharts.chart('question5', {
+            //         chart: {
+            //             plotBackgroundColor: null,
+            //             plotBorderWidth: null,
+            //             plotshadow: false,
+            //             type: 'pie'
+            //         },
+            //         title: {
+            //             text: 'Distribution',
+            //             style: {
+            //                 fontSize: '25px'
+            //             }
+            //         },
+            //         subtitle: {
+            //             text: 'Source: TAC - Forms',
+            //             style: {
+            //                 fontSize: '17px'
+            //             }
+            //         },
+            //         tooltip: {
+            //             pointFormat: '{point.evange_question5}: <b>{point.percentage:.1f}%</b>'
+            //         },
+            //         accessibility: {
+            //             point: {
+            //                 valueSuffix:'%'
+            //             }
+            //         },
+            //         plotOptions: {
+            //             pie: {
+            //                 allowPointSelect: true,
+            //                 cursor: 'pointer',
+            //                 dataLabels: {
+            //                     enabled: true,
+            //                     format: '<b>{point.evange_question5}</b>: {point.percentage:.1f}%',
+            //                     style: {
+            //                         fontSize: '17px'
+            //                     }
+            //                 },
+            //                 showInLegend: {
+            //                     enabled: true,                                
+            //                 }
+            //             }
+            //         },
+            //         legend:{
+            //             enabled: true,
                         
-                        labelFormatter: function(){
-                            return this.evange_question5;
-                        },
-                        itemStyle: {
-                            fontWeight: 'bold',
-                            fontSize: '20px'
-                        }
+            //             labelFormatter: function(){
+            //                 return this.evange_question5;
+            //             },
+            //             itemStyle: {
+            //                 fontWeight: 'bold',
+            //                 fontSize: '20px'
+            //             }
                         
-                    },
-                    series: [{
-                        name: 'Results',
-                        colorByPoint: true,
-                        data: <?= $query['question5'] ?>
-                    }]
+            //         },
+            //         series: [{
+            //             name: 'Results',
+            //             colorByPoint: true,
+            //             data: <?= $query['question5'] ?>
+            //         }]
                     
-                });
-            });
+            //     });
+            // });
 
             // question6
             $(function(){

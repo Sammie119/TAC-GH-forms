@@ -13,5 +13,6 @@ class VWCommunityReport extends Model
 
     protected $hidden = [
         'community_id',
+        'commrep_question11',
     ];
 }

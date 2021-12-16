@@ -109,6 +109,11 @@
                         <td>Records Keeping - Local</td>
                         <td>{{ $data['report_local'] }}</td>
                     </tr>
+                    <tr>
+                        <th scope="row">18</th>
+                        <td>Presiding Elder's Assessment</td>
+                        <td>{{ $data['pres_ass'] }}</td>
+                    </tr>
                 </tbody>
                 <tfoot>
                     <tr>

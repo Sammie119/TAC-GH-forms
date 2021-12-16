@@ -170,19 +170,7 @@
                                             <div class=""> 
                                                 <label for="" class="form-label">How many souls have accepted Christ over the past one month (New converts)</label>
                                             </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" required name="evange_question5" value="Yes" <?php if ($data->evange_question5 == 'Yes') echo "checked";?>>
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    Yes
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="evange_question5" value="No" <?php if ($data->evange_question5 == 'No') echo "checked";?>>
-                                                <label class="form-check-label" for="flexRadioDefault1">
-                                                    No
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
+                                            <div class="form-check" style="display: none">
                                                 <input class="form-check-input" type="radio" name="evange_question5" value="Somehow" <?php if ($data->evange_question5 == 'Somehow') echo "checked";?>>
                                                 <label class="form-check-label" for="flexRadioDefault1">
                                                     Somehow

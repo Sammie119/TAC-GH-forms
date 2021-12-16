@@ -250,20 +250,8 @@
                         <div class=""> 
                             <label for="" class="form-label">What are your general impressions of and comments about The Apostolic Church-Ghana?</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" required name="commrep_question11" value="Yes">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="commrep_question11" value="No">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                No
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="commrep_question11" value="Somehow">
+                        <div class="form-check" style="display: none">
+                            <input class="form-check-input" type="radio" name="commrep_question11" value="Somehow" checked>
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Somehow
                             </label>

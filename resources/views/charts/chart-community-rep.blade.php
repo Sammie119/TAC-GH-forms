@@ -333,7 +333,7 @@
                                         <div class=""> 
                                             <label for="" class="form-label">What are your general impressions of and comments about The Apostolic Church-Ghana?</label>
                                         </div>
-                                        <div class="">
+                                        {{-- <div class="">
                                             <ul>
                                                 @foreach ($query['question11'] as $question11)
                                                     <li>{{ $question11->commrep_question11 }} - {{ $question11->y }}</li>
@@ -346,7 +346,7 @@
                                                     
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="mb">
                                             <label for="" class="form-label">Comments</label>
                                             <ul>
@@ -905,71 +905,71 @@
                 });
             });
 
-            // question11
-            $(function(){
-                Highcharts.chart('question11', {
-                    chart: {
-                        plotBackgroundColor: null,
-                        plotBorderWidth: null,
-                        plotshadow: false,
-                        type: 'pie'
-                    },
-                    title: {
-                        text: 'Distribution',
-                        style: {
-                            fontSize: '25px'
-                        }
-                    },
-                    subtitle: {
-                        text: 'Source: TAC - Forms',
-                        style: {
-                            fontSize: '17px'
-                        }
-                    },
-                    tooltip: {
-                        pointFormat: '{point.commrep_question11}: <b>{point.percentage:.1f}%</b>'
-                    },
-                    accessibility: {
-                        point: {
-                            valueSuffix:'%'
-                        }
-                    },
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: true,
-                                format: '<b>{point.commrep_question11}</b>: {point.percentage:.1f}%',
-                                style: {
-                                    fontSize: '17px'
-                                }
-                            },
-                            showInLegend: {
-                                enabled: true,                                
-                            }
-                        }
-                    },
-                    legend:{
-                        enabled: true,
+            // // question11
+            // $(function(){
+            //     Highcharts.chart('question11', {
+            //         chart: {
+            //             plotBackgroundColor: null,
+            //             plotBorderWidth: null,
+            //             plotshadow: false,
+            //             type: 'pie'
+            //         },
+            //         title: {
+            //             text: 'Distribution',
+            //             style: {
+            //                 fontSize: '25px'
+            //             }
+            //         },
+            //         subtitle: {
+            //             text: 'Source: TAC - Forms',
+            //             style: {
+            //                 fontSize: '17px'
+            //             }
+            //         },
+            //         tooltip: {
+            //             pointFormat: '{point.commrep_question11}: <b>{point.percentage:.1f}%</b>'
+            //         },
+            //         accessibility: {
+            //             point: {
+            //                 valueSuffix:'%'
+            //             }
+            //         },
+            //         plotOptions: {
+            //             pie: {
+            //                 allowPointSelect: true,
+            //                 cursor: 'pointer',
+            //                 dataLabels: {
+            //                     enabled: true,
+            //                     format: '<b>{point.commrep_question11}</b>: {point.percentage:.1f}%',
+            //                     style: {
+            //                         fontSize: '17px'
+            //                     }
+            //                 },
+            //                 showInLegend: {
+            //                     enabled: true,                                
+            //                 }
+            //             }
+            //         },
+            //         legend:{
+            //             enabled: true,
                         
-                        labelFormatter: function(){
-                            return this.commrep_question11;
-                        },
-                        itemStyle: {
-                            fontWeight: 'bold',
-                            fontSize: '20px'
-                        }
+            //             labelFormatter: function(){
+            //                 return this.commrep_question11;
+            //             },
+            //             itemStyle: {
+            //                 fontWeight: 'bold',
+            //                 fontSize: '20px'
+            //             }
                         
-                    },
-                    series: [{
-                        name: 'Results',
-                        colorByPoint: true,
-                        data: <?= $query['question11'] ?>
-                    }]
+            //         },
+            //         series: [{
+            //             name: 'Results',
+            //             colorByPoint: true,
+            //             data: <?= $query['question11'] ?>
+            //         }]
                     
-                });
-            });
+            //     });
+            // });
 
         };
     </script>

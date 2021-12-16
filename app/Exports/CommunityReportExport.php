@@ -40,7 +40,6 @@ class CommunityReportExport implements FromCollection, WithHeadings
             'comment9',
             'question10',
             'comment10',
-            'question11',
             'comment11',
             'officer',
             'date'

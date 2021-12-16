@@ -126,20 +126,8 @@
                         <div class=""> 
                             <label for="" class="form-label">How many souls have accepted Christ over the past one month (New converts)</label>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" required name="evange_question5" value="Yes">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Yes
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="evange_question5" value="No">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                No
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="evange_question5" value="Somehow">
+                        <div class="form-check" style="display: none">
+                            <input class="form-check-input" type="radio" name="evange_question5" value="Somehow" checked>
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Somehow
                             </label>

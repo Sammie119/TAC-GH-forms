@@ -19,6 +19,7 @@ use App\Models\LocalLevelQuestion;
 use App\Models\MemberReport;
 use App\Models\MonitorReport;
 use App\Models\PastorAssessmentQues;
+use App\Models\PresidingAssessment;
 use App\Models\ProcurementPolicy;
 use App\Models\RecordBooksArea;
 use App\Models\RecordBooksDistrict;
@@ -104,7 +105,7 @@ class AuthController extends Controller
      
     public function home()
     {
-        // $users = User::count();
+        $users = User::count();
         $areaHeadReport = AreaHeadReport::count();
         $areaSupQuestions = AreaSupQuestions::count();
         $communityReport = CommunityReport::count();
@@ -122,11 +123,12 @@ class AuthController extends Controller
         $rec_booking_loc = RecordBooksLocal::count();
         $pas_assessment = PastorAssessmentQues::count();
         $sup_assessment = SupAssessmentQues::count();
+        $pres_assessment = PresidingAssessment::count();
 
-        $total = $areaHeadReport + $areaSupQuestions + $communityReport + $districtLevelMonoter + $districtPastorQuestion + $districtPastorReport + $localEvangelism + $localLevelQuestion + $memberReport + $monitorReport + $fin_policy + $pro_policy + $rec_booking_area + $rec_booking_dist + $rec_booking_loc + $pas_assessment + $sup_assessment;
+        $total = $areaHeadReport + $areaSupQuestions + $communityReport + $districtLevelMonoter + $districtPastorQuestion + $districtPastorReport + $localEvangelism + $localLevelQuestion + $memberReport + $monitorReport + $fin_policy + $pro_policy + $rec_booking_area + $rec_booking_dist + $rec_booking_loc + $pas_assessment + $sup_assessment + $pres_assessment;
 
         $data = [
-            // 'users' => $users,
+            'users' => $users,
             'areaHeadReport' => $areaHeadReport,
             'areaSupQuestions' => $areaSupQuestions,
             'communityReport' => $communityReport,
@@ -144,6 +146,7 @@ class AuthController extends Controller
             'rec_booking_loc' => $rec_booking_loc, 
             'pas_assessment' => $pas_assessment,
             'sup_assessment' => $sup_assessment,
+            'pres_assessment' => $pres_assessment,
             'total' => $total
         ];
         return view('home', compact('data'));

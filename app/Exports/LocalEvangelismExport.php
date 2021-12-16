@@ -30,7 +30,6 @@ class LocalEvangelismExport implements FromCollection, WithHeadings
             'comment3',
             'question4',
             'comment4',
-            'question5',
             'comment5',
             'question6',
             'comment6',
