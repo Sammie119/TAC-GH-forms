@@ -22,16 +22,22 @@
           <li class="nav-item">
             <a class="nav-link {{ request()->is('report') ? 'active' : '' }} {{ request()->is('report-post') ? 'active' : '' }} {{ request()->is('view-chart/*') ? 'active' : '' }}" href="/report">Report</a>
           </li>
-          @if(Auth()->user()->user_role != 0)
+          @if(Auth()->user()->user_role == 1 || Auth()->user()->user_role == 2)
+          <li class="nav-item">
+            <a class="nav-link {{ request()->is('churches') ? 'active' : '' }}" href="/churches">Churches</a>
+          </li>
             <li class="nav-item">
               <a class="nav-link {{ request()->is('register') ? 'active' : '' }}" href="/register">Register</a>
             </li>
           @endif
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {{ request()->is('profile') ? 'active' : '' }}" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ Auth()->user()->name }}</a>
+            <a class="nav-link dropdown-toggle 
+            {{ request()->is('profile') ? 'active' : '' }}
+            {{ request()->is('user-list') ? 'active' : '' }}
+            " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{{ Auth()->user()->name }}</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="/profile">Profile</a></li>
-              @if(Auth()->user()->user_role != 0)
+              @if(Auth()->user()->user_role == 1 || Auth()->user()->user_role == 2)
                 <li><a class="dropdown-item" href="/user-list">Users</a></li>
               @endif
               <li><hr class="dropdown-divider"></li>

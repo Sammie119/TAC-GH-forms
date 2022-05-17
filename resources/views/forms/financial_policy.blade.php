@@ -5,11 +5,38 @@
             <form action="{{ route('financial-policy') }}" id="fin_eva_aonitor" method="POST">
                 @csrf
                 <div class="row">
-                    <div class="col-sm-6"> <input name="fin_eva_a_area" required placeholder="Area" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
-                    <div class="col-sm-6"> <input name="fin_eva_a_district" required placeholder="District" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
+                    <div class="col-sm-6"> 
+                        <input name="fin_eva_a_area" placeholder="Name of Area" list="areaOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> 
+                        <datalist id="areaOptions"> 
+                            @forelse (Cache::get('churches')->where('status', 1) as $district)
+                                <option>{{ $district->dropdown_name }}</option>
+                            @empty
+                                <option>No data found</option>
+                            @endforelse
+                        </datalist>  
+                    </div>
+                    <div class="col-sm-6">
+                        <input name="fin_eva_a_district" placeholder="Name of District" list="districtOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome">  
+                        <datalist id="districtOptions"> 
+                            @forelse (Cache::get('churches')->where('status', 2) as $district)
+                                <option>{{ $district->dropdown_name }}</option>
+                            @empty
+                                <option>No data found</option>
+                            @endforelse
+                        </datalist> 
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6"> <input name="fin_eva_a_local" required placeholder="Local" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
+                    <div class="col-sm-6"> 
+                        <input name="fin_eva_a_local" placeholder="Name of Local Assembly" list="localOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> 
+                        <datalist id="localOptions"> 
+                            @forelse (Cache::get('churches')->where('status', 3) as $district)
+                                <option>{{ $district->dropdown_name }}</option>
+                            @empty
+                                <option>No data found</option>
+                            @endforelse
+                        </datalist> 
+                    </div>
                     <div class="col-sm-6"> <input name="fin_eva_a_moniter" required placeholder="Monitor's Name" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
                 </div>
                 <ol>

@@ -20,6 +20,7 @@
 </style>
 
 @section('content')
+@include('edit.datalist')
     <div class="container-fluid mt-4 px-4">
         <div class="card text-dark bg-light mb-3">
             <div class="card-header"><h3>EDIT - {{ $form }}</h3></div>
@@ -38,17 +39,17 @@
                                     <input type="hidden" name="id" value="{{ $data->record_id }}">
                                     <div class="row">
                                         <div class="col-sm-6 mb-4"> 
-                                            <input name="rec_local_area" value="{{ $data->rec_local_area }}" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
+                                            <input name="rec_local_area" value="{{ $data->rec_local_area }}" list="areaOptions" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
                                             <small class="d-flex justify-content-center">Name of Area</small>
                                         </div>
                                         <div class="col-sm-6 mb-4"> 
-                                            <input name="rec_local_district" value="{{ $data->rec_local_district }}" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
+                                            <input name="rec_local_district" value="{{ $data->rec_local_district }}" list="districtOptions" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
                                             <small class="d-flex justify-content-center">Name of District</small>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6  mb-4"> 
-                                            <input name="rec_local_local" value="{{ $data->rec_local_local }}" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
+                                            <input name="rec_local_local" value="{{ $data->rec_local_local }}" list="localOptions" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
                                             <small class="d-flex justify-content-center">Name of Local</small>
                                         </div>
                                         <div class="col-sm-6"> 

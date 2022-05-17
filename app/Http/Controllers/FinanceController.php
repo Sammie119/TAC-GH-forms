@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FinancialPolicy;
-use App\Models\ProcurementPolicy;
-use App\Models\RecordBooksArea;
-use App\Models\RecordBooksDistrict;
-use App\Models\RecordBooksLocal;
 use Illuminate\Http\Request;
+use App\Models\FinancialPolicy;
+use App\Models\RecordBooksArea;
+use App\Models\RecordBooksLocal;
+use App\Models\ProcurementPolicy;
+use App\Models\FinancialAssessment;
+use App\Models\RecordBooksDistrict;
 
 class FinanceController extends Controller
 {
@@ -426,6 +427,60 @@ class FinanceController extends Controller
         $data->rec_local_comment20 = $request->rec_local_comment20;
         $data->rec_local_question21 = $request->rec_local_question21;
         $data->rec_local_comment21 = $request->rec_local_comment21;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->update();
+
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
+    }
+
+    public function financialAssessment(Request $request)
+    {
+        if(isset($request->id)){
+            $data = FinancialAssessment::find($request->id);
+        }
+        else{
+            $data = new FinancialAssessment;
+        }
+        
+        $data->fin_ass_district = $request->fin_ass_district;
+        $data->fin_ass_area = $request->fin_ass_area;
+        $data->fin_ass_local = $request->fin_ass_local;
+        $data->fin_ass_status = $request->fin_ass_status;
+        $data->fin_ass_month = $request->fin_ass_month;
+        $data->fin_ass_year = $request->fin_ass_year;
+        $data->fin_ass_tithe1 = $request->fin_ass_tithe1;
+        $data->fin_ass_offering1 = $request->fin_ass_offering1;
+        $data->fin_ass_others1 = $request->fin_ass_others1;
+        $data->fin_ass_total1 = $request->fin_ass_total1;
+        $data->fin_ass_tithe2 = $request->fin_ass_tithe2;
+        $data->fin_ass_offering2 = $request->fin_ass_offering2;
+        $data->fin_ass_others2 = $request->fin_ass_others2;
+        $data->fin_ass_total2 = $request->fin_ass_total2;
+        $data->fin_ass_tithe3 = $request->fin_ass_tithe3;
+        $data->fin_ass_offering3 = $request->fin_ass_offering3;
+        $data->fin_ass_others3 = $request->fin_ass_others3;
+        $data->fin_ass_total3 = $request->fin_ass_total3;
+        $data->fin_ass_tithe4 = $request->fin_ass_tithe4;
+        $data->fin_ass_offering4 = $request->fin_ass_offering4;
+        $data->fin_ass_others4 = $request->fin_ass_others4;
+        $data->fin_ass_total4 = $request->fin_ass_total4;
+        $data->fin_ass_tithe5 = $request->fin_ass_tithe5;
+        $data->fin_ass_offering5 = $request->fin_ass_offering5;
+        $data->fin_ass_others5 = $request->fin_ass_others5;
+        $data->fin_ass_total5 = $request->fin_ass_total5;
+        $data->fin_ass_gdtotal = $request->fin_ass_gdtotal;
         
         if(isset($request->id)){
             $data->updated_by = Auth()->user()->user_id;

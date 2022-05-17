@@ -5,7 +5,9 @@
             <form action="{{ route('record-books-area') }}" id="rec_areaonitor" method="POST">
                 @csrf
                 <div class="row">
-                    <div class="col-sm-6"> <input name="rec_area_area" required placeholder="Area" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
+                    <div class="col-sm-6">
+                        <input name="rec_area_area" placeholder="Name of Area" list="areaOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome">   
+                    </div>
                     <div class="col-sm-6"> <input name="rec_area_prepared_by" required placeholder="Prepared By" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
                 </div>
                 <div class="row">

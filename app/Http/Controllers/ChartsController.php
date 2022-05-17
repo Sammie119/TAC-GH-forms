@@ -2,25 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Charts\AreaHeadChartsController;
-use App\Http\Controllers\Charts\AreaSupChartsController;
-use App\Http\Controllers\Charts\CommunityChartsController;
-use App\Http\Controllers\Charts\DistrictLevelChartsController;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Charts\DistrictPastorQuestionChartsController;
-use App\Http\Controllers\Charts\DistrictPastorReportChartsController;
+use App\Http\Controllers\Charts\AreaSupChartsController;
+use App\Http\Controllers\Charts\AreaHeadChartsController;
+use App\Http\Controllers\Charts\CommunityChartsController;
+use App\Http\Controllers\Charts\SupAssessChartsController;
+use App\Http\Controllers\Charts\MemberReportChartsController;
+use App\Http\Controllers\Charts\PastorAssessChartsController;
+use App\Http\Controllers\Charts\DistrictLevelChartsController;
+use App\Http\Controllers\Charts\MonitorReportChartsController;
+use App\Http\Controllers\Charts\LocalLevelQuesChartsController;
 use App\Http\Controllers\Charts\FinancialPolicyChartsController;
 use App\Http\Controllers\Charts\LocalEvangelismChartsController;
-use App\Http\Controllers\Charts\LocalLevelQuesChartsController;
-use App\Http\Controllers\Charts\MemberReportChartsController;
-use App\Http\Controllers\Charts\MonitorReportChartsController;
-use App\Http\Controllers\Charts\PastorAssessChartsController;
 use App\Http\Controllers\Charts\PresisingAssessChartsController;
-use App\Http\Controllers\Charts\ProcurementPolicyChartsController;
 use App\Http\Controllers\Charts\RecordBooksAreaChartsController;
-use App\Http\Controllers\Charts\SupAssessChartsController;
-use App\Http\Controllers\Charts\RecordBooksDistrictChartsController;
 use App\Http\Controllers\Charts\RecordBooksLocalChartsController;
+use App\Http\Controllers\Charts\ProcurementPolicyChartsController;
+use App\Http\Controllers\Charts\AttendanceAnalysisChartsController;
+use App\Http\Controllers\Charts\GrowthQuestionniareChartsController;
+use App\Http\Controllers\Charts\RecordBooksDistrictChartsController;
+use App\Http\Controllers\Charts\DistrictPastorReportChartsController;
+use App\Http\Controllers\Charts\DistrictPastorQuestionChartsController;
+use App\Http\Controllers\Charts\FinancialAssessmentChartsController;
 
 class ChartsController extends Controller
 {
@@ -134,6 +137,32 @@ class ChartsController extends Controller
                 $form = "PRESIDING ELDER'S ASSESSMENT";
                 return view('charts.chart-presiding-assessment', compact('form', 'query'));
                 break;
+
+            case 'growth_ques':
+                $query = GrowthQuestionniareChartsController::growthQues($destination, $area, $dist, $loc);
+                $form = "GROWTH QUESTIONNAIRE";
+                return view('charts.chart-growth_questionniare', compact('form', 'query'));
+                break;
+
+            case 'fin_ass':
+                $query = FinancialAssessmentChartsController::financailAss($destination, $area, $dist, $loc);
+                $form = "FINANCIAL ASSESSMENT";
+                return "charts not ready";
+                // return view('charts.chart-financial_assessment', compact('form', 'query'));
+                break;
+
+            case 'attn_anal':
+                $query = AttendanceAnalysisChartsController::attendanceAna($destination, $area, $dist, $loc);
+                $form = "ATTENDANCE ANALYSIS";
+                return "charts not ready";
+                // return view('charts.chart-attendance_analysis', compact('form', 'query'));
+                break;
+
+            // case 'growth_ass':
+            //     $query = PresisingAssessChartsController::presidingAss($destination, $area, $dist, $loc);
+            //     $form = "GROWTH ASSESSMENT";
+            //     return view('charts.chart-presiding-assessment', compact('form', 'query'));
+            //     break;
             
             default:
                 # code...

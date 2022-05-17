@@ -109,6 +109,28 @@
                     <div class="card-body"><h3>{{ $data['pres_assessment'] }}</h3>Presiding Elder's <br>Assessment</div>
                 </div>
             </div>
+            <div class="col-xl-3 col-md-4">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body"><h3>{{ $data['growth_ques'] }}</h3>Growth<br>Questionnaire</div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-4">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body"><h3>{{ $data['fin_assessment'] }}</h3>Financial<br>Assessment</div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-4">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body"><h3>{{ $data['attn_analysis'] }}</h3>Attendance<br>Analysis</div>
+                </div>
+            </div>
+            {{-- <div class="col-xl-3 col-md-4">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body"><h3>{{ $data['growth_assess'] }}</h3>Growth<br>Assessment</div>
+                </div>
+            </div> --}}
+
         </div>
     </div>
     

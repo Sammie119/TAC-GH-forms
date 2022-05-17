@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\AreaHeadReport;
 use App\Models\AreaSupQuestions;
+use App\Models\AttendanceAnalysis;
 use App\Models\CommunityReport;
 use App\Models\DistrictLevelMonoter;
 use App\Models\DistrictPastorQuestion;
 use App\Models\DistrictPastorReport;
+use App\Models\FinancialAssessment;
+use App\Models\GrowthQuestionnaire;
 use App\Models\LocalEvangelism;
 use App\Models\LocalLevelQuestion;
 use App\Models\MemberReport;
@@ -166,7 +169,9 @@ class FormController extends Controller
         $data->commrep_area = $request->commrep_area;
         $data->commrep_local = $request->commrep_local;
         $data->commrep_status = $request->commrep_status;
+        $data->commrep_question1 = $request->commrep_question1;
         $data->commrep_comment1 = $request->commrep_comment1;
+        $data->commrep_question2 = $request->commrep_question2;
         $data->commrep_comment2 = $request->commrep_comment2;
         $data->commrep_question3 = $request->commrep_question3;
         $data->commrep_comment3 = $request->commrep_comment3;
@@ -758,6 +763,155 @@ class FormController extends Controller
         $data->pres_ass_comment10 = $request->pres_ass_comment10;
         $data->pres_ass_comment11 = $request->pres_ass_comment11;
         $data->pres_ass_comment12 = $request->pres_ass_comment12;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->update();
+
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
+    }
+
+    public function growthQuestioniare(Request $request)
+    {
+        if(isset($request->id)){
+            $data = GrowthQuestionnaire::find($request->id);
+        }
+        else{
+            $data = new GrowthQuestionnaire;
+        }
+        
+        $data->growthque_district = $request->growthque_district;
+        $data->growthque_area = $request->growthque_area;
+        $data->growthque_local = $request->growthque_local;
+        $data->growthque_status = $request->growthque_status;
+        $data->growthque_question1 = $request->growthque_question1;
+        $data->growthque_comment1 = $request->growthque_comment1;
+        $data->growthque_question2 = $request->growthque_question2;
+        $data->growthque_comment2 = $request->growthque_comment2;
+        $data->growthque_question3 = $request->growthque_question3;
+        $data->growthque_comment3 = $request->growthque_comment3;
+        $data->growthque_question4 = $request->growthque_question4;
+        $data->growthque_comment4 = $request->growthque_comment4;
+        $data->growthque_question5 = $request->growthque_question5;
+        $data->growthque_comment5 = $request->growthque_comment5;
+        $data->growthque_question6 = $request->growthque_question6;
+        $data->growthque_comment6 = $request->growthque_comment6;
+        $data->growthque_question7 = $request->growthque_question7;
+        $data->growthque_comment7 = $request->growthque_comment7;
+        $data->growthque_question8 = $request->growthque_question8;
+        $data->growthque_comment8 = $request->growthque_comment8;
+        $data->growthque_question9 = $request->growthque_question9;
+        $data->growthque_comment9 = $request->growthque_comment9;
+        $data->growthque_question10 = $request->growthque_question10;
+        $data->growthque_comment10 = $request->growthque_comment10;
+        $data->growthque_question11 = $request->growthque_question11;
+        $data->growthque_comment11 = $request->growthque_comment11;
+        $data->growthque_question12 = $request->growthque_question12;
+        $data->growthque_comment12 = $request->growthque_comment12;
+        $data->growthque_question13 = $request->growthque_question13;
+        $data->growthque_comment13 = $request->growthque_comment13;
+        $data->growthque_question14 = $request->growthque_question14;
+        $data->growthque_comment14 = $request->growthque_comment14;
+        $data->growthque_question15 = $request->growthque_question15;
+        $data->growthque_comment15 = $request->growthque_comment15;
+        $data->growthque_question16 = $request->growthque_question16;
+        $data->growthque_comment16 = $request->growthque_comment16;
+        $data->growthque_question17 = $request->growthque_question17;
+        $data->growthque_comment17 = $request->growthque_comment17;
+        $data->growthque_comment18 = $request->growthque_comment18;
+        
+        if(isset($request->id)){
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->update();
+
+            return back()->with('success', $this->updatMmessage());
+        }
+        else{
+            $data->created_by = Auth()->user()->user_id;
+            $data->updated_by = Auth()->user()->user_id;
+
+            $data->save();
+
+            return back()->with('success', $this->message());
+        }
+    }
+
+    public function attendanceAnalysis(Request $request)
+    {
+        if(isset($request->id)){
+            $data = AttendanceAnalysis::find($request->id);
+        }
+        else{
+            $data = new AttendanceAnalysis;
+        }
+        
+        $data->attn_district = $request->attn_district;
+        $data->attn_area = $request->attn_area;
+        $data->attn_local = $request->attn_local;
+        $data->attn_status = $request->attn_status;
+        $data->attn_month = $request->attn_month;
+        $data->attn_year = $request->attn_year;
+        $data->pastors1 = $request->pastors1;
+        $data->pastors2 = $request->pastors2;
+        $data->pastors3 = $request->pastors3;
+        $data->pastors4 = $request->pastors4;
+        $data->pastors5 = $request->pastors5;
+        $data->pastors_total = $request->pastors_total;
+        $data->elders1 = $request->elders1;
+        $data->elders2 = $request->elders2;
+        $data->elders3 = $request->elders3;
+        $data->elders4 = $request->elders4;
+        $data->elders5 = $request->elders5;
+        $data->elders_total = $request->elders_total;
+        $data->deacons1 = $request->deacons1;
+        $data->deacons2 = $request->deacons2;
+        $data->deacons3 = $request->deacons3;
+        $data->deacons4 = $request->deacons4;
+        $data->deacons5 = $request->deacons5;
+        $data->deacons_total = $request->deacons_total;
+        $data->deaconesses1 = $request->deaconesses1;
+        $data->deaconesses2 = $request->deaconesses2;
+        $data->deaconesses3 = $request->deaconesses3;
+        $data->deaconesses4 = $request->deaconesses4;
+        $data->deaconesses5 = $request->deaconesses5;
+        $data->deaconesses_total = $request->deaconesses_total;
+        $data->adult_males1 = $request->adult_males1;
+        $data->adult_males2 = $request->adult_males2;
+        $data->adult_males3 = $request->adult_males3;
+        $data->adult_males4 = $request->adult_males4;
+        $data->adult_males5 = $request->adult_males5;
+        $data->adult_males_total = $request->adult_males_total;
+        $data->adult_females1 = $request->adult_females1;
+        $data->adult_females2 = $request->adult_females2;
+        $data->adult_females3 = $request->adult_females3;
+        $data->adult_females4 = $request->adult_females4;
+        $data->adult_females5 = $request->adult_females5;
+        $data->adult_females_total = $request->adult_females_total;
+        $data->children1 = $request->children1;
+        $data->children2 = $request->children2;
+        $data->children3 = $request->children3;
+        $data->children4 = $request->children4;
+        $data->children5 = $request->children5;
+        $data->children_total = $request->children_total;
+        $data->youth1 = $request->youth1;
+        $data->youth2 = $request->youth2;
+        $data->youth3 = $request->youth3;
+        $data->youth4 = $request->youth4;
+        $data->youth5 = $request->youth5;
+        $data->youth_total = $request->youth_total;
+        $data->total_att = $request->total_att;
+        $data->average_att = $request->average_att;
         
         if(isset($request->id)){
             $data->updated_by = Auth()->user()->user_id;

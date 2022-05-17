@@ -14,8 +14,11 @@ use App\Exports\AreaSupQuestionsExport;
 use App\Exports\ProcurementPolicyExport;
 use App\Exports\ReportBookingAreaExport;
 use App\Exports\SupAssessmentQuesExport;
+use App\Exports\AttendanceAnalysisExport;
 use App\Exports\LocalLevelQuestionExport;
 use App\Exports\ReportBookingLocalExport;
+use App\Exports\FinancialAssessmentExport;
+use App\Exports\GrowthQuestionniareExport;
 use App\Exports\DistrictLevelMonoterExport;
 use App\Exports\DistrictPastorReportExport;
 use App\Exports\PastorAssessmentQuesExport;
@@ -114,4 +117,26 @@ class ExportController extends Controller
     {
         return Excel::download(new PresidingAssessmentQuesExport($destination, $area, $dist, $loc), $area.'_'.$dist.'_'.$loc.'_presiding_assessment.xlsx');
     }
+
+    public function exportToExcelGrowthQuestionniare($destination, $area, $dist, $loc)
+    {
+        return Excel::download(new GrowthQuestionniareExport($destination, $area, $dist, $loc), $area.'_'.$dist.'_'.$loc.'_growth_questionnaire.xlsx');
+    }
+
+    public function exportToExcelFinancialAssessment($destination, $area, $dist, $loc)
+    {
+        // return "Export not ready";
+        return Excel::download(new FinancialAssessmentExport($destination, $area, $dist, $loc), $area.'_'.$dist.'_'.$loc.'_financial_assessment.xlsx');
+    }
+
+    public function exportToExcelAttendanceAnalysis($destination, $area, $dist, $loc)
+    {
+        // return "Export not ready";
+        return Excel::download(new AttendanceAnalysisExport($destination, $area, $dist, $loc), $area.'_'.$dist.'_'.$loc.'_attendance_analysis.xlsx');
+    }
+
+    // public function exportToExcelGrowthAssessment($destination, $area, $dist, $loc)
+    // {
+    //     return Excel::download(new GrowthAssessmentExport($destination, $area, $dist, $loc), $area.'_'.$dist.'_'.$loc.'_growth_assessment.xlsx');
+    // }
 }

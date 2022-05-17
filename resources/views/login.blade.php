@@ -1,3 +1,8 @@
+<?php 
+    use App\Http\Controllers\DropdownController;
+
+    DropdownController::cacheLoader();
+?>
 <!doctype html>
 <html>
 <head>

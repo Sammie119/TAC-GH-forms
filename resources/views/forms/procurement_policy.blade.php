@@ -5,11 +5,17 @@
             <form action="{{ route('procurement-policy') }}" id="fin_eva_bonitor" method="POST">
                 @csrf
                 <div class="row">
-                    <div class="col-sm-6"> <input name="fin_eva_b_area" required placeholder="Area" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
-                    <div class="col-sm-6"> <input name="fin_eva_b_district" required placeholder="District" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
+                    <div class="col-sm-6">
+                        <input name="fin_eva_b_district" placeholder="Name of District" list="districtOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome">  
+                    </div>
+                    <div class="col-sm-6">
+                        <input name="fin_eva_b_area" placeholder="Name of Area" list="areaOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome">   
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6"> <input name="fin_eva_b_local" required placeholder="Local" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
+                    <div class="col-sm-6">
+                        <input name="fin_eva_b_local" placeholder="Name of Local Assembly" list="localOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome">     
+                    </div>
                     <div class="col-sm-6"> <input name="fin_eva_b_moniter" required placeholder="Monitor's Name" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
                 </div>
                 <ol>

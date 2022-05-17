@@ -18,7 +18,9 @@ class CommunityChartsController extends Controller
                 $area_area = VWCommunityReport::select(DB::raw('area, count(area)'))->groupBy('area')->get();
                 $district_dist = VWCommunityReport::select(DB::raw('district, count(district)'))->groupBy('district')->get();
                 $local_loc = VWCommunityReport::select(DB::raw('local, count(local)'))->groupBy('local')->get();
+                $question1 = VWCommunityReport::select(DB::raw('commrep_question1, count(community_id) AS y'))->groupBy('commrep_question1')->get();
                 $commrep_comment1 = VWCommunityReport::select(DB::raw('commrep_comment1, count(commrep_comment1)'))->groupBy('commrep_comment1')->get();
+                $question2 = VWCommunityReport::select(DB::raw('commrep_question2, count(community_id) AS y'))->groupBy('commrep_question2')->get();
                 $commrep_comment2 = VWCommunityReport::select(DB::raw('commrep_comment2, count(commrep_comment2)'))->groupBy('commrep_comment2')->get();
                 $question3 = VWCommunityReport::select(DB::raw('commrep_question3, count(community_id) AS y'))->groupBy('commrep_question3')->get();
                 $commrep_comment3 = VWCommunityReport::select(DB::raw('commrep_comment3, count(commrep_comment3)'))->groupBy('commrep_comment3')->get();
@@ -46,7 +48,9 @@ class CommunityChartsController extends Controller
                 $area_area = VWCommunityReport::where('area', 'ILIKE', $area)->select(DB::raw('area, count(area)'))->groupBy('area')->get();
                 $district_dist = VWCommunityReport::where('area', 'ILIKE', $area)->select(DB::raw('district, count(district)'))->groupBy('district')->get();
                 $local_loc = VWCommunityReport::where('area', 'ILIKE', $area)->select(DB::raw('local, count(local)'))->groupBy('local')->get();
+                $question1 = VWCommunityReport::where('area', 'ILIKE', $area)->select(DB::raw('commrep_question1, count(community_id) AS y'))->groupBy('commrep_question1')->get();
                 $commrep_comment1 = VWCommunityReport::where('area', 'ILIKE', $area)->select(DB::raw('commrep_comment1, count(commrep_comment1)'))->groupBy('commrep_comment1')->get();
+                $question2 = VWCommunityReport::where('area', 'ILIKE', $area)->select(DB::raw('commrep_question2, count(community_id) AS y'))->groupBy('commrep_question2')->get();
                 $commrep_comment2 = VWCommunityReport::where('area', 'ILIKE', $area)->select(DB::raw('commrep_comment2, count(commrep_comment2)'))->groupBy('commrep_comment2')->get();
                 $question3 = VWCommunityReport::where('area', 'ILIKE', $area)->select(DB::raw('commrep_question3, count(community_id) AS y'))->groupBy('commrep_question3')->get();
                 $commrep_comment3 = VWCommunityReport::where('area', 'ILIKE', $area)->select(DB::raw('commrep_comment3, count(commrep_comment3)'))->groupBy('commrep_comment3')->get();
@@ -73,7 +77,9 @@ class CommunityChartsController extends Controller
                 $area_area = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->select(DB::raw('area, count(area)'))->groupBy('area')->get();
                 $district_dist = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->select(DB::raw('district, count(district)'))->groupBy('district')->get();
                 $local_loc = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->select(DB::raw('local, count(local)'))->groupBy('local')->get();
+                $question1 = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->select(DB::raw('commrep_question1, count(community_id) AS y'))->groupBy('commrep_question1')->get();
                 $commrep_comment1 = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->select(DB::raw('commrep_comment1, count(commrep_comment1)'))->groupBy('commrep_comment1')->get();
+                $question2 = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->select(DB::raw('commrep_question2, count(community_id) AS y'))->groupBy('commrep_question2')->get();
                 $commrep_comment2 = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->select(DB::raw('commrep_comment2, count(commrep_comment2)'))->groupBy('commrep_comment2')->get();
                 $question3 = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->select(DB::raw('commrep_question3, count(community_id) AS y'))->groupBy('commrep_question3')->get();
                 $commrep_comment3 = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->select(DB::raw('commrep_comment3, count(commrep_comment3)'))->groupBy('commrep_comment3')->get();
@@ -100,7 +106,9 @@ class CommunityChartsController extends Controller
                 $area_area = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->where('local', 'ILIKE', $loc)->select(DB::raw('area, count(area)'))->groupBy('area')->get();
                 $district_dist = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->where('local', 'ILIKE', $loc)->select(DB::raw('district, count(district)'))->groupBy('district')->get();
                 $local_loc = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->where('local', 'ILIKE', $loc)->select(DB::raw('local, count(local)'))->groupBy('local')->get();
+                $question1 = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->where('local', 'ILIKE', $loc)->select(DB::raw('commrep_question1, count(community_id) AS y'))->groupBy('commrep_question1')->get();
                 $commrep_comment1 = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->where('local', 'ILIKE', $loc)->select(DB::raw('commrep_comment1, count(commrep_comment1)'))->groupBy('commrep_comment1')->get();
+                $question2 = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->where('local', 'ILIKE', $loc)->select(DB::raw('commrep_question2, count(community_id) AS y'))->groupBy('commrep_question2')->get();
                 $commrep_comment2 = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->where('local', 'ILIKE', $loc)->select(DB::raw('commrep_comment2, count(commrep_comment2)'))->groupBy('commrep_comment2')->get();
                 $question3 = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->where('local', 'ILIKE', $loc)->select(DB::raw('commrep_question3, count(community_id) AS y'))->groupBy('commrep_question3')->get();
                 $commrep_comment3 = VWCommunityReport::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $dist)->where('local', 'ILIKE', $loc)->select(DB::raw('commrep_comment3, count(commrep_comment3)'))->groupBy('commrep_comment3')->get();
@@ -132,7 +140,9 @@ class CommunityChartsController extends Controller
             'area' => $area_area,
             'district' => $district_dist,
             'local' => $local_loc,
+            'question1' => $question1,
             'commrep_comment1' => $commrep_comment1,
+            'question2' => $question2,
             'commrep_comment2' => $commrep_comment2,
             'question3' => $question3,
             'commrep_comment3' => $commrep_comment3,

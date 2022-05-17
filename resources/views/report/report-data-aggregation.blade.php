@@ -114,6 +114,27 @@
                         <td>Presiding Elder's Assessment</td>
                         <td>{{ $data['pres_ass'] }}</td>
                     </tr>
+                    <tr>
+                        <th scope="row">19</th>
+                        <td>Growth Questionnaire</td>
+                        <td>{{ $data['growth_ques'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">20</th>
+                        <td>Financial Assessment</td>
+                        <td>{{ $data['fin_assessment'] }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">21</th>
+                        <td>Attendance Analysis</td>
+                        <td>{{ $data['attn_analysis'] }}</td>
+                    </tr>
+                    {{-- <tr>
+                        <th scope="row">22</th>
+                        <td>Growth Assessment</td>
+                        <td>{{ $data['growth_assess'] }}</td>
+                    </tr> --}}
+
                 </tbody>
                 <tfoot>
                     <tr>

@@ -56,9 +56,10 @@
                             <td>{{ $role }}</td>
                             @if (Auth()->user()->user_role == 1 || Auth()->user()->user_role == 2)
                                 <td>
-                                    <a href="admin-edit/{{ $users->user_id }}" class="btn btn-success btn-sm" style="text-decoration: none" title="Edit">Edit</a>
+                                    <a href="admin-edit/{{ $users->user_id }}" class="btn btn-success btn-sm" style="text-decoration: none" title="Edit">&#9998;</a>
                                     @if (Auth()->user()->user_role == 1)
-                                        <a href="delete/{{ $users->user_id }}" onclick="return confirm('{{ $users->name }} will be deleted permanently!!!')" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Delete</a>
+                                        <a href="delete/{{ $users->user_id }}" onclick="return confirm('{{ $users->name }} will be deleted permanently!!!')" class="btn btn-danger btn-sm" style="text-decoration: none" title="Delete">Del</a>
+                                        <a href="reset_password/{{ $users->user_id }}" class="btn btn-warning btn-sm" style="text-decoration: none" title="Reset Password">Reset</a>
                                     @endif
                                 </td>
                             @endif

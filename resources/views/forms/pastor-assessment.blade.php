@@ -5,11 +5,38 @@
             <form action="{{ route('pastorassesstment') }}" id="past_assonitor" method="POST">
                 @csrf
                 <div class="row">
-                    <div class="col-sm-6"> <input name="past_ass_district" required placeholder="Name of District" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
-                    <div class="col-sm-6"> <input name="past_ass_area" required placeholder="Area" type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> </div>
+                    <div class="col-sm-6">
+                        <input name="past_ass_district" placeholder="Name of District" list="districtOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> 
+                        <datalist id="districtOptions"> 
+                            @forelse (Cache::get('churches')->where('status', 2) as $district)
+                                <option>{{ $district->dropdown_name }}</option>
+                            @empty
+                                <option>No data found</option>
+                            @endforelse
+                        </datalist>  
+                    </div>
+                    <div class="col-sm-6">
+                        <input name="past_ass_area" placeholder="Name of Area" list="areaOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> 
+                        <datalist id="areaOptions"> 
+                            @forelse (Cache::get('churches')->where('status', 1) as $district)
+                                <option>{{ $district->dropdown_name }}</option>
+                            @empty
+                                <option>No data found</option>
+                            @endforelse
+                        </datalist>  
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6"> <input name="past_ass_local" required placeholder="Local Assembly" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
+                    <div class="col-sm-6">
+                        <input name="past_ass_local" placeholder="Name of Local Assembly" list="localOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> 
+                        <datalist id="localOptions"> 
+                            @forelse (Cache::get('churches')->where('status', 3) as $district)
+                                <option>{{ $district->dropdown_name }}</option>
+                            @empty
+                                <option>No data found</option>
+                            @endforelse
+                        </datalist>   
+                    </div>
                     <div class="col-sm-6"> <input name="past_ass_name" required placeholder="Interviewee Name" type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> </div>
                 </div>
                 <ol>

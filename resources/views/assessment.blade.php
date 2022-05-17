@@ -31,34 +31,39 @@
                     @endif
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         {{-- AREA SUPERINTENDENTS' DIRECT QUESTIONNAIRE --}}
-                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form2 == 1) echo 'style="display: none"' ?> >
+                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form2 == 0) echo 'style="display: none"' ?> >
                             <button class="nav-link active" id="areasupq-tab" data-bs-toggle="tab" data-bs-target="#areasupq" type="button" role="tab" aria-controls="areasupq" aria-selected="false">Area Sup. Quest</button>
                         </li>
 
                         {{-- DISTRICT PASTORS' DIRECT QUESTIONNAIRE --}}
-                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form5 == 1) echo 'style="display: none"' ?> >
+                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form5 == 0) echo 'style="display: none"' ?> >
                             <button class="nav-link" id="pastorques-tab" data-bs-toggle="tab" data-bs-target="#pastorques" type="button" role="tab" aria-controls="pastorques" aria-selected="false">Pastor Quest</button>
                         </li>
 
                         {{-- PASTOR'S ASSESSMENT QUESTIONNAIRE --}}
-                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form11 == 1) echo 'style="display: none"' ?> >
+                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form11 == 0) echo 'style="display: none"' ?> >
                             <button class="nav-link" id="past-ass-tab" data-bs-toggle="tab" data-bs-target="#past-ass" type="button" role="tab" aria-controls="past-ass" aria-selected="false">Pastor Ass</button>
                         </li>
 
                         {{-- AREA SUPERINTENDENT'S ASSESSMENT QUESTIONNAIRE --}}
-                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form12 == 1) echo 'style="display: none"' ?> >
+                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form12 == 0) echo 'style="display: none"' ?> >
                             <button class="nav-link" id="sup-ass-tab" data-bs-toggle="tab" data-bs-target="#sup-ass" type="button" role="tab" aria-controls="sup-ass" aria-selected="false">Area Sup. Ass</button>
                         </li>
 
                         {{-- PRESIDING ELDER'S ASSESSMENT QUESTIONNAIRE --}}
-                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form18 == 1) echo 'style="display: none"' ?> >
+                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form18 == 0) echo 'style="display: none"' ?> >
                             <button class="nav-link" id="pres-ass-tab" data-bs-toggle="tab" data-bs-target="#pres-ass" type="button" role="tab" aria-controls="pres-ass" aria-selected="false">Presiding Ass</button>
+                        </li>
+
+                        {{-- Growth ASSESSMENT --}}
+                        <li class="nav-item" role="presentation" <?php if (Auth()->user()->form20 == 0) echo 'style="display: none"' ?> >
+                            <button class="nav-link" id="growth-tab" data-bs-toggle="tab" data-bs-target="#growth" type="button" role="tab" aria-controls="growth" aria-selected="false">Growth Ass</button>
                         </li>
                     </ul>
 
                     <div class="tab-content" id="myTabContent">
                         {{-- AREA SUPERINTENDENTS' DIRECT QUESTIONNAIRE --}}
-                        <div class="tab-pane fade show active" id="areasupq" role="tabcard" aria-labelledby="areasupq-tab" <?php if (Auth()->user()->form2 == 1) echo 'style="display: none"' ?>>
+                        <div class="tab-pane fade show active" id="areasupq" role="tabcard" aria-labelledby="areasupq-tab" <?php if (Auth()->user()->form2 == 0) echo 'style="display: none"' ?>>
                             @include('forms.area_sup_questions')
                         </div>
 
@@ -80,6 +85,11 @@
                         {{-- PRESIDING ELDER'S ASSESSMENT QUESTIONNAIRE --}}
                         <div class="tab-pane fade" id="pres-ass" role="tabcard" aria-labelledby="pres-ass-tab">
                             @include('forms.presiding-assessment')
+                        </div>
+
+                        {{-- Growth ASSESSMENT --}}
+                        <div class="tab-pane fade" id="growth" role="tabcard" aria-labelledby="growth-tab">
+                            @include('forms.growth_assessment')
                         </div>
                     </div>
                 </div>

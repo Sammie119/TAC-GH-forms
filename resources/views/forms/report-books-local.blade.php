@@ -5,11 +5,17 @@
             <form action="{{ route('record-books-local') }}" id="rec_localonitor" method="POST">
                 @csrf
                 <div class="row">
-                    <div class="col-sm-6"> <input name="rec_local_area" required placeholder="Area" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
-                    <div class="col-sm-6"> <input name="rec_local_district" required placeholder="District" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
+                    <div class="col-sm-6">
+                        <input name="rec_local_district" placeholder="Name of District" list="districtOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> 
+                    </div>
+                    <div class="col-sm-6">
+                        <input name="rec_local_area" placeholder="Name of Area" list="areaOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> 
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6"> <input name="rec_local_local" required placeholder="Local" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
+                    <div class="col-sm-6">
+                        <input name="rec_local_local" placeholder="Name of Local Assembly" list="localOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome">  
+                    </div>
                     <div class="col-sm-6"> <input name="rec_local_prepared_by" required placeholder="Prepared By" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
                 </div>
                 <div class="row">

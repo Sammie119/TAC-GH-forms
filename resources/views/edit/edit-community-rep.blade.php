@@ -20,6 +20,7 @@
 </style>
 
 @section('content')
+@include('edit.datalist')
     <div class="container-fluid mt-4 px-4">
         <div class="card text-dark bg-light mb-3">
             <div class="card-header"><h3>EDIT - {{ $form }}</h3></div>
@@ -38,17 +39,17 @@
                                     <input type="hidden" name="id" value="{{ $data->community_id }}">
                                     <div class="row">
                                         <div class="col-sm-6 mb-4"> 
-                                            <input name="commrep_district" value="{{ $data->commrep_district }}" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
+                                            <input name="commrep_district" value="{{ $data->commrep_district }}" list="districtOptions" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
                                             <small class="d-flex justify-content-center">Name of District</small>
                                         </div>
                                         <div class="col-sm-6"> 
-                                            <input name="commrep_area" value="{{ $data->commrep_area }}" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
+                                            <input name="commrep_area" value="{{ $data->commrep_area }}" list="areaOptions" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
                                             <small class="d-flex justify-content-center">Name of Area</small>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6 mb-4"> 
-                                            <input name="commrep_local" value="{{ $data->commrep_local }}" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
+                                            <input name="commrep_local" value="{{ $data->commrep_local }}" list="localOptions" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
                                             <small class="d-flex justify-content-center">Name of Local Assembly</small>
                                         </div>
                                         <div class="col-sm-6"> 
@@ -61,6 +62,30 @@
                                             <div class=""> 
                                                 <label for="" class="form-label">How long have you lived in this community?</label>
                                             </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" required name="commrep_question1" value="0 - 5 years" <?php if ($data->commrep_question1 == '0 - 5 years') echo "checked";?> >
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    0 - 5 years
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="commrep_question1" value="6 - 10 years" <?php if ($data->commrep_question1 == '6 - 10 years') echo "checked";?> >
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    6 - 10 years
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="commrep_question1" value="11 - 20 years" <?php if ($data->commrep_question1 == '11 - 20 years') echo "checked";?> >
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    11 - 20 years
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="commrep_question1" value="above 20 years" <?php if ($data->commrep_question1 == 'above 20 years') echo "checked";?> >
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    above 20 years
+                                                </label>
+                                            </div>
                                             <div class="mb">
                                                 <textarea form="commreponitor" class="form-control" name="commrep_comment1" rows="2" placeholder="Details/Comments if any...">{{ $data->commrep_comment1 }}</textarea>
                                             </div>
@@ -69,6 +94,30 @@
                                         <li>
                                             <div class=""> 
                                                 <label for="" class="form-label">How long have you known The Apostolic Church-Ghana?</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" required name="commrep_question2" value="0 - 5 years" <?php if ($data->commrep_question2 == '0 - 5 years') echo "checked";?> >
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    0 - 5 years
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="commrep_question2" value="6 - 10 years" <?php if ($data->commrep_question2 == '6 - 10 years') echo "checked";?> >
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    6 - 10 years
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="commrep_question2" value="11 - 20 years" <?php if ($data->commrep_question2 == '11 - 20 years') echo "checked";?> >
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    11 - 20 years
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="commrep_question2" value="above 20 years" <?php if ($data->commrep_question2 == 'above 20 years') echo "checked";?> >
+                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                    above 20 years
+                                                </label>
                                             </div>
                                             <div class="mb">
                                                 <textarea form="commreponitor" class="form-control" name="commrep_comment2" rows="2" placeholder="Details/Comments if any...">{{ $data->commrep_comment2 }}</textarea>

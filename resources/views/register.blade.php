@@ -114,6 +114,14 @@
                                         <input class="form-check-input" type="checkbox" name="form18" value="1" role="switch" id="flexSwitchCheckCheckedDisabled">
                                         <label class="form-check-label" for="flexSwitchCheckChecked">Presiding Elder's Assessment</label>
                                     </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form20" value="1" role="switch" id="flexSwitchCheckCheckedDisabled">
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">Growth Assessment</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form21" value="1" role="switch" id="flexSwitchCheckCheckedDisabled">
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">Attendance Analysis</label>
+                                    </div>
                                 </td>
                                 <td>
                                     <div class="form-check form-switch mb-3">
@@ -151,6 +159,14 @@
                                     <div class="form-check form-switch mb-3">
                                         <input class="form-check-input" type="checkbox"name="form17" value="1" role="switch" id="flexSwitchCheckCheckedDisabled">
                                         <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Records Keeping - Local</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form19" value="1" role="switch" id="flexSwitchCheckCheckedDisabled">
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">Growth Quenstionnaire</label>
+                                    </div>
+                                    <div class="form-check form-switch mb-3">
+                                        <input class="form-check-input" type="checkbox" name="form22" value="1" role="switch" id="flexSwitchCheckCheckedDisabled">
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">Financial Assessment</label>
                                     </div>
                                 </td>
                             </tr>

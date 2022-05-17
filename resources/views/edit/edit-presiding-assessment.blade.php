@@ -20,6 +20,7 @@
 </style>
 
 @section('content')
+@include('edit.datalist')
     <div class="container-fluid mt-4 px-4">
         <div class="card text-dark bg-light mb-3">
             <div class="card-header"><h3>EDIT - {{ $form }}</h3></div>
@@ -38,17 +39,17 @@
                                     <input type="hidden" name="id" value="{{ $data->presiding_id }}">
                                     <div class="row">
                                         <div class="col-sm-6"> 
-                                            <input name="pres_ass_district" value="{{ $data->pres_ass_district }}" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome">
+                                            <input name="pres_ass_district" value="{{ $data->pres_ass_district }}" list="districtOptions" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome">
                                             <small class="d-flex justify-content-center">Name of District</small> 
                                         </div>
                                         <div class="col-sm-6"> 
-                                            <input name="pres_ass_area" value="{{ $data->pres_ass_area }}" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome">
+                                            <input name="pres_ass_area" value="{{ $data->pres_ass_area }}" list="areaOptions" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome">
                                             <small class="d-flex justify-content-center">Name of Area</small> 
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6"> 
-                                            <input name="pres_ass_local" value="{{ $data->pres_ass_local }}" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
+                                            <input name="pres_ass_local" value="{{ $data->pres_ass_local }}" list="localOptions" required type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> 
                                             <small class="d-flex justify-content-center">Name of Local Assembly</small>
                                         </div>
                                         <div class="col-sm-6"> 

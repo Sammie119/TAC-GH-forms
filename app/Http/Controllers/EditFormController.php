@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\AreaHeadReport;
 use App\Models\AreaSupQuestions;
+use App\Models\AttendanceAnalysis;
 use App\Models\CommunityReport;
 use App\Models\DistrictLevelMonoter;
 use App\Models\DistrictPastorQuestion;
 use App\Models\DistrictPastorReport;
+use App\Models\FinancialAssessment;
 use App\Models\FinancialPolicy;
+use App\Models\GrowthQuestionnaire;
 use App\Models\LocalEvangelism;
 use App\Models\LocalLevelQuestion;
 use App\Models\MemberReport;
@@ -122,6 +125,26 @@ class EditFormController extends Controller
             $form = 'PRESIDING ELDERS ASSESSMENT';
             return view('edit.edit-presiding-assessment', compact('data','form'));
         }
+        elseif($form == 'growth_ques'){
+            $data = GrowthQuestionnaire::find($id);
+            $form = 'GROWTH QUESTIONNAIRE';
+            return view('edit.edit-forms', compact('data','form'));
+        }
+        elseif($form == 'attn_anal'){
+            $data = AttendanceAnalysis::find($id);
+            $form = 'ATTENDANCE ANALYSIS';
+            return view('edit.edit-forms', compact('data','form'));
+        }
+        elseif($form == 'fin_ass'){
+            $data = FinancialAssessment::find($id);
+            $form = 'FINANCIAL ASSESSMENT';
+            return view('edit.edit-forms', compact('data','form'));
+        }
+        // elseif($form == 'growth_ass'){
+        //     $data = PresidingAssessment::find($id);
+        //     $form = 'GROWTH ASSESSMENT';
+        //     return view('edit.edit-forms', compact('data','form'));
+        // }
         
     }
 
@@ -235,5 +258,34 @@ class EditFormController extends Controller
                 Session::flash('success', $this->message());
                 return response()->json(['success' => $this->message()]);
             }
+
+            elseif($form == 'growth_ques'){
+                $data = GrowthQuestionnaire::find($id);
+                $data->delete();
+                Session::flash('success', $this->message());
+                return response()->json(['success' => $this->message()]);
+            }
+
+            elseif($form == 'attn_anal'){
+                $data = AttendanceAnalysis::find($id);
+                $data->delete();
+                Session::flash('success', $this->message());
+                return response()->json(['success' => $this->message()]);
+            }
+
+            elseif($form == 'fin_ass'){
+                $data = FinancialAssessment::find($id);
+                $data->delete();
+                Session::flash('success', $this->message());
+                return response()->json(['success' => $this->message()]);
+            }
+
+            // elseif($form == 'growth_ass'){
+            //     $data = PresidingAssessment::find($id);
+            //     $data->delete();
+            //     Session::flash('success', $this->message());
+            //     return response()->json(['success' => $this->message()]);
+            // }
+
         }
 }

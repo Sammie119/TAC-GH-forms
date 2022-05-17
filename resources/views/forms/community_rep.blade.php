@@ -5,17 +5,47 @@
             <form action="{{ route('community-rep') }}" id="commreponitor" method="POST">
                 @csrf
                 <div class="row">
-                    <div class="col-sm-6"> <input name="commrep_district" required placeholder="Name of District" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
-                    <div class="col-sm-6"> <input name="commrep_area" required placeholder="Area" type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> </div>
+                    <div class="col-sm-6">
+                        <input name="commrep_district" placeholder="Name of District" list="districtOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> 
+                    </div>
+                    <div class="col-sm-6">
+                        <input name="commrep_area" placeholder="Name of Area" list="areaOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome">  
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6"> <input name="commrep_local" required placeholder="Local Assembly" type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome"> </div>
+                    <div class="col-sm-6">
+                        <input name="commrep_local" placeholder="Name of Local Assembly" list="localOptions" required type="text" id="date-picker-example" class="form-control datepicker mb-4" style="font-family:Arial, FontAwesome">   
+                    </div>
                     <div class="col-sm-6"> <input name="commrep_status" required placeholder="Interviewee Status" type="text" id="date-picker-example" class="form-control datepicker" style="font-family:Arial, FontAwesome"> </div>
                 </div>
                 <ol>
                     <li>
                         <div class=""> 
                             <label for="" class="form-label">How long have you lived in this community?</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" required name="commrep_question1" value="0 - 5 years">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                0 - 5 years
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="commrep_question1" value="6 - 10 years">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                6 - 10 years
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="commrep_question1" value="11 - 20 years">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                11 - 20 years
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="commrep_question1" value="above 20 years">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                above 20 years
+                            </label>
                         </div>
                         <div class="mb">
                             <textarea form="commreponitor" class="form-control" name="commrep_comment1" rows="2" placeholder="Details/Comments if any..."></textarea>
@@ -25,6 +55,30 @@
                     <li>
                         <div class=""> 
                             <label for="" class="form-label">How long have you known The Apostolic Church-Ghana?</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" required name="commrep_question2" value="0 - 5 years">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                0 - 5 years
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="commrep_question2" value="6 - 10 years">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                6 - 10 years
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="commrep_question2" value="11 - 20 years">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                11 - 20 years
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="commrep_question2" value="above 20 years">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                above 20 years
+                            </label>
                         </div>
                         <div class="mb">
                             <textarea form="commreponitor" class="form-control" name="commrep_comment2" rows="2" placeholder="Details/Comments if any..."></textarea>

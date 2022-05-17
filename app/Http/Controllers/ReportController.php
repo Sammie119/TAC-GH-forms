@@ -3,25 +3,31 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\VWLocalEvangelism;
-use App\Models\VWAreaheadReport;
-use App\Models\VWAreaSupQuestions;
-use App\Models\VWCommunityReport;
-use App\Models\VWDistrictLevelMonoter;
-use App\Models\VWDistrictPastorQuestion;
-use App\Models\VWDistrictPastorReport;
-use App\Models\VWFinancialPolicy;
-use App\Models\VWLocalLevelQuestion;
 use App\Models\VWMemberReport;
 use App\Models\VWMonitorReport;
+use App\Models\VWAreaheadReport;
+use App\Models\VWCommunityReport;
+use App\Models\VWFinancialPolicy;
+use App\Models\VWLocalEvangelism;
+use App\Models\AttendanceAnalysis;
+use App\Models\VWAreaSupQuestions;
+use Illuminate\Support\Facades\DB;
+use App\Models\FinancialAssessment;
+use App\Models\GrowthQuestionnaire;
 use App\Models\VWProcurementPolicy;
 use App\Models\VWReportBookingArea;
-use App\Models\VWReportBookingDistrict;
-use App\Models\VWReportBookingLocal;
-use Illuminate\Support\Facades\DB;
-use App\Models\VWPastorAssessmentQues;
-use App\Models\VWPresidingAssessment;
 use App\Models\VWSupAssessmentQues;
+use App\Models\VWAttendanceAnalysis;
+use App\Models\VWLocalLevelQuestion;
+use App\Models\VWReportBookingLocal;
+use App\Models\VWFinancialAssessment;
+use App\Models\VWGrowthQuestionnaire;
+use App\Models\VWPresidingAssessment;
+use App\Models\VWDistrictLevelMonoter;
+use App\Models\VWDistrictPastorReport;
+use App\Models\VWPastorAssessmentQues;
+use App\Models\VWReportBookingDistrict;
+use App\Models\VWDistrictPastorQuestion;
 
 class ReportController extends Controller
 {
@@ -539,8 +545,13 @@ class ReportController extends Controller
                 $pastorass = VWPastorAssessmentQues::where(DB::raw('updated_at::date'), $date)->count();
                 $sup_ass = VWSupAssessmentQues::where(DB::raw('updated_at::date'), $date)->count();
                 $pres_ass = VWPresidingAssessment::where(DB::raw('updated_at::date'), $date)->count();
+                $growth_ques = GrowthQuestionnaire::where(DB::raw('updated_at::date'), $date)->count();
+                $fin_assessment = FinancialAssessment::where(DB::raw('updated_at::date'), $date)->count();
+                $attn_analysis = AttendanceAnalysis::where(DB::raw('updated_at::date'), $date)->count();
+                // $growth_assess = PastorAssessmentQues::where(DB::raw('updated_at::date'), $date)->count();
 
-                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local+$pastorass+$sup_ass+$pres_ass;
+                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local+$pastorass+$sup_ass+$pres_ass
+                        + $growth_ques + $fin_assessment + $attn_analysis; //+$growth_assess;
 
             }
             else{
@@ -563,8 +574,13 @@ class ReportController extends Controller
                 $pastorass = VWPastorAssessmentQues::count();
                 $sup_ass = VWSupAssessmentQues::count();
                 $pres_ass = VWPresidingAssessment::count();
+                $growth_ques = GrowthQuestionnaire::count();
+                $fin_assessment = FinancialAssessment::count();
+                $attn_analysis = AttendanceAnalysis::count();
+                // $growth_assess = PastorAssessmentQues::count();
 
-                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local+$pastorass+$sup_ass+$pres_ass;
+                $total = $area_head_r+$area_sup_q+$community+$district_level+$district_pas_q+$district_pas_r+$fin_policy+$local_eveng+$local_level+$member+$moniter+$pro_policy+$report_area+$report_district+$report_local+$pastorass+$sup_ass+$pres_ass
+                        + $growth_ques + $fin_assessment + $attn_analysis; //+$growth_assess;
 
             }   
 
@@ -587,6 +603,10 @@ class ReportController extends Controller
                 'pastorass' => $pastorass,
                 'sup_ass' => $sup_ass,
                 'pres_ass' => $pres_ass,
+                'growth_ques' => $growth_ques, 
+                'fin_assessment' => $fin_assessment,
+                'attn_analysis' => $attn_analysis,
+                // 'growth_assess' => $growth_assess,
                 'total' => $total
             ];
             
@@ -670,8 +690,6 @@ class ReportController extends Controller
             }
         }
 
-
-
         elseif($report == 'Presiding Elders Assessment'){
             if($destination == 'General'){
                 $area = [
@@ -710,6 +728,162 @@ class ReportController extends Controller
                 return view('report.report-presiding-assessment', compact('data', 'area', 'destination'));
             }
         }
+
+        elseif($report == 'Attendance Analysis'){
+            if($destination == 'General'){
+                $area = [
+                    'area' => $destination,
+                    'district' => 'all',
+                    'local' => 'all'
+                ];
+                $data = VWAttendanceAnalysis::all();
+                return view('report.report-attendance_analysis', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'Area'){
+                $area = [
+                    'area' => $area,
+                    'district' => 'all',
+                    'local' => 'all'
+                ];
+                $data = VWAttendanceAnalysis::where('area', 'ILIKE', $area)->get();
+                return view('report.report-attendance_analysis', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'District'){
+                $area = [
+                    'area' => $area,
+                    'district' => $district,
+                    'local' => 'all'
+                ];
+                $data = VWAttendanceAnalysis::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
+                return view('report.report-attendance_analysis', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'Local'){
+                $area = [
+                    'area' => $area,
+                    'district' => $district,
+                    'local' => $local
+                ];
+                $data = VWAttendanceAnalysis::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
+                return view('report.report-attendance_analysis', compact('data', 'area', 'destination'));
+            }
+        }
+
+        elseif($report == 'Financial Assessment'){
+            if($destination == 'General'){
+                $area = [
+                    'area' => $destination,
+                    'district' => 'all',
+                    'local' => 'all'
+                ];
+                $data = VWFinancialAssessment::all();
+                return view('report.report-financial_assessment', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'Area'){
+                $area = [
+                    'area' => $area,
+                    'district' => 'all',
+                    'local' => 'all'
+                ];
+                $data = VWFinancialAssessment::where('area', 'ILIKE', $area)->get();
+                return view('report.report-financial_assessment', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'District'){
+                $area = [
+                    'area' => $area,
+                    'district' => $district,
+                    'local' => 'all'
+                ];
+                $data = VWFinancialAssessment::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
+                return view('report.report-financial_assessment', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'Local'){
+                $area = [
+                    'area' => $area,
+                    'district' => $district,
+                    'local' => $local
+                ];
+                $data = VWFinancialAssessment::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
+                return view('report.report-financial_assessment', compact('data', 'area', 'destination'));
+            }
+        }
+
+        elseif($report == 'Growth Questionnaire'){
+            if($destination == 'General'){
+                $area = [
+                    'area' => $destination,
+                    'district' => 'all',
+                    'local' => 'all'
+                ];
+                $data = VWGrowthQuestionnaire::all();
+                return view('report.report-growth_questionnaire', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'Area'){
+                $area = [
+                    'area' => $area,
+                    'district' => 'all',
+                    'local' => 'all'
+                ];
+                $data = VWGrowthQuestionnaire::where('area', 'ILIKE', $area)->get();
+                return view('report.report-growth_questionnaire', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'District'){
+                $area = [
+                    'area' => $area,
+                    'district' => $district,
+                    'local' => 'all'
+                ];
+                $data = VWGrowthQuestionnaire::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
+                return view('report.report-growth_questionnaire', compact('data', 'area', 'destination'));
+            }
+            elseif($destination == 'Local'){
+                $area = [
+                    'area' => $area,
+                    'district' => $district,
+                    'local' => $local
+                ];
+                $data = VWGrowthQuestionnaire::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
+                return view('report.report-growth_questionnaire', compact('data', 'area', 'destination'));
+            }
+        }
+
+        // elseif($report == 'Growth Assessment'){
+        //     if($destination == 'General'){
+        //         $area = [
+        //             'area' => $destination,
+        //             'district' => 'all',
+        //             'local' => 'all'
+        //         ];
+        //         $data = VWPresidingAssessment::all();
+        //         return view('report.report-growth_assessment', compact('data', 'area', 'destination'));
+        //     }
+        //     elseif($destination == 'Area'){
+        //         $area = [
+        //             'area' => $area,
+        //             'district' => 'all',
+        //             'local' => 'all'
+        //         ];
+        //         $data = VWPresidingAssessment::where('area', 'ILIKE', $area)->get();
+        //         return view('report.report-growth_assessment', compact('data', 'area', 'destination'));
+        //     }
+        //     elseif($destination == 'District'){
+        //         $area = [
+        //             'area' => $area,
+        //             'district' => $district,
+        //             'local' => 'all'
+        //         ];
+        //         $data = VWPresidingAssessment::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->get();
+        //         return view('report.report-growth_assessment', compact('data', 'area', 'destination'));
+        //     }
+        //     elseif($destination == 'Local'){
+        //         $area = [
+        //             'area' => $area,
+        //             'district' => $district,
+        //             'local' => $local
+        //         ];
+        //         $data = VWPresidingAssessment::where('area', 'ILIKE', $area)->where('district', 'ILIKE', $district)->where('local', 'ILIKE', $local)->get();
+        //         return view('report.report-growth_assessment', compact('data', 'area', 'destination'));
+        //     }
+        // }
 
     }
     

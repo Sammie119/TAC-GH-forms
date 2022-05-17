@@ -34,11 +34,15 @@
                                 <option value="Data Aggregation Report">
                                 <option value="Area Heads Visitation Report">
                                 <option value="Area Sup Questionnaire">
+                                <option value="Attendance Analysis">
                                 <option value="Community Impression Report">
                                 <option value="District Level Monitoring">
                                 <option value="Dist Pastors Questionnaire">
                                 <option value="District Pastor Visitation Rep">
                                 <option value="Financial Policy">
+                                <option value="Financial Assessment">
+                                <option value="Growth Questionnaire">
+                                {{-- <option value="Growth Assessment"> --}}
                                 <option value="Local Evangelism">
                                 <option value="Local Level Monitoring">
                                 <option value="Members Report">
@@ -75,20 +79,41 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12 mb-4" id="area_id" style="display: none"> 
-                            <input class="form-control report" name="area" id="area" placeholder="Enter Area Name...">
+                        <div class="col-sm-12 mb-4" id="area_id" style="display: none">
+                            <select name="area" required id="area" class="form-control report"> 
+                                <option selected disabled>Select Area Name...</option>
+                                @forelse (Cache::get('churches')->where('status', 1) as $district)
+                                    <option>{{ $district->dropdown_name }}</option>
+                                @empty
+                                    <option>No data found</option>
+                                @endforelse
+                            </select>  
                         </div> 
                     </div>
 
                     <div class="row">
                         <div class="col-sm-12 mb-4" id="district_id" style="display: none"> 
-                            <input class="form-control report" name="district" id="district" placeholder="Enter District Name...">
+                            <select name="district" required id="district" class="form-control report"> 
+                                <option selected disabled>Select District Name...</option>
+                                @forelse (Cache::get('churches')->where('status', 2) as $district)
+                                    <option>{{ $district->dropdown_name }}</option>
+                                @empty
+                                    <option>No data found</option>
+                                @endforelse
+                            </select>
                         </div> 
                     </div>
 
                     <div class="row">
                         <div class="col-sm-12 mb-4" id="local_id" style="display: none"> 
-                            <input class="form-control report" name="local" id="local" placeholder="Enter Local Name...">
+                            <select name="local" required id="local" class="form-control report"> 
+                                <option selected disabled>Select Local Name...</option>
+                                @forelse (Cache::get('churches')->where('status', 3) as $district)
+                                    <option>{{ $district->dropdown_name }}</option>
+                                @empty
+                                    <option>No data found</option>
+                                @endforelse
+                            </select> 
                         </div> 
                     </div>
 

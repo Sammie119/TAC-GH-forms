@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChartsController;
+use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\EditFormController;
 use App\Http\Controllers\FinanceController;
 use App\Http\Controllers\FormController;
@@ -36,6 +37,8 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::get('logout', [AuthController::class, 'logout']);
     Route::get('admin-edit/{id}', [AuthController::class, 'adminEdit']);
     Route::post('admin-update', [AuthController::class, 'adminUpdate'])->name('admin-update');
+    Route::get('reset_password/{id}', [AuthController::class, 'resetPassword']);
+    Route::post('reset_user_password', [AuthController::class, 'resetPasswordSave'])->name('reset_user_password');
 
     // Forms Route
     Route::get('forms', [FormController::class, 'create']);
@@ -53,6 +56,9 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::post('pastorassesstment', [FormController::class, 'pastorAssessmentQuestion'])->name('pastorassesstment');
     Route::post('supassesstment', [FormController::class, 'supAssessmentQuestion'])->name('supassesstment');
     Route::post('presidingassesstment', [FormController::class, 'presidingAssessment'])->name('presidingassesstment');
+    Route::post('growth_questionaire', [FormController::class, 'growthQuestioniare'])->name('growth_questionaire');
+    Route::post('attendance_analysis', [FormController::class, 'attendanceAnalysis'])->name('attendance_analysis');
+
 
     // Finance Routes
     Route::get('finance', [FinanceController::class, 'create']);
@@ -61,6 +67,8 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::post('record-books-area', [FinanceController::class, 'recordBookingArea'])->name('record-books-area');
     Route::post('record-books-district', [FinanceController::class, 'recordBookingDistrict'])->name('record-books-district');
     Route::post('record-books-local', [FinanceController::class, 'recordBookingLocal'])->name('record-books-local');
+    Route::post('financial_assessment', [FinanceController::class, 'financialAssessment'])->name('financial_assessment');
+
 
     // Report Routes
     Route::get('report', [ReportController::class, 'index']);
@@ -84,8 +92,11 @@ Route::middleware(['protectedPages'])->group(function () {
     Route::get('r-booking-local/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelReportBookingLocal']);
     Route::get('pastor-ass/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelPastorAssessment']);
     Route::get('sup-ass/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelSupAssessment']);
-
     Route::get('pres-ass/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelPresidingAssessment']);
+    Route::get('growth_ques/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelGrowthQuestionniare']);
+    Route::get('fin_ass/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelFinancialAssessment']);
+    Route::get('attn_anal/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelAttendanceAnalysis']);
+    // Route::get('growth_ass/{distination}/{area}/{dist}/{loc}', [ExportController::class, 'exportToExcelGrowthAssessment']);
 
     // EditController Routes
     Route::get('edit-form/{id}/{form}', [EditFormController::class, 'editForm']);
@@ -93,6 +104,13 @@ Route::middleware(['protectedPages'])->group(function () {
 
     // ChartController Route
     Route::get('view-chart/{form}/{distination}/{area}/{dist}/{loc}', [ChartsController::class, 'chartsAreaSup']);
+
+    // Dropdowns
+    Route::get('churches', [DropdownController::class, 'viewChurches']);
+    Route::get('add_church', [DropdownController::class, 'addChurch']);
+    Route::post('add_church_store', [DropdownController::class, 'addChurchStore'])->name('add_church_store');
+    Route::get('edit_church/{id}', [DropdownController::class, 'editChurch']);
+    Route::get('delete_church/{id}', [DropdownController::class, 'deleteChurch']);
 
     // Export to PDF Route
     // Route::get('area-head-pdf/{distination}/{area}/{dist}/{loc}', [ExportToPDFController::class, 'areaHeadPDF']);
